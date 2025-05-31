@@ -1,3 +1,17 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+body {
+    line-height: 1.4em;
+    word-wrap: break-word;
+    font-size: 1.25rem;
+}
+
+@font-face {
+    font-family: 'Menlo Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Menlo Regular'), url('Menlo-Regular.woff') format('woff');
+}
+
