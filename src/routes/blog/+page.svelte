@@ -51,7 +51,7 @@
  ░    ░   ░ ░   ░ ░ ░ ▒  ░ ░   ░ ░  ░  ░  
  ░          ░  ░    ░ ░        ░       ░  
     </pre>
-	<div class="text-md lg:text-lg flex flex-wrap gap-3 justify-center">
+	<div class="flex flex-wrap gap-3 justify-center">
 		{#each links as link (link)}
 			<span>[<a href={link.href} class="hover:underline hover:underline-offset-4">{link.name}</a>]</span>
 		{/each}
@@ -80,7 +80,7 @@
 
   <aside class="lg:w-1/4 w-full">
     <div class="border p-4 rounded-md shadow-sm">
-      <h1 class="font-semibold text-2xl mb-3">Filter:</h1>
+      <h1 class="font-semibold mb-3">Filter:</h1>
       {#each data.blogs as blog (blog)}
         <div class="flex flex-col gap-2 mb-2">
           {#each blog.categories as category (category)}

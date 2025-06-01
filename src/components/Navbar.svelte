@@ -43,7 +43,7 @@
    ░   ░  ░░░ ░ ░   ░   ▒      ░   ░ ░   ░       ▒ ░   ░   ░ ░  ▒ ░ ░░░ ░ ░ ░      ░   
     ░       ░           ░  ░         ░           ░           ░  ░     ░            ░   
     </pre>
-	<div class="text-md lg:text-lg flex flex-wrap gap-3 justify-center">
+	<div class="flex flex-wrap gap-3 justify-center">
 		{#each links as link (link)}
 			<span>[<a href={link.href} class="hover:underline hover:underline-offset-4">{link.name}</a>]</span>
 		{/each}

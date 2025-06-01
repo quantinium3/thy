@@ -18,7 +18,7 @@
 
 <article class="flex flex-col gap-5 lg:mt-24 dark:text-white">
 	<hgroup class="t flex flex-col">
-		<h1 class="text-2xl font-semibold">{data.meta.title}</h1>
+		<h1 class="font-semibold">{data.meta.title}</h1>
 		<div class="flex gap-3">
 			<p class="dark:text-zinc-400 border-r-2 border-white pr-3">published: {formatDate(data.meta.date)}</p>
 			<div class="flex gap-3">
