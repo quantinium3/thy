@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Footer from '$components/Footer.svelte';
 	import * as config from '$lib/config';
 </script>
 
@@ -6,7 +7,8 @@
 	<title>{config.title}</title>
 </svelte:head>
 
-<div class="flex items-center justify-center flex-col mt-9">
+<div class="flex justify-between flex-col min-h-[90vh] md:min-h-[93.5vh]">
+<div class="flex items-center justify-center flex-col mt-3 md:mt-9 login">
 	<img src="/login.png" class="w-72"  alt="lain"/>
 		<h1 class="mt-3 md:pt-12 font-bold py-5 text-xl">Login</h1>
 		<div class="flex flex-col gap-3">
@@ -28,12 +30,5 @@
 		</div>
 </div>
 
-<style>
-pre {
-    font-size: 4px;
-		line-height: 100%;
-		color: #000000;
-		padding: 4px 5px;
-		--fs: 11px;
-}
-</style>
+<Footer />
+</div>
