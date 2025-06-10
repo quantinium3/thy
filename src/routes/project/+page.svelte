@@ -6,14 +6,14 @@
 		{
 			title: "Grimoire",
 			description: "Static site generator",
-			categories: ["typescript", "handlebars"],
-			slug: 'https://github.com/quantinium3/grimoire'
+			tech: ["typescript", "handlebars"],
+			slug: "https://github.com/quantinium3/grimoire",
 		},
 		{
-			title: "Grimoire",
-			description: "Static site generator",
-			categories: ["typescript", "handlebars"],
-			slug: 'https://github.com/quantinium3/grimoire'
+			title: "lomes",
+			description: "local media server",
+			tech: ["typescript", "reactjs"],
+			slug: "https://github.com/quantinium3/lomes"
 		}
 	]
 </script>
@@ -24,8 +24,8 @@
 
 <div class="flex">
 	<div class="md:flex-3/4 pr-0 md:pr-12">
-		{#each projects as project (project)}
-			<Project {project}/>
+		{#each projects as project (project.title)}
+			<Project project={project}/>
 		{/each}
 	</div>
 

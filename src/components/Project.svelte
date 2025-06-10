@@ -8,10 +8,10 @@
 		<h1
 			class="font-semibold text-lg"><a href={project.slug}
 																			 class="link-animate text-[#cc241d] dark:text-[#fb4934] dark:hover:border-b-white">{project.title}</a></h1>
-		<p
-			class="text-xs dark:text-zinc-100 text-zinc-900">{formatDate(blog.date)}</p>
 	</div>
-	<img src={project.image} alt={project.title} />
+	{#if project.image}
+		<img src={project.image} alt={project.title} />
+	{/if}
 	<div class="flex gap-3">
 		{#each project.tech as tech (tech)}
 			<span class="text-xs">#{tech.replaceAll("_", " ")}</span>
@@ -19,9 +19,6 @@
 	</div>
 
 	<div class="text-sm">{project.description}</div>
-	<div><a href="/project/{project.slug}"
-					class="hover:underline underline-offset-2 hover:font-semibold">read
-		more...</a></div>
 </div>
 
 
