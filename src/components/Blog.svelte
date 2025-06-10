@@ -3,17 +3,56 @@
 	let { blog } = $props();
 </script>
 
-<div class="py-8 border-t border-dashed flex flex-col gap-5">
-	<div>
-		<h1 class="font-semibold"><a href={blog.slug}>{blog.title}</a></h1>
-		<p class="">published date: {formatDate(blog.date)}</p>
+<div class="py-9 border-b border-dashed flex flex-col gap-5">
+	<div class="" >
+		<h1
+			class="font-semibold text-lg"><a href="/blog/{blog.slug}"
+																				class="link-animate text-[#cc241d] dark:text-[#fb4934] dark:hover:border-b-white">{blog.title}</a></h1>
+		<p
+			class="text-xs dark:text-zinc-100 text-zinc-900">{formatDate(blog.date)}</p>
 	</div>
 	<div class="flex gap-3">
 		{#each blog.categories as category (category)}
-			<span class="hover:bg-blue-400">#{category}</span>
+			<span class="text-xs">#{category.replaceAll("_", " ")}</span>
 		{/each}
 	</div>
 
-	<div class="">{blog.description}</div>
-	<div><a href="/blog/{blog.slug}" class="hover:underline underline-offset-2">read more...</a></div>
+	<div class="text-sm">{blog.description}</div>
+	<div><a href="/blog/{blog.slug}"
+					class="hover:underline underline-offset-2 hover:font-semibold">read
+		more...</a></div>
 </div>
+
+
+<style>
+    .link-animate	{
+        position: relative;
+        text-decoration: none;
+				padding-bottom: 3px;
+    }
+
+    .link-animate:hover {
+        right: 0;
+        text-decoration: none;
+    }
+
+    .link-animate:hover:after {
+        right: 0;
+    }
+
+    .link-animate:after {
+        border-radius: 1em;
+        border-top: .1em solid;
+        content: "";
+        position: absolute;
+        right: 100%;
+        bottom: .14em;
+        left: 0;
+        transition: right .4s cubic-bezier(0,.5,0,1),
+        border-color .4s ease-out;
+    }
+
+    .link-animate:hover:after {
+        right: 0;
+    }
+</style>
