@@ -1,12 +1,12 @@
 import { browser } from '$app/environment';
 
 class Theme {
-    current = $state(browser && localStorage.getItem('data-theme'))
+    current = $state(browser && localStorage.getItem('theme'))
 
     toggle = () => {
         const theme = this.current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', theme)
-        localStorage.setItem('data-theme', theme)
+        document.documentElement.classList.contains("dark")
+        localStorage.setItem('theme', theme)
         this.current = theme;
     }
 }
