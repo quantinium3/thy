@@ -7,6 +7,7 @@
 	import Server from '$components/Server.svelte';
 	import Code from '$components/Code.svelte';
 	import { Github, Twitter, Mail, Copyright} from '@lucide/svelte';
+	import CoolButtons from '$components/CoolButtons.svelte';
 	let { data } = $props();
 
 	const links = [
@@ -135,7 +136,7 @@
 		</div>
 		<div class="flex-3 px-3">
 			<div class="intro item-center border-b pb-5">
-				<div class="item-center flex flex-col justify-center gap-3">
+				<div class="item-center flex flex-col justify-center gap-3 mb-3">
 					<div class="font-semibold text-xl">Hi, im quantinium</div>
 					<div>currently pursuing undergrad in computer engineering</div>
 					<div>
@@ -151,6 +152,10 @@
 						<a href="https://x.com/quantinium3" class="hover:underline"
 							 target="_blank">X</a> or discord (@quantinium3) or mail</div>
 					<div><a href="/about" class="hover:underline hover:underline-offset-2">more...</a></div>
+				</div>
+
+				<div>
+					<CoolButtons />
 				</div>
 			</div>
 
