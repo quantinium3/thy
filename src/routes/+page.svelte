@@ -6,7 +6,7 @@
 	import Peripheral from '$components/Peripheral.svelte';
 	import Server from '$components/Server.svelte';
 	import Code from '$components/Code.svelte';
-	import { Github, Twitter, Mail} from '@lucide/svelte';
+	import { Github, Twitter, Mail, Copyright} from '@lucide/svelte';
 	let { data } = $props();
 
 	const links = [
@@ -36,16 +36,20 @@
 		},
 		{
 			name: 'contact',
-			href: '/contact'
+			href: '/about#contact'
 		},
 		{
 			name: "logs",
 			href: '/logs'
 		},
 		{
-			name: "resume",
-			href: '/resume'
-		}
+			name: "spotify",
+			href: "https://open.spotify.com/user/alcivd1065ibqww5vo9hemnus?si=9626e0194c4e418f"
+		},
+		{
+			name: "rss",
+			href: "/rss-xml"
+		},
 	];
 
 	const projects = [
@@ -97,11 +101,14 @@
 			<div class="my-5">
 				<span class="text-lg font-bold">navi</span>
 				{#each links as link (link.href)}
-					<div class="ml-2 flex flex-row gap-1">
-						<span>|-</span>
-						<span><a href={link.href} class="link-animate pb-1">{link.name}</a></span>
+					<div class="ml-2 flex flex-row gap-1 border-l border-white">
+						<span>–</span>
+						<span><a href={link.href}
+										 class="link-animate pt-1">{link.name}</a></span>
 					</div>
 				{/each}
+				<span class="ml-1 relative bottom-[1.02px]">└
+					<a href="/resume" class="link-animate">resume</a></span>
 			</div>
 
 			<div class="my-5">
@@ -117,7 +124,8 @@
 			</div>
 
 			<div class="border-t py-3">
-				quantinium 2025
+				<Copyright class="inline" size={15}/>quantinium
+				{new Date().getFullYear()}
 			</div>
 			<div class="flex gap-3">
 				<a href="https://github.com/quantinium3" target="_blank"><Github /></a>
