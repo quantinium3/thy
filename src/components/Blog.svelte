@@ -3,56 +3,64 @@
 	let { blog } = $props();
 </script>
 
-<div class="py-9 border-b border-dashed flex flex-col gap-5">
-	<div class="" >
-		<h1
-			class="font-semibold text-lg"><a href="/blog/{blog.slug}"
-																				class="link-animate text-[#cc241d] dark:text-[#fb4934] dark:hover:border-b-white">{blog.title}</a></h1>
-		<p
-			class="text-xs dark:text-zinc-100 text-zinc-900">{formatDate(blog.date)}</p>
+<div class="flex flex-col gap-5 border-b border-dashed py-9 border-zinc-500/50">
+	<div class="">
+		<h1 class="text-lg font-semibold">
+			<a
+				href="/blog/{blog.slug}"
+				class="link-animate text-[#cc241d] dark:text-[#fb4934] dark:hover:border-b-white"
+				>{blog.title}</a
+			>
+		</h1>
 	</div>
+
 	<div class="flex gap-3">
+		<p class="text-xs text-zinc-900 dark:text-zinc-100 border-r pr-2">{formatDate(blog.date)}</p>
 		{#each blog.categories as category (category)}
-			<span class="text-xs">#{category.replaceAll("_", " ")}</span>
+			<span class="text-xs">#{category.replaceAll('_', ' ')}</span>
 		{/each}
 	</div>
 
 	<div class="text-sm">{blog.description}</div>
-	<div><a href="/blog/{blog.slug}"
-					class="hover:underline underline-offset-2 hover:font-semibold">read
-		more...</a></div>
+
+	<div>
+		<a href="/blog/{blog.slug}" class="underline-offset-2 hover:font-semibold hover:underline"
+			>read more...</a
+		>
+	</div>
 </div>
 
-
 <style>
-    .link-animate	{
-        position: relative;
-        text-decoration: none;
-				padding-bottom: 3px;
-    }
+	.link-animate {
+		position: relative;
+		text-decoration: none;
+		padding-bottom: 3px;
+	}
 
-    .link-animate:hover {
-        right: 0;
-        text-decoration: none;
-    }
+	.link-animate:hover {
+		right: 0;
+		text-decoration: none;
+	}
 
-    .link-animate:hover:after {
-        right: 0;
-    }
+	.link-animate:hover:after {
+		right: 0;
+	}
 
-    .link-animate:after {
-        border-radius: 1em;
-        border-top: .1em solid;
-        content: "";
-        position: absolute;
-        right: 100%;
-        bottom: .14em;
-        left: 0;
-        transition: right .4s cubic-bezier(0,.5,0,1),
-        border-color .4s ease-out;
-    }
+	.link-animate:after {
+		border-radius: 1em;
+		border-top: 0.1em solid;
+		content: '';
+		position: absolute;
+		right: 100%;
+		bottom: 0.14em;
+		left: 0;
+		transition:
+			right 0.4s cubic-bezier(0, 0.5, 0, 1),
+			border-color 0.4s ease-out;
+	}
 
-    .link-animate:hover:after {
-        right: 0;
-    }
+	.link-animate:hover:after {
+		right: 0;
+	}
 </style>
+

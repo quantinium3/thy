@@ -17,8 +17,9 @@ const config = {
         adapter: adapter(),
         alias: {
             '$components': './src/components/',
-            '$content': './src/content/'
-        },
+            '$content': './src/content/',
+						"@/*": "./path/to/lib/*",
+				},
 
     },
     extensions: ['.svelte', '.svx', '.md']

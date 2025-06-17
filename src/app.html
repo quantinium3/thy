@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="utf-8" />
@@ -16,18 +16,17 @@
 </body>
 
 <script>
-    const theme = localStorage.getItem('data-theme')
+    const theme = localStorage.getItem('theme')
 
     theme
-        ? document.documentElement.setAttribute('data-theme', theme)
-        : localStorage.setItem('data-theme', 'dark')
+        ? document.documentElement.setAttribute('theme', theme)
+        : localStorage.setItem('theme', 'dark')
 </script>
 
 </html>
 
 <style>
     body {
-        max-width: 60em;
         font-family: 'Menlo Regular', monospace;
         font-weight: normal;
         font-size: 15px;
