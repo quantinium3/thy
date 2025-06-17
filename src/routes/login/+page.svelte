@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Footer from '$components/Footer.svelte';
 	import * as config from '$lib/config';
 </script>
 
@@ -30,5 +29,4 @@
 		</div>
 </div>
 
-<Footer />
 </div>

@@ -3,10 +3,10 @@
 	let { project } = $props();
 </script>
 
-<div class="py-9 border-b border-dashed flex flex-col gap-5">
-	<div class="" >
+<div class="py-9 border-b border-dashed flex flex-col">
+	<div class="mb-1">
 		<h1
-			class="font-semibold text-lg"><a href={project.slug}
+			class="font-semibold text-xl"><a href={project.slug}
 																			 class="link-animate text-[#cc241d] dark:text-[#fb4934] dark:hover:border-b-white">{project.title}</a></h1>
 	</div>
 	{#if project.image}
@@ -18,7 +18,7 @@
 		{/each}
 	</div>
 
-	<div class="text-sm">{project.description}</div>
+	<div class="text-sm mt-3">{project.description}</div>
 </div>
 
 

@@ -3,9 +3,9 @@
 	let { blog } = $props();
 </script>
 
-<div class="flex flex-col gap-5 border-b border-dashed py-9 border-zinc-500/50">
-	<div class="">
-		<h1 class="text-lg font-semibold">
+<div class="flex flex-col border-b border-dashed py-9 border-zinc-500/50">
+	<div class=" mb-1">
+		<h1 class="text-xl font-semibold">
 			<a
 				href="/blog/{blog.slug}"
 				class="link-animate text-[#cc241d] dark:text-[#fb4934] dark:hover:border-b-white"
@@ -14,7 +14,7 @@
 		</h1>
 	</div>
 
-	<div class="flex gap-3">
+	<div class="flex gap-3 mb-5">
 		<p class="text-xs text-zinc-900 dark:text-zinc-100 border-r pr-2">{formatDate(blog.date)}</p>
 		{#each blog.categories as category (category)}
 			<span class="text-xs">#{category.replaceAll('_', ' ')}</span>

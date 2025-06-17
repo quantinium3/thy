@@ -35,8 +35,8 @@
 	<div
 		class="flex space-x-1 items-center dark:text-orange-300 text-orange-400 font-bold">
 		<span class="flex items-center text-md dark:text-orange-300 text-orange-400 font-bold">
-		<a href="/" class="flex whitespace-nowrap">&gt; quantinium</a><span
-			class="cursor-pulse ml-1">|
+		<a href="/" class="flex whitespace-nowrap text-lg">&gt; quantinium</a><span
+			class="cursor-pulse ml-1 text-lg">|
 		</span>
 		</span>
 	</div>
