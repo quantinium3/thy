@@ -4,7 +4,6 @@
 	import NavSidebar from '$components/NavSidebar.svelte';
 
 	let { children } = $props();
-
 </script>
 
 <Navbar />

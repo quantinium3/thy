@@ -1,3 +1,5 @@
+<script>
+</script>
 <div class="text-xl font-bold mb-3">System Status: Ok</div>
 <div class="grid grid-cols-2">
 	<div class="flex gap-3"><span>[ Ok ]</span><span>quantinium.dev</span></div>
