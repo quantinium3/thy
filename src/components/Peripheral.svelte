@@ -10,25 +10,18 @@
 
 
 	onMount(async() => {
-		const keyUri = import.meta.env.VITE_KEYPRESS_URI;
-		if (!keyUri) {
-			throw new Error('Keyboard URI is missing');
-		}
-		const mouseUri = import.meta.env.VITE_MOUSE_STATS_URI;
-		if (!mouseUri) {
-			throw new Error('Mouse URI is missing');
+		const statsUri = import.meta.env.VITE_STATS_URI;
+		if (!statsUri) {
+			throw new Error('Stats URI is missing');
 		}
 
-		const keyRes = await fetch(keyUri);
-		const keyData = await keyRes.json();
+		const statsRes = await fetch(statsUri);
+		const statsData = await statsRes.json();
 
-		const mouseRes = await fetch(mouseUri);
-		const mouseData = await mouseRes.json();
-
-		keypress = keyData.data.keypress;
-		mouse_travel = mouseData.data.mouseTravel;
-		left_click = mouseData.data.leftClick;
-		right_click = mouseData.data.rightClick;
+		keypress = statsData.stats[0].keypress;
+		mouse_travel = statsData.stats[0].mouse_travel;
+		left_click = statsData.stats[0].left_click;
+		right_click = statsData.stats[0].right_click;
 	})
 
 </script>
@@ -37,5 +30,3 @@
 <div class="daily_avg"> > mouse travel - {formatter.format(mouse_travel)} m</div>
 <div class="hour"> > left click - {formatter.format(left_click)}</div>
 <div class="daily_avg"> > right click - {formatter.format(right_click)}</div>
-
-

@@ -47,9 +47,6 @@
 			<a href={link.href}
 				 class="link-animate text-black dark:text-white dark:hover:border-b-white">{link.name}</a>
 			{/each}
-			<button class="border px-1 rounded-sm hover:bg-amber-100"
-							onclick={window.location.href="/login"}>login
-			</button>
 		</div>
 		<div class="flex items-center gap-3">
 				<button onclick={theme.toggle} aria-label="Toggle theme">
