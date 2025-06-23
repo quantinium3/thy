@@ -6,7 +6,7 @@
 	import Peripheral from '$components/Peripheral.svelte';
 	import Server from '$components/Server.svelte';
 	import Code from '$components/Code.svelte';
-	import { Github, Twitter, Mail, Copyright} from '@lucide/svelte';
+	import { Github, Twitter, Mail, Copyright, Rss} from '@lucide/svelte';
 	import CoolButtons from '$components/CoolButtons.svelte';
 	let { data } = $props();
 
@@ -132,6 +132,7 @@
 				<a href="https://github.com/quantinium3" target="_blank"><Github /></a>
 				<a href="https://x.com/quantinium3" target="_blank"><Twitter /></a>
 				<a href="mailto:quant@quantinium.dev" target="_blank"><Mail /></a>
+				<a href="/rss-xml" target="_blank"><Rss /></a>
 			</div>
 		</div>
 		<div class="flex-3 px-3">
