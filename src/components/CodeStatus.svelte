@@ -23,7 +23,7 @@
 </script>
 
 <div class="mb-2 text-lg font-bold">Stats (weekly)</div>
-<div class="hour">> total - {totalTime} hr</div>
+<div class="hour">> total - {totalTime.toFixed(2)} hr</div>
 <div class="daily_avg">> daily avg - {(totalTime / 7).toFixed(2)} hr</div>
 <div class="hour">> editor - neovim</div>
 <div class="daily_avg">> os - nixos</div>

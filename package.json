@@ -55,6 +55,7 @@
 		"@node-rs/argon2": "^2.0.2",
 		"@oslojs/crypto": "^1.0.1",
 		"@oslojs/encoding": "^1.1.0",
+		"axios": "^1.10.0",
 		"better-auth": "^1.2.9",
 		"d3-array": "^3.2.4",
 		"d3-scale": "^4.0.2",
