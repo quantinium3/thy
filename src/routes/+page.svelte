@@ -70,7 +70,7 @@
 					<div>
 						feel free to talk or dm on
 						<a href="https://x.com/quantinium3" class="hover:underline" target="_blank">X</a> or discord
-						(@quantinium3) or mail
+						(@quantinium3) or pigeons.
 					</div>
 					<div><a href="/about" class="hover:underline hover:underline-offset-2">more...</a></div>
 				</div>
