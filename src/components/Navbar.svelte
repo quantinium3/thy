@@ -33,7 +33,7 @@
 	];
 </script>
 
-<div class="mx-auto max-w-5xl flex h-[3rem] items-center justify-between w-full py-[1rem] top-0 bg-[#161411]/90 z-1 backdrop-blur-xl">
+<div class="mx-auto max-w-5xl flex h-[3rem] items-center justify-between w-full py-[1rem] fixed top-0 bg-[#161411]/90 z-1 backdrop-blur-xl">
 	<div class="flex items-center space-x-1 font-bold text-orange-400 dark:text-orange-300">
 		<span class="text-md flex items-center font-bold text-orange-400 dark:text-orange-300">
 			<button class="mr-2 pointer-events-auto md:pointer-events-none" onclick={toggleSidebar}>></button>
