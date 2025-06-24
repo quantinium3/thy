@@ -8,7 +8,7 @@
 		<h1 class="text-xl font-semibold text-[#fe8019]">
 			<a
 				href="/blog/{blog.slug}"
-				class="link-animate dark:hover:border-b-white"
+				class="hover:underline hover:underline-offset-2 dark:hover:border-b-white"
 				>{blog.title}</a
 			>
 		</h1>
@@ -29,38 +29,3 @@
 		>
 	</div>
 </div>
-
-<style>
-	.link-animate {
-		position: relative;
-		text-decoration: none;
-		padding-bottom: 3px;
-	}
-
-	.link-animate:hover {
-		right: 0;
-		text-decoration: none;
-	}
-
-	.link-animate:hover:after {
-		right: 0;
-	}
-
-	.link-animate:after {
-		border-radius: 1em;
-		border-top: 0.1em solid;
-		content: '';
-		position: absolute;
-		right: 100%;
-		bottom: 0.14em;
-		left: 0;
-		transition:
-			right 0.4s cubic-bezier(0, 0.5, 0, 1),
-			border-color 0.4s ease-out;
-	}
-
-	.link-animate:hover:after {
-		right: 0;
-	}
-</style>
-

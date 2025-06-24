@@ -43,10 +43,6 @@
 			name: 'spotify',
 			href: 'https://open.spotify.com/user/alcivd1065ibqww5vo9hemnus?si=9626e0194c4e418f'
 		},
-		{
-			name: 'rss',
-			href: '/rss-xml'
-		}
 	];
 
 	let status = $state('offline');
@@ -86,12 +82,12 @@
 	{#each links as link (link.href)}
 		<div class="ml-2 flex flex-row gap-1 border-l dark:border-white border-black">
 			<span>–</span>
-			<span><a href={link.href} class="link-animate pt-1">{link.name}</a></span>
+			<span><a href={link.href} class="hover:underline hover:underline-offset-2 pt-1">{link.name}</a></span>
 		</div>
 	{/each}
 	<span class="relative bottom-[1.02px] ml-1"
 		>└
-		<a href="/resume" class="link-animate">resume</a></span
+		<a href="/rss-xml" class="hover:underline hover:underline-offset-2">rss</a></span
 	>
 </div>
 
@@ -117,36 +113,3 @@
 	<a href="mailto:quant@quantinium.dev" target="_blank"><Mail /></a>
 	<a href="/rss-xml" target="_blank"><Rss /></a>
 </div>
-
-<style>
-	.link-animate {
-		position: relative;
-		text-decoration: none;
-	}
-
-	.link-animate:hover {
-		right: 0;
-		text-decoration: none;
-	}
-
-	.link-animate:hover:after {
-		right: 0;
-	}
-
-	.link-animate:after {
-		border-radius: 1em;
-		border-top: 0.1em solid;
-		content: '';
-		position: absolute;
-		right: 100%;
-		bottom: 0.14em;
-		left: 0;
-		transition:
-			right 0.4s cubic-bezier(0, 0.5, 0, 1),
-			border-color 0.4s ease-out;
-	}
-
-	.link-animate:hover:after {
-		right: 0;
-	}
-</style>
