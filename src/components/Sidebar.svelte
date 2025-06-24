@@ -3,6 +3,8 @@
 	import CodeStatus from './CodeStatus.svelte';
 	import Peripheral from './Peripheral.svelte';
 	import Song from './Song.svelte';
+	import { onMount } from 'svelte';
+	import axios from 'axios';
 
 	const links = [
 		{
@@ -46,11 +48,36 @@
 			href: '/rss-xml'
 		}
 	];
+
+	let status = $state('offline');
+	let neovimActivity = $state('');
+	onMount(() => {
+		axios.get('https://api.lanyard.rest/v1/users/629491500954157076').then((res) => {
+			neovimActivity = res.data.data.activities.find((item) => item.name == 'Neovim')?.state;
+			status = res.data.data.discord_status;
+		});
+	});
 </script>
 
 <div class="item-center flex flex-col justify-center">
 	<img src="/favicon.jpg" alt="pfp" class="self-center rounded" />
-	<span class="py-1 text-center text-lg">online</span>
+	{#if status == 'offline'}
+		<span class="py-1 text-center text-lg">
+			<span class="inline-flex items-center gap-1">
+				<span class="h-2 w-2 animate-pulse rounded-full bg-red-500"></span>
+				{status.toUpperCase()}
+			</span>
+		</span>
+	{:else if status == 'online'}
+		<span class="py-1 text-center text-lg">
+			<span class="inline-flex items-center gap-1">
+				<span class="h-2 w-2 animate-pulse rounded-full bg-green-500"></span>
+				{status.toUpperCase()}
+			</span>
+			-
+			{neovimActivity}
+		</span>
+	{/if}
 </div>
 <div class="my-5">
 	<span class="text-lg font-bold">navi</span>

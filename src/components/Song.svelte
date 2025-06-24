@@ -17,7 +17,7 @@
 				songArtist = song.artist['#text'];
 				songName = song.name;
 				songImgUri = song.image[song.image.length - 1]['#text'];
-				songIsPlaying = res.data.response.track[0]['@attr'].nowplaying == 'true' ? true : false;
+				songIsPlaying = res.data.response.track[0]['@attr']?.nowplaying == 'true' ? true : false;
                 songUri = song.uri;
 			});
 		} catch (err) {
