@@ -21,7 +21,6 @@
         "remark-toc": "^9.0.0",
         "svelte-fast-marquee": "^1.0.2",
         "svelte-lanyard": "^1.0.2",
-        "svelte-marquee-text-widget": "^1.1.0",
       },
       "devDependencies": {
         "@eslint/compat": "^1.2.5",
@@ -1002,8 +1001,6 @@
     "svelte-fast-marquee": ["svelte-fast-marquee@1.0.2", "", { "dependencies": { "svelte": "^4.2.19" } }, "sha512-dEchQ7Hrq75QKssPp8pb6rlLYfxmPMYBq0Q4IjYXuDZaxlrKn+wEfNw7gjY0TBnWRrbQiGh/+QA1l2XfvrqniQ=="],
 
     "svelte-lanyard": ["svelte-lanyard@1.0.2", "", {}, "sha512-JxXHaTkIyDE7BAg6PHP/QP9qsqYcQO/SOmCokb6rKfDHAKsn09XtRC8mBcLKjaqDG/MVSONCaQSsXi85hUhWCQ=="],
-
-    "svelte-marquee-text-widget": ["svelte-marquee-text-widget@1.1.0", "", {}, "sha512-mBO3fBA++Xwn7P1VdgeH4OI+MrulxxNrGwdX7NVA1GU1ZCyrQUcb7AD8V3s6s2ZWW3cRXVhbBmgXW+aABYV9kA=="],
 
     "svelte-toolbelt": ["svelte-toolbelt@0.9.1", "", { "dependencies": { "clsx": "^2.1.1", "runed": "^0.28.0", "style-to-object": "^1.0.8" }, "peerDependencies": { "svelte": "^5.30.2" } }, "sha512-wBX6MtYw/kpht80j5zLpxJyR9soLizXPIAIWEVd9llAi17SR44ZdG291bldjB7r/K5duC0opDFcuhk2cA1hb8g=="],
 
