@@ -3,6 +3,8 @@
 	import { Moon, Sun } from '@lucide/svelte';
 	import { theme } from '$lib/theme.svelte';
 
+	let { toggleSidebar } = $props();
+
 	let links = [
 		// {
 		// 	name: 'home',
@@ -31,10 +33,11 @@
 	];
 </script>
 
-<div class="flex items-center justify-between py-5">
+<div class="flex h-[3rem] items-center justify-between py-5">
 	<div class="flex items-center space-x-1 font-bold text-orange-400 dark:text-orange-300">
 		<span class="text-md flex items-center font-bold text-orange-400 dark:text-orange-300">
-			<a href="/" class="flex text-lg whitespace-nowrap">&gt; quantinium</a><span
+			<button class="mr-2 pointer-events-auto md:pointer-events-none" onclick={toggleSidebar}>></button>
+			<a href="/" class="flex text-lg whitespace-nowrap">quantinium</a><span
 				class="cursor-pulse ml-1 text-lg"
 				>|
 			</span>

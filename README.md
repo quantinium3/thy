@@ -2,7 +2,7 @@ thy personal website
 
 todo
 - [ ] make it responsive
-    - [ ] make the sidebar that is clickable if someclick on the arrow
+    - [x] make the sidebar that is clickable if someclick on the arrow
     - [ ] hide the listening, stats, and input and make the same components under the main page.
 - [ ] make the listening one responsive acc to the api and the current song playing
     - [ ] make that if the song playing its says song playing
@@ -18,6 +18,7 @@ todo
 - [ ] make a resume page that will redirect to your resume 
 - [ ] add a hire me button that opens a button
 - [ ] deploy it on cloudflare
+- [x] make the marquee better and make it not fuck the display width
 
 - [ ] make the input backend easily deployable using gh actions
 - [ ] make the current project, os and editor dynamic using the api

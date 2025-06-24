@@ -39,6 +39,7 @@
 			tech: ['reactjs']
 		}
 	];
+
 </script>
 
 <svelte:head>
