@@ -18,7 +18,7 @@
 				songName = song.name;
 				songImgUri = song.image[song.image.length - 1]['#text'];
 				songIsPlaying = res.data.response.track[0]['@attr']?.nowplaying == 'true' ? true : false;
-                songUri = song.uri;
+                songUri = song.url;
 			});
 		} catch (err) {
 			console.error('failed to fetch current song', err);
@@ -27,7 +27,7 @@
 	});
 </script>
  
-<div class="mb-2 text-lg font-bold flex items-center gap-1">listening: <a href={songUri} class="cursor-pointer"><ExternalLink size={16} /></a></div>
+<div class="mb-2 text-lg font-bold flex items-center gap-1">listening: <a href={songUri} target="_blank" class="cursor-pointer"><ExternalLink size={16} /></a></div>
 
 {#if songIsPlaying}
 	<div class="ml-1 flex">

@@ -4,9 +4,10 @@
 
 	let quantinium = $state('...');
 	let proxy = $state('...');
-	let natsuki = $state('...');
+	let nixie = $state('...');
 	let lucy = $state('...');
 	let git = $state('...');
+	let system = $state('...');
 
 	onMount(async () => {
 		try {
@@ -70,25 +71,49 @@
 
 			quantinium = quantiniumRes.data.status;
 			proxy = proxyRes.data.status;
-			natsuki = natsukiRes.data.status;
+			nixie = natsukiRes.data.status;
 			lucy = lucyRes.data.status;
 			git = gitRes.data.status;
+			if (quantinium == 'Ok' && proxy == 'Ok' && nixie == 'Ok' && lucy == 'Ok' && git == 'Ok') {
+				system = 'Ok';
+			} else {
+				system = 'Err';
+			}
 		} catch (error) {
 			console.error('Error fetching system statuses:', error);
 			quantinium = 'Err';
 			proxy = 'Err';
-			natsuki = 'Err';
+			nixie = 'Err';
 			lucy = 'Err';
 			git = 'Err';
 		}
 	});
 </script>
 
-<div class="mb-3 text-xl font-bold">System Status: Ok</div>
+<div class="mb-3 text-xl font-bold">
+	System Status:
+	<span class={system == 'Ok' ? 'text-green-500' : 'text-red-500'}>{system}</span>
+</div>
 <div class="grid grid-cols-2">
-	<div class="flex gap-3"><span>[ {quantinium} ]</span><span>site</span></div>
-	<div class="flex gap-3"><span>[ {proxy} ]</span><span>proxy</span></div>
-	<div class="flex gap-3"><span>[ {natsuki} ]</span><span>mitsuki</span></div>
-	<div class="flex gap-3"><span>[ {lucy} ]</span><span>lucy</span></div>
-	<div class="flex gap-3"><span>[ {git} ]</span><span>git</span></div>
+	<div class="flex gap-2">
+		[<span class={quantinium == 'Ok' ? 'text-green-500' : 'text-red-500'}>
+			{quantinium}
+		</span>]<span>site</span>
+	</div>
+	<div class="flex gap-2">
+		[<span class={proxy == 'Ok' ? 'text-green-500' : 'text-red-500'}>{proxy}</span>]<span
+			>proxy</span
+		>
+	</div>
+	<div class="flex gap-2">
+		[<span class={nixie == 'Ok' ? 'text-green-500' : 'text-red-500'}>{nixie}</span>]<span
+			>mitsuki</span
+		>
+	</div>
+	<div class="flex gap-2">
+		[<span class={lucy == 'Ok' ? 'text-green-500' : 'text-red-500'}>{lucy}</span>]<span>lucy</span>
+	</div>
+	<div class="flex gap-2">
+		[<span class={git == 'Ok' ? 'text-green-500' : 'text-red-500'}>{git}</span>]<span>git</span>
+	</div>
 </div>
