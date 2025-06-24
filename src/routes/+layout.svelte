@@ -55,13 +55,13 @@
 
 <Navbar {toggleSidebar} />
 <div
-	class="sidebar fixed top-[3rem] z-10 min-h-screen min-w-[70%] bg-[#161411]/90 backdrop-blur-xl duration-300 ease-out {sidebarOpen
+	class="mt-3 sidebar fixed top-[3rem] z-10 min-h-screen min-w-[70%] bg-[#161411]/90 backdrop-blur-xl duration-300 ease-out {sidebarOpen
 		? 'open'
 		: ''}"
 >
 	<div class="flex flex-col gap-3">
 		{#each links as link (link.name)}
-			<a href={link.href}>{link.name}</a>
+			<a href={link.href} class="hover:underline hover:underline-offset-2">{link.name}</a>
 		{/each}
 	</div>
 </div>
