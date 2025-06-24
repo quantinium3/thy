@@ -46,7 +46,7 @@
 	<title>{config.title}</title>
 </svelte:head>
 
-<div class="mt-3 md:mt-9">
+<div class="mt-[3rem]">
 	<div class="flex">
 		<div class="hidden flex-1 flex-col px-3 md:block">
 			<Sidebar />
