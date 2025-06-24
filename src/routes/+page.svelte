@@ -126,16 +126,18 @@
 				<Server />
 			</div>
 
-			<div class="border-b py-3">
-				<Peripheral />
-			</div>
+			<div class="md:hidden block">
+				<div class="border-b py-3">
+					<Peripheral />
+				</div>
 
-			<div class="border-b py-3">
-				<CodeStatus />
-			</div>
+				<div class="border-b py-3">
+					<CodeStatus />
+				</div>
 
-			<div class="border-b py-3">
-				<Song />
+				<div class="border-b py-3">
+					<Song />
+				</div>
 			</div>
 
 			<div class="mb-10">
