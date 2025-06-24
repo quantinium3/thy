@@ -5,6 +5,9 @@
 	import Code from '$components/Code.svelte';
 	import CoolButtons from '$components/CoolButtons.svelte';
 	import Sidebar from '$components/Sidebar.svelte';
+	import CodeStatus from '$components/CodeStatus.svelte';
+	import Peripheral from '$components/Peripheral.svelte';
+	import Song from '$components/Song.svelte';
 	let { data } = $props();
 
 	const projects = [
@@ -39,7 +42,6 @@
 			tech: ['reactjs']
 		}
 	];
-
 </script>
 
 <svelte:head>
@@ -124,6 +126,18 @@
 				<Server />
 			</div>
 
+			<div class="border-b py-3">
+				<Peripheral />
+			</div>
+
+			<div class="border-b py-3">
+				<CodeStatus />
+			</div>
+
+			<div class="border-b py-3">
+				<Song />
+			</div>
+
 			<div class="mb-10">
 				<Code />
 			</div>
@@ -132,7 +146,6 @@
 </div>
 
 <style>
-
 	.cool-sites {
 		margin: 20px 0;
 		position: relative;

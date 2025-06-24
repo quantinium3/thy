@@ -86,7 +86,7 @@
 
 <div class="mb-3 text-xl font-bold">System Status: Ok</div>
 <div class="grid grid-cols-2">
-	<div class="flex gap-3"><span>[ {quantinium} ]</span><span>quantinium.dev</span></div>
+	<div class="flex gap-3"><span>[ {quantinium} ]</span><span>site</span></div>
 	<div class="flex gap-3"><span>[ {proxy} ]</span><span>proxy</span></div>
 	<div class="flex gap-3"><span>[ {natsuki} ]</span><span>mitsuki</span></div>
 	<div class="flex gap-3"><span>[ {lucy} ]</span><span>lucy</span></div>

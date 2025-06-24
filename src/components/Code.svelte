@@ -79,7 +79,7 @@
 </script>
 
 <div class="my-3 font-bold text-xl">Charts</div>
-<div class="flex">
+<div class="flex flex-wrap md:flex-nowrap gap-9 md:gap-0 items-center">
 	<div class="flex-2/3">
 		<Chart.Container config={chartConfig}>
 			<AreaChart
