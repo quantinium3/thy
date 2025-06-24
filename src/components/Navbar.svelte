@@ -38,7 +38,7 @@
 		<span class="text-md flex items-center font-bold text-orange-400 dark:text-orange-300">
 			<button class="mr-2 pointer-events-auto md:pointer-events-none" onclick={toggleSidebar}>></button>
 			<a href="/" class="flex text-lg whitespace-nowrap">quantinium</a><span
-				class="cursor-pulse ml-1 text-lg"
+				class="animate-pulse ml-1 text-lg"
 				>|
 			</span>
 		</span>
@@ -100,9 +100,5 @@
 
 	.link-animate:hover:after {
 		right: 0;
-	}
-
-	.cursor-pulse {
-		animation: pulse 1s infinite;
 	}
 </style>
