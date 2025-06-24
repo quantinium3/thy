@@ -54,7 +54,7 @@
 			<Sidebar />
 		</div>
 		<div class="max-w-fit flex-3 px-3">
-			<div class="intro item-center border-b pb-5">
+			<div class="intro item-center border-b">
 				<div class="item-center mb-3 flex flex-col justify-center gap-3">
 					<div class="text-xl font-semibold">Hi, im quantinium</div>
 					<div>currently pursuing undergrad in computer engineering</div>

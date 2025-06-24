@@ -55,7 +55,7 @@
 
 <Navbar {toggleSidebar} />
 <div
-	class="pt-3 sidebar fixed top-[3rem] z-10 min-h-screen min-w-[70%] bg-[#161411]/90 backdrop-blur-xl duration-300 ease-out {sidebarOpen
+	class="pt-3 sidebar fixed top-[3rem] z-10 min-h-screen min-w-[70%] dark:bg-[#161411]/90 bg-[#FCFAF6]/90 backdrop-blur-xl duration-300 ease-out {sidebarOpen
 		? 'open'
 		: ''}"
 >
@@ -72,6 +72,6 @@
 		transform: translateX(0);
 	}
 	.sidebar {
-		transform: translateX(-100%);
+		transform: translateX(-200%);
 	}
 </style>

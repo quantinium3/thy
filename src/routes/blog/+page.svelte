@@ -8,7 +8,7 @@
 	<title>{config.title}</title>
 </svelte:head>
 
-<div class="flex">
+<div class="flex mt-[3rem]">
 	<div class="md:flex-3/4 pr-0 md:pr-12">
 		{#each data.blogs as blog (blog)}
 			<Blog blog={blog}/>

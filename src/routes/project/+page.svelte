@@ -82,7 +82,7 @@
 	<title>{config.title}</title>
 </svelte:head>
 
-<div class="flex">
+<div class="flex mt-[3rem]">
 	<div class="md:flex-3 pr-0 md:pr-12">
 		{#each projects as project (project.title)}
 			<Project project={project}/>

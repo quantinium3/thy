@@ -33,9 +33,9 @@
 	];
 </script>
 
-<div class="mx-auto max-w-5xl flex h-[3rem] items-center justify-between w-full py-[1rem] fixed top-0 bg-[#161411]/90 z-1 backdrop-blur-xl">
+<div class="mx-auto pr-5 max-w-5xl flex h-[3rem] items-center justify-between w-full py-[1rem] fixed top-0 dark:bg-[#161411]/90 bg-[#FCFAF6]/90 z-1">
 	<div class="flex items-center space-x-1 font-bold text-orange-400 dark:text-orange-300">
-		<span class="text-md flex items-center font-bold text-orange-400 dark:text-orange-300">
+		<span class="text-md flex items-center font-bold text-[#fabd2f]">
 			<button class="mr-2 pointer-events-auto md:pointer-events-none" onclick={toggleSidebar}>></button>
 			<a href="/" class="flex text-lg whitespace-nowrap">quantinium</a><span
 				class="animate-pulse ml-1 text-lg"
@@ -53,7 +53,7 @@
 				>
 			{/each}
 		</div>
-		<div class="flex items-center gap-3">
+		<!-- <div class="flex items-center gap-3">
 			<button onclick={theme.toggle} aria-label="Toggle theme">
 				{#if theme.current === 'dark'}
 					<div in:fly={{ y: 10 }}>
@@ -65,7 +65,7 @@
 					</div>
 				{/if}
 			</button>
-		</div>
+		</div> -->
 	</div>
 </div>
 

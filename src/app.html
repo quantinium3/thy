@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="utf-8" />
@@ -9,18 +9,18 @@
 </head>
 
 <body data-sveltekit-preload-data="hover"
-      class="dark:bg-[#161411] bg-[#FCFAF6] max-w-5xl mx-auto dark:text-white text-black">
-<div>
-    %sveltekit.body%
-</div>
+    class="dark:bg-[#161411] bg-[#FCFAF6] max-w-5xl mx-auto dark:text-white text-black">
+    <div>
+        %sveltekit.body%
+    </div>
 </body>
 
-<script>
-    const theme = localStorage.getItem('theme')
+<script type="module">
+    const theme = localStorage.getItem('color-scheme')
 
     theme
-        ? document.documentElement.setAttribute('theme', theme)
-        : localStorage.setItem('theme', 'dark')
+        ? document.documentElement.setAttribute('color-scheme', theme)
+        : localStorage.setItem('color-scheme', 'dark')
 </script>
 
 </html>

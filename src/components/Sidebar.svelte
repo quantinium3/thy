@@ -74,15 +74,17 @@
 				<span class="h-2 w-2 animate-pulse rounded-full bg-green-500"></span>
 				{status.toUpperCase()}
 			</span>
-			-
-			{neovimActivity}
+			{#if neovimActivity}
+				-
+				{neovimActivity}
+			{/if}
 		</span>
 	{/if}
 </div>
 <div class="my-5">
 	<span class="text-lg font-bold">navi</span>
 	{#each links as link (link.href)}
-		<div class="ml-2 flex flex-row gap-1 border-l border-white">
+		<div class="ml-2 flex flex-row gap-1 border-l dark:border-white border-black">
 			<span>–</span>
 			<span><a href={link.href} class="link-animate pt-1">{link.name}</a></span>
 		</div>

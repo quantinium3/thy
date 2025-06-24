@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="flex flex-col lg:flex-row items-center mt-5 border-b pb-3">
+	class="flex flex-col lg:flex-row items-center border-b pb-3 mt-[4rem]">
 	<img
 		src="https://pbs.twimg.com/profile_images/1902385562570375168/vl-EwVzq_400x400.jpg"
 		class="rounded-full w-36 mx-3" alt="pfp" />
