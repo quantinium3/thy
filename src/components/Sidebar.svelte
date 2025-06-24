@@ -42,7 +42,7 @@
 		{
 			name: 'spotify',
 			href: 'https://open.spotify.com/user/alcivd1065ibqww5vo9hemnus?si=9626e0194c4e418f'
-		},
+		}
 	];
 
 	let status = $state('offline');
@@ -78,17 +78,22 @@
 	{/if}
 </div>
 <div class="my-5">
-	<span class="text-lg font-bold">navi</span>
-	{#each links as link (link.href)}
-		<div class="ml-2 flex flex-row gap-1 border-l dark:border-white border-black">
-			<span>–</span>
-			<span><a href={link.href} class="hover:underline hover:underline-offset-2 pt-1">{link.name}</a></span>
-		</div>
-	{/each}
-	<span class="relative bottom-[1.02px] ml-1"
-		>└
-		<a href="/rss-xml" class="hover:underline hover:underline-offset-2">rss</a></span
-	>
+	<span class="mb-2 text-lg font-bold">Navi</span>
+	<div>
+		{#each links as link (link.href)}
+			<div class="ml-2 flex flex-row gap-1 border-l border-black dark:border-white">
+				<span>–</span>
+				<span
+					><a href={link.href} class="pt-1 hover:underline hover:underline-offset-2">{link.name}</a
+					></span
+				>
+			</div>
+		{/each}
+		<span class="relative bottom-[1.02px] ml-1"
+			>└
+			<a href="/rss-xml" class="hover:underline hover:underline-offset-2">rss</a></span
+		>
+	</div>
 </div>
 
 <div class="my-5">

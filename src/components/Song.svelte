@@ -27,7 +27,7 @@
 	});
 </script>
  
-<div class="mb-2 text-lg font-bold flex items-center gap-1">listening: <a href={songUri} target="_blank" class="cursor-pointer"><ExternalLink size={16} /></a></div>
+<div class="mb-2 text-lg font-bold flex items-center gap-1">Listening: <a href={songUri} target="_blank" class="cursor-pointer"><ExternalLink size={16} /></a></div>
 
 {#if songIsPlaying}
 	<div class="ml-1 flex">
