@@ -13,6 +13,7 @@ todo
 
 - [ ] start writing a blog on deploying servers on nixos
 - [ ] start writing on a year into programming
+- [x] make the system status dynamic acc to server response.
 - [ ] make the system status more response - just edit the flex css so its properly shows on phone
 - [ ] make a resume page that will redirect to your resume 
 - [ ] add a hire me button that opens a button

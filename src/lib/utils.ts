@@ -19,3 +19,4 @@ export function formatDate(date: string, dateStyle: DateStyle = 'medium', locale
 	const dateFormatter = Intl.DateTimeFormat(locales, { dateStyle });
 	return dateFormatter.format(dateToFormat);
 }
+
