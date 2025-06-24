@@ -50,7 +50,7 @@
 		<div class="hidden flex-1 flex-col px-3 md:block">
 			<Sidebar />
 		</div>
-		<div class="flex-3 px-3">
+		<div class="flex-3 px-3 max-w-fit">
 			<div class="intro item-center border-b pb-5">
 				<div class="item-center mb-3 flex flex-col justify-center gap-3">
 					<div class="text-xl font-semibold">Hi, im quantinium</div>
@@ -72,7 +72,7 @@
 					<div><a href="/about" class="hover:underline hover:underline-offset-2">more...</a></div>
 				</div>
 
-				<div>
+				<div class="max-w-screen">
 					<CoolButtons />
 				</div>
 			</div>
