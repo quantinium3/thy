@@ -19,7 +19,7 @@
 			title: "nvgs",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["rust", "reactjs"],
-			slug: "https://github.com/quantinium3/rust"
+			slug: "https://github.com/quantinium3/nvgs"
 		},
 		{
 			title: "tsh",
@@ -31,49 +31,49 @@
 			title: "kaze",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			slug: "https://github.com/quantinium3/kaze"
 		},
 		{
 			title: "tanshilink",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			slug: "https://github.com/quantinium3/tanshilink"
 		},
 		{
 			title: "asami",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			slug: "https://github.com/quantinium3/asami"
 		},
 		{
 			title: "lated",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			slug: "https://github.com/quantinium3/lated"
 		},
 		{
 			title: "shiro",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			slug: "https://github.com/quantinium3/shiro"
 		},
 		{
 			title: "yumi",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			slug: "https://github.com/quantinium3/yumi"
 		},
 		{
 			title: "comphub",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			slug: "https://github.com/quantinium3/comphub"
 		},
 		{
 			title: "ryu",
 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
 			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			slug: "https://github.com/quantinium3/ryu"
 		}
 	]
 </script>
@@ -93,7 +93,7 @@
 		{#each projects as project (project.title)}
 			<div class="flex">
 				<div class="hover:underline hover:underline-offset-4 hover:font-semibold" >
-					-> {project.title}
+					-> <a href={project.slug}>{project.title}</a>
 				</div>
 			</div>
 		{/each}
