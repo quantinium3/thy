@@ -126,7 +126,7 @@
 				<Server />
 			</div>
 
-			<div class="md:hidden block">
+			<div class="block md:hidden">
 				<div class="border-b py-3">
 					<Peripheral />
 				</div>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
+	import { ArrowLeft } from '@lucide/svelte';
 	let { data } = $props();
 </script>
 
@@ -16,11 +17,15 @@
 	/>
 </svelte:head>
 
-<article class="flex flex-col gap-5 lg:mt-24 dark:text-white">
-	<hgroup class="t flex flex-col">
-		<h1 class="font-semibold">{data.meta.title}</h1>
+<article class="mt-[4rem] flex flex-col gap-5 dark:text-white">
+		<a href="/blog" class="flex items-center hover:underline hover:underline-offset-2"><ArrowLeft class="h-[15px]" /> back </a>
+	<hgroup class="t mb-2 flex flex-col">
+		<h1 class="heading mb-1 text-xl font-semibold">{data.meta.title}</h1>
 		<div class="flex gap-3">
-			<p class="dark:text-zinc-400 border-r-2 border-white pr-3">published: {formatDate(data.meta.date)}</p>
+			<p class="dark:text-zinc-400">
+				published: {formatDate(data.meta.date)}
+			</p>
+			|
 			<div class="flex gap-3">
 				{#each data.meta.categories as category (category)}
 					<a href="#" class="hover:dark:bg-blue-500 hover:dark:text-white">#{category}</a>
@@ -47,28 +52,7 @@
 </article>
 
 <style>
-	.content h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-weight: 600;
-		margin: 1rem 0;
-	}
-
-	.content h1 {
-		font-size: 2rem;
-	}
-
-	.content h2 {
-		font-size: 1.75rem;
-	}
-	.content h3 {
-		font-size: 1.5rem;
-	}
-
-	.content p {
-		padding: 0.25rem 0;
+	.heading {
+		text-transform: capitalize;
 	}
 </style>
