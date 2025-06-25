@@ -65,7 +65,9 @@
 		{/each}
 	</div>
 </div>
+<div class="mx-auto max-w-5xl">
 {@render children()}
+</div>
 
 <style>
 	.sidebar.open {

@@ -34,7 +34,7 @@
 </script>
 
 <div
-	class="fixed top-0 z-1 mx-auto flex h-[3rem] w-full max-w-5xl items-center justify-between bg-[#FCFAF6]/90 py-[1rem] pr-5 dark:bg-[#161411]/90"
+	class="fixed top-0 z-1 left-1/2 transform -translate-x-1/2 px-2 flex h-[3rem] w-full max-w-5xl items-center justify-between bg-[#FCFAF6]/90 py-[1rem] dark:bg-[#161411]/90"
 >
 	<div class="flex items-center space-x-1 font-bold text-orange-400 dark:text-orange-300">
 		<span class="text-md flex items-center font-bold text-[#fabd2f]">
