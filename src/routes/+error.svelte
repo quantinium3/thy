@@ -1,9 +1,10 @@
 <script>
-	import { page } from '$app/stores'
+	import { page } from '$app/state';
 </script>
 
-<div class="error">
-	<h1>{$page.status}: {$page.error?.message}</h1>
+<div class="error mt-[4rem] flex gap-3 flex-col justify-center">
+	<img src="/frieren-dies.gif" alt="frieren dies" class="w-sm"/>
+	<h1 class="text-xl font-bold text-center">{page.status}: {page.error?.message}</h1>
 </div>
 
 <style>
