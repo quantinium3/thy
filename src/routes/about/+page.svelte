@@ -1,8 +1,8 @@
 <script>
-	import { Github, Mail, Twitter } from '@lucide/svelte';
+	import { Copyright, Github, Mail, Twitter } from '@lucide/svelte';
 </script>
 
-<div class="mt-[4rem] flex flex-col items-center border-b pb-3 lg:flex-row">
+<div class="mt-[4rem] flex flex-col items-center border-b pb-5 lg:flex-row">
 	<img
 		src="https://pbs.twimg.com/profile_images/1902385562570375168/vl-EwVzq_400x400.jpg"
 		class="mx-3 w-36 rounded-full"
@@ -25,21 +25,33 @@
 	</div>
 </div>
 
-<div class="mt-5 border-b pb-3">
+<div class="border-b py-5">
 	<h1 class="mb-2 text-xl font-bold">About Me</h1>
-	<p class="my-1">
-		Good evening, I'm quantinium. My foray to the realm of tech was a successful adventure trying to
-		deploy a html page on my PC (pentium G3320). This day marked the first time i properly installed
-		linux on bare metal and having to learn about ssh cause i couldnt connect my monitor to my pc
-		for a long time, nginx, ngrok and network address translation and how we sadly are deprived of
-		public IP's. This successful deployment and installation of linux (5th time cause my drive was
-		curropted) was starting of the rabbit hole of my linux journey and me nuking windows from every system i
-		touched. I was installing arch so many times i had to make a guide for myself cause even though i remembered every command that needed to run, it was annoying to search for one command i forgot and then repeating the cycle of breaking my system cause i fucked something up. At some point i stopped and daily drove that distro for a year.
+	<p class="my-2">
+		<span class="mb-1 block text-lg font-semibold">Good day,</span>
+		I'm a programmer who started with an urge to deploying a html page on my old pc and then fell down
+		the rabbit hole of linux, window managers, neovim and then started to learn to program on May 12
+		2024. I have dabbled in various domains and learnt many languages along the way. Primarily i focus
+		on backend and frontend development and devops but is interested in systems programming. Some facts
+		about me -
 	</p>
-	<p class="my-1"></p>
+	<ul class="list-disc pb-2 pl-[1rem]">
+		<li class="">
+			My first code editor was neovim and nuked windows from my machine after having it for 4
+			months.
+		</li>
+		<li class="">
+			My first experience with web development was so boring, i did my first api request in C++.
+		</li>
+		<li class="">
+			I love space and wish i could just lay down on the moon and just look as far as i can see in
+			space with no one to disturb me.
+		</li>
+		<li class="">I love programming and learning new things what this piece of rock can do.</li>
+	</ul>
 </div>
 
-<div class="mt-5 flex flex-col gap-1 border-b pb-3">
+<div class="flex flex-col gap-1 border-b py-5">
 	<h1 class="mb-2 text-xl font-bold">Tech Stack</h1>
 	<div>
 		<span class="font-semibold">Languages: </span>
@@ -65,7 +77,7 @@
 	</div>
 </div>
 
-<div class="mt-5 border-b pb-3">
+<div class="border-b py-5">
 	<h1 class="mb-2 text-xl font-bold">Focus</h1>
 	<ul>
 		<li>- backend development</li>
@@ -75,7 +87,7 @@
 	</ul>
 </div>
 
-<div class="mt-5">
+<div class="py-5">
 	<h1 class="mb-2 text-xl font-bold">Contact</h1>
 	<ul>
 		<li>
@@ -98,3 +110,7 @@
 		<li>- discord - quantinium3</li>
 	</ul>
 </div>
+
+<footer class="border-t py-5">
+	<div class="flex items-center justify-center"><Copyright size={16}/>quantinium {new Date().getFullYear()}</div>
+</footer>
