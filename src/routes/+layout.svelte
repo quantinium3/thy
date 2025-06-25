@@ -1,8 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 	import Navbar from '$components/Navbar.svelte';
+	import PageTransition from './transition.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
 	const links = [
 		{
@@ -55,7 +56,7 @@
 
 <Navbar {toggleSidebar} />
 <div
-	class="pt-3 sidebar fixed top-[3rem] z-10 min-h-screen min-w-[70%] dark:bg-[#161411]/90 bg-[#FCFAF6]/90 backdrop-blur-xl duration-300 ease-out {sidebarOpen
+	class="sidebar fixed top-[3rem] z-10 min-h-screen min-w-[70%] bg-[#FCFAF6]/90 pt-3 backdrop-blur-xl duration-300 ease-out dark:bg-[#161411]/90 {sidebarOpen
 		? 'open'
 		: ''}"
 >
@@ -65,9 +66,11 @@
 		{/each}
 	</div>
 </div>
-<div class="mx-auto max-w-5xl">
-{@render children()}
-</div>
+<main class="mx-auto max-w-5xl">
+	<PageTransition url={data.url}>
+		{@render children()}
+	</PageTransition>
+</main>
 
 <style>
 	.sidebar.open {
