@@ -13,7 +13,7 @@
 		try {
 			const [quantiniumRes, proxyRes, natsukiRes, lucyRes, gitRes] = await Promise.all([
 				axios.post(
-					'https://lucy.quantinium.dev/api/ping/',
+					import.meta.env.VITE_PING_URI,
 					{
 						hostname: 'quantinium.dev',
 						port: 80,
@@ -24,7 +24,7 @@
 					}
 				),
 				axios.post(
-					'https://lucy.quantinium.dev/api/ping/',
+					import.meta.env.VITE_PING_URI,
 					{
 						hostname: 'nginx.quantinium.dev',
 						port: 80,
@@ -35,7 +35,7 @@
 					}
 				),
 				axios.post(
-					'https://lucy.quantinium.dev/api/ping/',
+					import.meta.env.VITE_PING_URI,
 					{
 						hostname: 'natsuki.quantinium.dev',
 						port: 80,
@@ -46,7 +46,7 @@
 					}
 				),
 				axios.post(
-					'https://lucy.quantinium.dev/api/ping/',
+					import.meta.env.VITE_PING_URI,
 					{
 						hostname: 'lucy.quantinium.dev',
 						port: 80,
@@ -57,7 +57,7 @@
 					}
 				),
 				axios.post(
-					'https://lucy.quantinium.dev/api/ping/',
+					import.meta.env.VITE_PING_URI,
 					{
 						hostname: 'github.com',
 						port: 80,
