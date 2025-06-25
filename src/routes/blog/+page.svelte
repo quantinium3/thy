@@ -19,7 +19,7 @@
 		{#each data.blogs as blog (blog.title)}
 			<div class="flex">
 				<div class="hover:underline hover:underline-offset-4 hover:font-semibold" >
-					-> {blog.title}
+					-> <a href="/blog/{blog.slug}">{blog.title}</a>
 				</div>
 			</div>
 		{/each}
