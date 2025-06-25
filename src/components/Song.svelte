@@ -12,7 +12,7 @@
 
 	onMount(async () => {
 		try {
-			await axios.get('https://lucy.quantinium.dev/api/lastfm/current').then((res) => {
+			await axios.get(import.meta.env.VITE_LASTFM_URI).then((res) => {
 				const song = res.data.response.track[0];
 				songArtist = song.artist['#text'];
 				songName = song.name;

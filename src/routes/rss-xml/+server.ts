@@ -1,6 +1,5 @@
 import * as config from '$lib/config'
 import type { Blog } from '$lib/types'
-export const prerender = true;
 
 export async function GET({ fetch }) {
     const res = await fetch('/api/blog')
