@@ -72,6 +72,9 @@
 						<a href="https://x.com/quantinium3" class="hover:underline" target="_blank">X</a> or discord
 						(@quantinium3) or pigeons.
 					</div>
+					<div class="font-bold underline">
+                        Open to new roles
+					</div>
 					<div><a href="/about" class="hover:underline hover:underline-offset-2">more...</a></div>
 				</div>
 
@@ -107,7 +110,7 @@
 				<ul class="my-2">
 					{#each data.blogs as blog (blog)}
 						<div class="text-md">
-							- <a href={blog.slug} target="_blank" class="hover:underline hover:underline-offset-2"
+							- <a href="/blog/{blog.slug}" class="hover:underline hover:underline-offset-2"
 								>{blog.title}</a
 							>
 							-
