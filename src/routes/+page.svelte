@@ -46,18 +46,7 @@
 
 <svelte:head>
 	<title>{config.title}</title>
-	<meta property="og:title" content="quantinium" />
-	<meta property="og:type" content="profile" />
-	<meta property="og:url" content="https://quantinium.dev" />
-	<meta
-		property="og:image"
-		content="https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdbQQdcGL2bDKu8v17GsaP0WA3NQCBqSgcjIX9"
-	/>
-	<meta property="og:locale" content="en_US" />
-	<meta
-		property="og:description"
-		content="Hi i'm quantinium. this is my personal corner on the web. here i try to post everything i learn. "
-	/>
+	<meta name="robots" content="index, follow" />
 </svelte:head>
 
 <div class="mt-[4rem]">
