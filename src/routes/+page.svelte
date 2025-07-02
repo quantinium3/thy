@@ -51,7 +51,7 @@
 	<meta property="og:url" content="https://quantinium.dev" />
 	<meta
 		property="og:image"
-		content="https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdtdA9lddOavBifbFjmq2RUusKoC6c7gNt19O4"
+		content="/og.gif"
 	/>
 	<meta property="og:locale" content="en_US" />
 	<meta
