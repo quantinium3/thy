@@ -1,11 +1,10 @@
 <script lang="ts">
-	import * as config from '$lib/config';
 	import Blog from '$components/Blog.svelte';
 	let { data } = $props();
 </script>
 
 <svelte:head>
-	<title>{config.title}</title>
+	<title>Blog</title>
 </svelte:head>
 
 <div class="flex mt-[3rem]">

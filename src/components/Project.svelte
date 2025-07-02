@@ -7,7 +7,7 @@
 		<h1 class="text-xl font-semibold">
 			<a
 				href={project.slug}
-				class="hover:underline hover:underline-offset-2 text-[#cc241d] dark:text-[#fe8019] dark:hover:border-b-white"
+				class="text-[#cc241d] hover:underline hover:underline-offset-2 dark:text-[#fe8019] dark:hover:border-b-white"
 				>{project.title}</a
 			>
 		</h1>
@@ -16,9 +16,10 @@
 		<img src={project.image} alt={project.title} />
 	{/if}
 	<div class="flex gap-3">
-		{#each project.tech as tech (tech)}
-			<span class="text-xs">#{tech.replaceAll('_', ' ')}</span>
-		{/each}
+		<span class="text-xs">{project.tech.join(',')}</span>
+		<!-- {#each project.tech as tech (tech)}
+			<span class="text-xs">{tech.replaceAll('_', ' ')}</span>
+		{/each} -->
 	</div>
 
 	<div class="mt-3 text-sm">{project.description}</div>

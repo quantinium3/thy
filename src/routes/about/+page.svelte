@@ -2,6 +2,11 @@
 	import { Copyright, Github, Mail, Twitter } from '@lucide/svelte';
 </script>
 
+<svelte:head>
+	<title>About</title>
+	<meta name="description" content="Quantinium's About" />
+</svelte:head>
+
 <div class="mt-[4rem] flex flex-col items-center border-b pb-5 lg:flex-row">
 	<img
 		src="https://pbs.twimg.com/profile_images/1902385562570375168/vl-EwVzq_400x400.jpg"
@@ -112,5 +117,7 @@
 </div>
 
 <footer class="border-t py-5">
-	<div class="flex items-center justify-center"><Copyright size={16}/>quantinium {new Date().getFullYear()}</div>
+	<div class="flex items-center justify-center">
+		<Copyright size={16} />quantinium {new Date().getFullYear()}
+	</div>
 </footer>

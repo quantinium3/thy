@@ -39,36 +39,3 @@
 <svelte:head>
 	<title>{config.title}</title>
 </svelte:head>
-
-<div class="my-5 flex flex-col justify-between py-3 dark:text-white">
-	<pre class="text-center text-[0.4rem] leading-none lg:text-xs">
-  █████▒██▀███  ▓█████  ███▄    █   ██████ 
-▓██   ▒▓██ ▒ ██▒▓█   ▀  ██ ▀█   █ ▒██    ▒ 
-▒████ ░▓██ ░▄█ ▒▒███   ▓██  ▀█ ██▒░ ▓██▄   
-░▓█▒  ░▒██▀▀█▄  ▒▓█  ▄ ▓██▒  ▐▌██▒  ▒   ██▒
-░▒█░   ░██▓ ▒██▒░▒████▒▒██░   ▓██░▒██████▒▒
- ▒ ░   ░ ▒▓ ░▒▓░░░ ▒░ ░░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░
- ░       ░▒ ░ ▒░ ░ ░  ░░ ░░   ░ ▒░░ ░▒  ░ ░
- ░ ░     ░░   ░    ░      ░   ░ ░ ░  ░  ░  
-          ░        ░  ░         ░       ░  
-    </pre>
-	<div class="flex flex-wrap justify-center gap-3">
-		{#each links as link (link)}
-			<span
-				>[<a href={link.href} class="hover:underline hover:underline-offset-4">{link.name}</a
-				>]</span
-			>
-		{/each}
-		<button onclick={theme.toggle} aria-label="Toggle theme">
-			{#if theme.current === 'dark'}
-				<div in:fly={{ y: 10 }}>
-					<Sun />
-				</div>
-			{:else}
-				<div in:fly={{ y: -10 }}>
-					<Moon />
-				</div>
-			{/if}
-		</button>
-	</div>
-</div>

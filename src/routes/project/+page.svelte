@@ -4,75 +4,87 @@
 
 	const projects = [
 		{
+			title: "Houshou",
+			description:
+				"A minimalistic, privacy friendly and ad free blogging platform",
+			tech: ["golang", "nextjs"],
+			slug: "https://github.com/quantinium3/houshou"
+		},
+		{
 			title: "Grimoire",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
+			description:
+				"A static site generator to convert markdown to html for easy deployment.",
 			tech: ["typescript", "handlebars"],
 			slug: "https://github.com/quantinium3/grimoire",
 		},
 		{
 			title: "lomes",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description: "A self hosting media server",
+			tech: ["typescript", "reactjs", "expressjs"],
 			slug: "https://github.com/quantinium3/lomes"
 		},
 		{
 			title: "nvgs",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["rust", "reactjs"],
+			description:
+				"nvidia graphics card switcher for laptops with hybrid gpu in linux",
+			tech: ["rust"],
 			slug: "https://github.com/quantinium3/nvgs"
 		},
 		{
 			title: "tsh",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description:
+				"tmux sessionizer to create tmux session at a blazingly fast speed and increase productivity",
+			tech: ["rust"],
 			slug: "https://github.com/quantinium3/tsh"
 		},
 		{
 			title: "kaze",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description: "a image editor",
+			tech: ["reactjs"],
 			slug: "https://github.com/quantinium3/kaze"
 		},
 		{
 			title: "tanshilink",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description: "url shortener",
+			tech: ["elysiajs"],
 			slug: "https://github.com/quantinium3/tanshilink"
 		},
 		{
 			title: "asami",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
+			description:
+				"an ascii art generator to convert normal images into ascii",
 			tech: ["typescript", "reactjs"],
 			slug: "https://github.com/quantinium3/asami"
 		},
 		{
 			title: "lated",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description: "online latex editor with on the go pdf creation",
+			tech: ["reactjs", "expressjs"],
 			slug: "https://github.com/quantinium3/lated"
 		},
 		{
 			title: "shiro",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description: "infinite music app for vibing and studying",
+			tech: ["reactjs"],
 			slug: "https://github.com/quantinium3/shiro"
 		},
 		{
 			title: "yumi",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description: "package manager to fetch npm packages",
+			tech: ["typescript"],
 			slug: "https://github.com/quantinium3/yumi"
 		},
 		{
 			title: "comphub",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description:
+				"online compiler platform to compile languages on the go without needing to install compiler or interpretters locally (more languages incoming)",
+			tech: ["golang", "reactjs"],
 			slug: "https://github.com/quantinium3/comphub"
 		},
 		{
 			title: "ryu",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem earum doloribus atque temporibus veritatis cum aliquam inventore animi consequuntur ad reiciendis nisi asperiores, id laudantium repellendus, recusandae illo vitae?",
-			tech: ["typescript", "reactjs"],
+			description: "a web server written",
+			tech: ["c"],
 			slug: "https://github.com/quantinium3/ryu"
 		}
 	]
@@ -80,6 +92,7 @@
 
 <svelte:head>
 	<title>{config.title}</title>
+    <meta name="description" content="quantinium's projects" />
 </svelte:head>
 
 <div class="flex mt-[3rem]">

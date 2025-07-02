@@ -46,6 +46,10 @@
 
 <svelte:head>
 	<title>{config.title}</title>
+	<meta property="og:title" content="quantinium" />
+	<meta property="og:type" content="video.movie" />
+	<meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+	<meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
 </svelte:head>
 
 <div class="mt-[4rem]">
@@ -72,9 +76,7 @@
 						<a href="https://x.com/quantinium3" class="hover:underline" target="_blank">X</a> or discord
 						(@quantinium3) or pigeons.
 					</div>
-					<div class="font-bold underline">
-                        Open to new roles
-					</div>
+					<div class="font-bold underline">Open to new roles</div>
 					<div><a href="/about" class="hover:underline hover:underline-offset-2">more...</a></div>
 				</div>
 
