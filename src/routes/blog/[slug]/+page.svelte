@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
-	import { ArrowLeft } from '@lucide/svelte';
+	import { ArrowLeft, Copyright, Github, Mail, Rss, Twitter } from '@lucide/svelte';
 	let { data } = $props();
 </script>
 
@@ -22,13 +22,13 @@
 	<hgroup class="t mb-2 flex flex-col">
 		<h1 class="heading mb-1 text-xl font-semibold">{data.meta.title}</h1>
 		<div class="flex gap-3">
-			<p class="dark:text-zinc-400">
+			<p class="dark:text-zinc-400 text-[11px] md:text-[14px]">
 				published: {formatDate(data.meta.date)}
 			</p>
 			|
-			<div class="flex gap-3">
+			<div class="flex gap-3 text-[11px] md:text-[14px]">
 				{#each data.meta.categories as category (category)}
-					<a href="#" class="hover:dark:bg-blue-500 hover:dark:text-white">#{category}</a>
+					<a href="#" class="">#{category}</a>
 				{/each}
 			</div>
 		</div>
@@ -50,6 +50,19 @@
 		referrerpolicy="no-referrer"
 	></script>
 </article>
+
+<footer class="flex justify-between border-t mt-5 py-3 border-[#3f3f3f]">
+<div class="">
+	<Copyright class="inline" size={15} />quantinium
+	{new Date().getFullYear()}
+</div>
+<div class="flex gap-3">
+	<a href="https://github.com/quantinium3" target="_blank"><Github /></a>
+	<a href="https://x.com/quantinium3" target="_blank"><Twitter /></a>
+	<a href="mailto:quant@quantinium.dev" target="_blank"><Mail /></a>
+	<a href="/rss-xml" target="_blank"><Rss /></a>
+</div>
+</footer>
 
 <style>
 	.heading {
