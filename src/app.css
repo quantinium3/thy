@@ -147,6 +147,9 @@
     }
 }
 
+.content a {
+    color: #89B4FA;
+}
 
 .content h1 {
     font-size: 1.15rem;
@@ -202,15 +205,22 @@
     font-weight: bold;
 }
 
-.content code {
-    background-color: #2a2a2a;
-    padding: 3px;
-    border-radius: 0.25rem;
-}
 
 .content ol {
     list-style: decimal;
     margin-left: 1.5rem;
+}
+
+.content p code {
+    background-color: #3c3836;
+    padding: 3px 5px;
+    border-radius: 0.25rem;
+}
+
+.content li code {
+    background-color: #3c3836;
+    padding: 3px 5px;
+    border-radius: 0.25rem;
 }
 
 .content hr {
@@ -222,6 +232,7 @@
 
 .content pre {
     background-color: #2a2a2a;
+    padding: 1rem;
 }
 
 /* width */
