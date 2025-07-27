@@ -20,7 +20,7 @@
 			><img src="/button_www.gif" alt="www" /></a
 		>
 		<img src="/button_xp.gif" alt="nix" class="w-[88px]" />
-		<a class="w-[88px]" href="https://namishh.me/"><img src="/button_nam.png" alt="nam" /></a>
+		<a class="w-[88px]" href="https://namishh.com/"><img src="/button_nam.png" alt="nam" /></a>
 		<a class="w-[88px]" href="https://jesx.dev/"><img src="/button_jesx.gif" alt="jesx" /></a>
 		<a class="w-[88px]" href="https://svelte.dev/"><img src="/button_svelte.gif" alt="svelte" /></a>
 		<a class="w-[88px]" href="https://developer.mozilla.org/en-US/docs/Glossary/HTML"><img src="/button_html.gif" alt="html" /></a>
