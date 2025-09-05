@@ -19,7 +19,7 @@
 			title: 'Coderunner',
 			description: 'an online editor for some fun languages',
 			tech: ['Reactjs', 'Rust(Axum)'],
-			slug: 'https://coderunner.quantinium.dev',
+			slug: 'https://coderunner.quantinium.dev'
 		},
 		{
 			title: 'TSH',
@@ -29,17 +29,23 @@
 			slug: 'https://github.com/quantinium3/tsh'
 		},
 		{
+			name: 'Webalyze',
+			href: 'https://github.com/quantinium3/webalyze',
+			description: 'AI integrated web scraper',
+			tech: ['python', 'streamlit', 'ollama', 'langchain']
+		},
+		{
 			title: 'Kairos',
 			description: 'A self hostable media server',
 			tech: ['ReactJS', 'Golang', 'Rust', 'HonoJS'],
-			slug: 'https://github.com/quantinium3/kairos',
+			slug: 'https://github.com/quantinium3/kairos'
 		},
-        {
+		{
 			title: 'Xunbao',
 			description: 'an online quiz platform for a college hackathon',
 			tech: ['ReactJS', 'ExpressJS', 'MongoDB', 'ClerkJS'],
 			slug: 'https://github.com/quantinium3/xunbao'
-        },
+		},
 		{
 			title: 'Tanshilink',
 			description: 'url shortener',

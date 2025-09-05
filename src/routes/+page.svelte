@@ -35,6 +35,12 @@
 			description: 'ascii art generator',
 			tech: ['reactjs']
 		},
+        {
+            name: 'webalyze',
+            href: 'https://github.com/quantinium3/webalyze',
+            description: 'ai powered web scraper',
+            tech: ['python', 'streamlit', 'ollama', 'langchain']
+        },
 		{
 			name: 'kairos',
 			href: 'https://github.com/quantinium3/kairos',
