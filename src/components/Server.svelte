@@ -11,7 +11,7 @@
 
 	onMount(async () => {
 		try {
-			const [quantiniumRes, proxyRes, natsukiRes, lucyRes, gitRes] = await Promise.all([
+			const [quantiniumRes, proxyRes, lucyRes, gitRes] = await Promise.all([
 				axios.post(
 					import.meta.env.VITE_PING_URI,
 					{
@@ -27,17 +27,6 @@
 					import.meta.env.VITE_PING_URI,
 					{
 						hostname: 'nginx.quantinium.dev',
-						port: 80,
-						timeout: 1000
-					},
-					{
-						headers: { 'Content-Type': 'application/json' }
-					}
-				),
-				axios.post(
-					import.meta.env.VITE_PING_URI,
-					{
-						hostname: 'natsuki.quantinium.dev',
 						port: 80,
 						timeout: 1000
 					},
@@ -71,10 +60,9 @@
 
 			quantinium = quantiniumRes.data.status;
 			proxy = proxyRes.data.status;
-			nixie = natsukiRes.data.status;
 			lucy = lucyRes.data.status;
 			git = gitRes.data.status;
-			if (quantinium == 'Ok' && proxy == 'Ok' && nixie == 'Ok' && lucy == 'Ok' && git == 'Ok') {
+			if (quantinium == 'Ok' && proxy == 'Ok' && lucy == 'Ok' && git == 'Ok') {
 				system = 'Ok';
 			} else {
 				system = 'Err';
@@ -83,7 +71,6 @@
 			console.error('Error fetching system statuses:', error);
 			quantinium = 'Err';
 			proxy = 'Err';
-			nixie = 'Err';
 			lucy = 'Err';
 			git = 'Err';
 		}
@@ -103,11 +90,6 @@
 	<div class="flex gap-2">
 		[<span class={proxy == 'Ok' ? 'text-green-500' : 'text-red-500'}>{proxy}</span>]<span
 			>proxy</span
-		>
-	</div>
-	<div class="flex gap-2">
-		[<span class={nixie == 'Ok' ? 'text-green-500' : 'text-red-500'}>{nixie}</span>]<span
-			>mitsuki</span
 		>
 	</div>
 	<div class="flex gap-2">

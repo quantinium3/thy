@@ -4,108 +4,85 @@
 
 	const projects = [
 		{
-			title: "Houshou",
+			title: 'Dampe',
+			description: 'An AI powered file storage',
+			tech: ['Nextjs'],
+			slug: 'https://github.com/quantinium3/dampe'
+		},
+		{
+			title: 'Grimoire',
+			description: 'A Cli static site generator that converts markdown into fully fledged websites',
+			tech: ['Rust', 'Comrak'],
+			slug: 'https://grimoire.quantinium.dev'
+		},
+		{
+			title: 'Coderunner',
+			description: 'an online editor for some fun languages',
+			tech: ['Reactjs', 'Rust(Axum)'],
+			slug: 'https://coderunner.quantinium.dev',
+		},
+		{
+			title: 'TSH',
 			description:
-				"A minimalistic, privacy friendly and ad free blogging platform",
-			tech: ["golang", "nextjs"],
-			slug: "https://github.com/quantinium3/houshou"
+				'tmux sessionizer to create tmux session at a blazingly fast speed and increase productivity',
+			tech: ['Rust'],
+			slug: 'https://github.com/quantinium3/tsh'
 		},
 		{
-			title: "Grimoire",
-			description:
-				"A static site generator to convert markdown to html for easy deployment.",
-			tech: ["typescript", "handlebars"],
-			slug: "https://github.com/quantinium3/grimoire",
+			title: 'Kairos',
+			description: 'A self hostable media server',
+			tech: ['ReactJS', 'Golang', 'Rust', 'HonoJS'],
+			slug: 'https://github.com/quantinium3/kairos',
+		},
+        {
+			title: 'Xunbao',
+			description: 'an online quiz platform for a college hackathon',
+			tech: ['ReactJS', 'ExpressJS', 'MongoDB', 'ClerkJS'],
+			slug: 'https://github.com/quantinium3/xunbao'
+        },
+		{
+			title: 'Tanshilink',
+			description: 'url shortener',
+			tech: ['ElysiaJS'],
+			slug: 'https://github.com/quantinium3/tanshilink'
 		},
 		{
-			title: "lomes",
-			description: "A self hosting media server",
-			tech: ["typescript", "reactjs", "expressjs"],
-			slug: "https://github.com/quantinium3/lomes"
+			title: 'Asami',
+			description: 'an ascii art generator to convert normal images into ascii',
+			tech: ['Typescript', 'ReactJS'],
+			slug: 'https://github.com/quantinium3/asami'
 		},
 		{
-			title: "nvgs",
-			description:
-				"nvidia graphics card switcher for laptops with hybrid gpu in linux",
-			tech: ["rust"],
-			slug: "https://github.com/quantinium3/nvgs"
+			title: 'Yumi',
+			description: 'package manager to fetch npm packages',
+			tech: ['Typescript'],
+			slug: 'https://github.com/quantinium3/yumi'
 		},
 		{
-			title: "tsh",
-			description:
-				"tmux sessionizer to create tmux session at a blazingly fast speed and increase productivity",
-			tech: ["rust"],
-			slug: "https://github.com/quantinium3/tsh"
-		},
-		{
-			title: "kaze",
-			description: "a image editor",
-			tech: ["reactjs"],
-			slug: "https://github.com/quantinium3/kaze"
-		},
-		{
-			title: "tanshilink",
-			description: "url shortener",
-			tech: ["elysiajs"],
-			slug: "https://github.com/quantinium3/tanshilink"
-		},
-		{
-			title: "asami",
-			description:
-				"an ascii art generator to convert normal images into ascii",
-			tech: ["typescript", "reactjs"],
-			slug: "https://github.com/quantinium3/asami"
-		},
-		{
-			title: "lated",
-			description: "online latex editor with on the go pdf creation",
-			tech: ["reactjs", "expressjs"],
-			slug: "https://github.com/quantinium3/lated"
-		},
-		{
-			title: "shiro",
-			description: "infinite music app for vibing and studying",
-			tech: ["reactjs"],
-			slug: "https://github.com/quantinium3/shiro"
-		},
-		{
-			title: "yumi",
-			description: "package manager to fetch npm packages",
-			tech: ["typescript"],
-			slug: "https://github.com/quantinium3/yumi"
-		},
-		{
-			title: "comphub",
-			description:
-				"online compiler platform to compile languages on the go without needing to install compiler or interpretters locally (more languages incoming)",
-			tech: ["golang", "reactjs"],
-			slug: "https://github.com/quantinium3/comphub"
-		},
-		{
-			title: "ryu",
-			description: "a web server written",
-			tech: ["c"],
-			slug: "https://github.com/quantinium3/ryu"
+			title: 'Ryu',
+			description: 'a web server written',
+			tech: ['C'],
+			slug: 'https://github.com/quantinium3/ryu'
 		}
-	]
+	];
 </script>
 
 <svelte:head>
 	<title>{config.title}</title>
-    <meta name="description" content="quantinium's projects" />
+	<meta name="description" content="quantinium's projects" />
 </svelte:head>
 
-<div class="flex mt-[3rem]">
-	<div class="md:flex-3 pr-0 md:pr-12">
+<div class="mt-[3rem] flex">
+	<div class="pr-0 md:flex-3 md:pr-12">
 		{#each projects as project (project.title)}
-			<Project project={project}/>
+			<Project {project} />
 		{/each}
 	</div>
 
-	<div class="py-9 px-0 md:px-3 flex-1 hidden md:block">
+	<div class="hidden flex-1 px-0 py-9 md:block md:px-3">
 		{#each projects as project (project.title)}
 			<div class="flex">
-				<div class="hover:underline hover:underline-offset-4 hover:font-semibold" >
+				<div class="hover:font-semibold hover:underline hover:underline-offset-4">
 					-> <a href={project.slug}>{project.title}</a>
 				</div>
 			</div>

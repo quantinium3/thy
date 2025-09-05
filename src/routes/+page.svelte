@@ -12,34 +12,34 @@
 
 	const projects = [
 		{
-			name: 'lomes',
-			href: 'https://github.com/quantinium3/lomes',
-			description: 'self hosted media server',
-			tech: ['reactjs', 'expressjs', 'go']
-		},
-		{
 			name: 'grimoire',
 			href: 'https://github.com/quantinium3/grimoire',
-			description: 'a static site generator',
-			tech: ['typscript', 'handlebars']
+			description: 'a cli static site generator',
+			tech: ['Rust']
 		},
 		{
-			name: 'lated',
-			href: 'https://lated.vercel.app/',
-			description: 'a latex editor',
+			name: 'coderunner',
+			href: 'https://coderunner.quantinium.dev/',
+			description: 'an online code editor',
 			tech: ['reactjs, expressjs']
 		},
 		{
-			name: 'nvgs',
-			href: 'https://github.com/quantinium3/nvgs',
-			description: 'nvidia gpu switcher for linux',
-			tech: ['rust']
+			name: 'dampe',
+			href: 'https://github.com/quantinium3/dampe',
+			description: 'ai powered file storage',
+			tech: ['nextjs']
 		},
 		{
 			name: 'asami',
 			href: 'https://asami.vercel.app',
 			description: 'ascii art generator',
 			tech: ['reactjs']
+		},
+		{
+			name: 'kairos',
+			href: 'https://github.com/quantinium3/kairos',
+			description: 'self hosted media server',
+			tech: ['reactjs', 'golang', 'rust', 'honojs']
 		}
 	];
 </script>

@@ -89,7 +89,7 @@
 				>
 			</div>
 		{/each}
-		<span class="relative bottom-[1.02px] ml-1"
+		<span class="relative bottom-[1.02px] ml-[4.5px]"
 			>└
 			<a href="/rss-xml" class="hover:underline hover:underline-offset-2">rss</a></span
 		>

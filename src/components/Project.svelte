@@ -15,8 +15,8 @@
 	{#if project.image}
 		<img src={project.image} alt={project.title} />
 	{/if}
-	<div class="flex gap-3">
-		<span class="text-xs">{project.tech.join(',')}</span>
+	<div class="flex gap-5">
+		<span class="text-xs">{project.tech.join(', ')}</span>
 		<!-- {#each project.tech as tech (tech)}
 			<span class="text-xs">{tech.replaceAll('_', ' ')}</span>
 		{/each} -->
