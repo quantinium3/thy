@@ -27,4 +27,4 @@
 <div class="daily_avg">> daily avg - {(totalTime / 7).toFixed(2)} hr</div>
 <div class="hour">> editor - neovim</div>
 <div class="daily_avg">> os - nixos</div>
-<div class="daily_avg">> current - dampe</div>
+<div class="daily_avg">> current - dampe - kairos</div>
