@@ -8,17 +8,17 @@
 	let songImgUri = $state('');
 	let songArtist = $state('');
 	let songIsPlaying = $state(false);
-    let songUri = $state("");
+	let songUri = $state('');
 
 	onMount(async () => {
 		try {
-			await axios.get(import.meta.env.VITE_LASTFM_URI).then((res) => {
+			await axios.get(`${import.meta.env.VITE_NIXIE_URI}/api/lastfm/current`).then((res) => {
 				const song = res.data.response.track[0];
 				songArtist = song.artist['#text'];
 				songName = song.name;
 				songImgUri = song.image[song.image.length - 1]['#text'];
 				songIsPlaying = res.data.response.track[0]['@attr']?.nowplaying == 'true' ? true : false;
-                songUri = song.url;
+				songUri = song.url;
 			});
 		} catch (err) {
 			console.error('failed to fetch current song', err);
@@ -26,8 +26,10 @@
 		}
 	});
 </script>
- 
-<div class="mb-2 text-lg font-bold flex items-center gap-1">Listening: <a href={songUri} target="_blank" class="cursor-pointer"><ExternalLink size={16} /></a></div>
+
+<div class="mb-2 flex items-center gap-1 text-lg font-bold">
+	Listening: <a href={songUri} target="_blank" class="cursor-pointer"><ExternalLink size={16} /></a>
+</div>
 
 {#if songIsPlaying}
 	<div class="ml-1 flex">
