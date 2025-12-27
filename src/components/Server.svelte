@@ -2,100 +2,59 @@
 	import axios from 'axios';
 	import { onMount } from 'svelte';
 
-	let quantinium = $state('...');
-	let proxy = $state('...');
-	let nixie = $state('...');
-	let lucy = $state('...');
-	let git = $state('...');
-	let system = $state('...');
+	const servicesConfig = [
+		{ id: 'quantinium', name: 'site', hostname: 'quantinium.dev' },
+		{ id: 'proxy', name: 'proxy', hostname: 'gitlab.com' },
+		{ id: 'nixie', name: 'nixie', hostname: 'nixie.quantinium.dev' },
+		{ id: 'git', name: 'git', hostname: 'github.com' }
+	];
+
+	let statuses = $state(servicesConfig.reduce((acc, s) => ({ ...acc, [s.id]: '...' }), {}));
+	let systemStatus = $state('...');
+
+	const PING_URI = `${import.meta.env.VITE_NIXIE_URI}/api/ping`;
 
 	onMount(async () => {
 		try {
-			const [quantiniumRes, proxyRes, lucyRes, gitRes] = await Promise.all([
-				axios.post(
-					import.meta.env.VITE_PING_URI,
-					{
-						hostname: 'quantinium.dev',
-						port: 80,
-						timeout: 1000
-					},
-					{
-						headers: { 'Content-Type': 'application/json' }
-					}
-				),
-				axios.post(
-					import.meta.env.VITE_PING_URI,
-					{
-						hostname: 'nginx.quantinium.dev',
-						port: 80,
-						timeout: 1000
-					},
-					{
-						headers: { 'Content-Type': 'application/json' }
-					}
-				),
-				axios.post(
-					import.meta.env.VITE_PING_URI,
-					{
-						hostname: 'lucy.quantinium.dev',
-						port: 80,
-						timeout: 1000
-					},
-					{
-						headers: { 'Content-Type': 'application/json' }
-					}
-				),
-				axios.post(
-					import.meta.env.VITE_PING_URI,
-					{
-						hostname: 'github.com',
-						port: 80,
-						timeout: 1000
-					},
-					{
-						headers: { 'Content-Type': 'application/json' }
-					}
-				)
-			]);
+			const requests = servicesConfig.map((s) =>
+				axios.post(PING_URI, {
+					hostname: s.hostname,
+					port: 80,
+					timeout: 1000
+				})
+			);
 
-			quantinium = quantiniumRes.data.status;
-			proxy = proxyRes.data.status;
-			lucy = lucyRes.data.status;
-			git = gitRes.data.status;
-			if (quantinium == 'Ok' && proxy == 'Ok' && lucy == 'Ok' && git == 'Ok') {
-				system = 'Ok';
-			} else {
-				system = 'Err';
-			}
+			const results = await Promise.all(requests);
+
+			results.forEach((res, index) => {
+				const serviceId = servicesConfig[index].id;
+				statuses[serviceId] = res.data.status;
+			});
+
+			const allOk = Object.values(statuses).every((s) => s === 'Ok');
+			systemStatus = allOk ? 'Ok' : 'Err';
 		} catch (error) {
 			console.error('Error fetching system statuses:', error);
-			quantinium = 'Err';
-			proxy = 'Err';
-			lucy = 'Err';
-			git = 'Err';
+			Object.keys(statuses).forEach((key) => (statuses[key] = 'Err'));
+			systemStatus = 'Err';
 		}
 	});
 </script>
 
 <div class="mb-3 text-xl font-bold">
 	System Status:
-	<span class={system == 'Ok' ? 'text-green-500' : 'text-red-500'}>{system}</span>
+	<span class={systemStatus === 'Ok' ? 'text-green-500' : 'text-red-500'}>
+		{systemStatus}
+	</span>
 </div>
-<div class="grid grid-cols-2">
-	<div class="flex gap-2">
-		[<span class={quantinium == 'Ok' ? 'text-green-500' : 'text-red-500'}>
-			{quantinium}
-		</span>]<span>site</span>
-	</div>
-	<div class="flex gap-2">
-		[<span class={proxy == 'Ok' ? 'text-green-500' : 'text-red-500'}>{proxy}</span>]<span
-			>proxy</span
-		>
-	</div>
-	<div class="flex gap-2">
-		[<span class={lucy == 'Ok' ? 'text-green-500' : 'text-red-500'}>{lucy}</span>]<span>lucy</span>
-	</div>
-	<div class="flex gap-2">
-		[<span class={git == 'Ok' ? 'text-green-500' : 'text-red-500'}>{git}</span>]<span>git</span>
-	</div>
+
+<div class="grid grid-cols-2 gap-y-1">
+	{#each servicesConfig as service (service.id)}
+		<div class="flex gap-2">
+			[<span class={statuses[service.id] === 'Ok' ? 'text-green-500' : 'text-red-500'}>
+				{statuses[service.id]}
+			</span>]
+			<span>{service.name}</span>
+		</div>
+	{/each}
 </div>
