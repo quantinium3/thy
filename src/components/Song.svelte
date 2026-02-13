@@ -12,7 +12,7 @@
 
 	onMount(async () => {
 		try {
-			await axios.get(`${import.meta.env.VITE_ERIS_URI}/api/lastfm`).then((res) => {
+			await axios.get(`https://eris.quantinium.workers.dev/api/lastfm`).then((res) => {
 				const song = res.data.response.track[0];
 				songArtist = song.artist['#text'];
 				songName = song.name;

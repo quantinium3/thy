@@ -12,7 +12,7 @@
 	let statuses = $state(servicesConfig.reduce((acc, s) => ({ ...acc, [s.id]: '...' }), {}));
 	let systemStatus = $state('...');
 
-	const PING_URI = `${import.meta.env.VITE_ERIS_URI}/api/ping`;
+	const PING_URI = `https://eris.quantinium.workers.dev/api/ping`;
 
 	onMount(async () => {
 		try {
