@@ -9,7 +9,7 @@
 	let scroll_travel = $state(0);
 
 	onMount(async () => {
-		const statsUri = `${import.meta.env.VITE_NIXIE_URI}/api/stats/${import.meta.env.VITE_USERID}`;
+		const statsUri = `${import.meta.env.VITE_ERIS_URI}/api/stats`;
 		if (!statsUri) {
 			throw new Error('Stats URI is missing');
 		}

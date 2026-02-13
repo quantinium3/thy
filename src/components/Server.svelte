@@ -5,14 +5,14 @@
 	const servicesConfig = [
 		{ id: 'quantinium', name: 'site', hostname: 'quantinium.dev' },
 		{ id: 'proxy', name: 'proxy', hostname: 'gitlab.com' },
-		{ id: 'nixie', name: 'nixie', hostname: 'nixie.quantinium.dev' },
+		{ id: 'nixie', name: 'nixie', hostname: 'eris.quantinium.workers.dev' },
 		{ id: 'git', name: 'git', hostname: 'github.com' }
 	];
 
 	let statuses = $state(servicesConfig.reduce((acc, s) => ({ ...acc, [s.id]: '...' }), {}));
 	let systemStatus = $state('...');
 
-	const PING_URI = `${import.meta.env.VITE_NIXIE_URI}/api/ping`;
+	const PING_URI = `${import.meta.env.VITE_ERIS_URI}/api/ping`;
 
 	onMount(async () => {
 		try {
