@@ -130,9 +130,9 @@
 				</div>
 			</div>
 
-			<div class="border-b py-3">
-				<Server />
-			</div>
+			 <!--div class="border-b py-3">
+			 	<Server />
+			 </div -->
 
 			<div class="block md:hidden">
 				<div class="border-b py-3">
