@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as config from '$lib/config';
 	import { formatDate } from '$lib/utils';
-	import Server from '$components/Server.svelte';
 	import Code from '$components/Code.svelte';
 	import CoolButtons from '$components/CoolButtons.svelte';
 	import Sidebar from '$components/Sidebar.svelte';
@@ -55,7 +54,7 @@
 	<meta name="robots" content="index, follow" />
 </svelte:head>
 
-<div class="mt-[4rem]">
+<div class="mt-16">
 	<div class="flex">
 		<div class="hidden flex-1 flex-col px-3 md:block">
 			<Sidebar />

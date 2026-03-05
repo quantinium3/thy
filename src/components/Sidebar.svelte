@@ -46,11 +46,11 @@
 	];
 
 	let status = $state('offline');
-	let neovimActivity = $state('');
 	onMount(() => {
-		axios.get('https://api.lanyard.rest/v1/users/629491500954157076').then((res) => {
-			neovimActivity = res.data.data.activities.find((item) => item.name == 'Neovim')?.state;
+		axios.get('https://api.lanyard.rest/v1/users/629491500954157076')
+		.then((res) => {
 			status = res.data.data.discord_status;
+			console.log(status)
 		});
 	});
 </script>
@@ -64,16 +64,12 @@
 				{status.toUpperCase()}
 			</span>
 		</span>
-	{:else if status == 'online'}
+	{:else}
 		<span class="py-1 text-center text-lg">
 			<span class="inline-flex items-center gap-1">
 				<span class="h-2 w-2 animate-pulse rounded-full bg-green-500"></span>
 				{status.toUpperCase()}
 			</span>
-			{#if neovimActivity}
-				-
-				{neovimActivity}
-			{/if}
 		</span>
 	{/if}
 </div>

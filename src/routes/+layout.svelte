@@ -56,7 +56,7 @@
 
 <Navbar {toggleSidebar} />
 <div
-	class="sidebar fixed top-[3rem] z-10 min-h-screen min-w-[70%] bg-[#FCFAF6]/90 pt-3 backdrop-blur-xl duration-300 ease-out dark:bg-[#161411]/90 {sidebarOpen
+	class="sidebar fixed top-12 z-10 min-h-screen min-w-[70%] bg-[#FCFAF6]/90 pt-3 backdrop-blur-xl duration-300 ease-out dark:bg-[#161411]/90 {sidebarOpen
 		? 'open'
 		: ''}"
 >
