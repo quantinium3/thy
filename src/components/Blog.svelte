@@ -10,7 +10,7 @@
 </svelte:head>
 
 <div class="flex flex-col border-b border-dashed border-zinc-500/50 py-9">
-	<div class=" mb-1">
+	<div class=" mb-2">
 		<h1 class="text-xl font-semibold text-[#fe8019]">
 			<a
 				href="/blog/{blog.slug}"
@@ -20,9 +20,9 @@
 	</div>
 
 	<div class="mb-5 flex gap-3">
-		<p class="border-r pr-2 text-xs text-zinc-900 dark:text-zinc-100">{formatDate(blog.date)}</p>
+		<p class="border-r pr-2 text-sm text-zinc-900 dark:text-zinc-100">{formatDate(blog.date)}</p>
 		{#each blog.categories as category (category)}
-			<span class="text-xs">#{category.replaceAll('_', ' ')}</span>
+			<span class="text-sm">#{category.replaceAll('_', ' ')}</span>
 		{/each}
 	</div>
 

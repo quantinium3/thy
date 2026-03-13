@@ -17,16 +17,18 @@
 	/>
 </svelte:head>
 
-<article class="mt-[4rem] flex flex-col gap-5 dark:text-white">
-		<a href="/blog" class="flex items-center hover:underline hover:underline-offset-2"><ArrowLeft class="h-[15px]" /> back </a>
-	<hgroup class="t mb-2 flex flex-col">
+<article class="mt-[4rem] flex flex-col gap-2 dark:text-white">
+	<a href="/blog" class="flex items-center hover:underline hover:underline-offset-2"
+		><ArrowLeft class="h-[15px]" /> back
+	</a>
+	<hgroup class="mb-1 flex flex-col">
 		<h1 class="heading mb-1 text-xl font-semibold">{data.meta.title}</h1>
 		<div class="flex gap-3">
-			<p class="dark:text-zinc-400 text-[11px] md:text-[14px]">
+			<p class="text-sm dark:text-zinc-400">
 				published: {formatDate(data.meta.date)}
 			</p>
 			|
-			<div class="flex gap-3 text-[11px] md:text-[14px]">
+			<div class="flex gap-3 text-sm">
 				{#each data.meta.categories as category (category)}
 					<a href="#" class="">#{category}</a>
 				{/each}
@@ -51,17 +53,17 @@
 	></script>
 </article>
 
-<footer class="flex justify-between border-t mt-5 py-3 border-[#3f3f3f]">
-<div class="">
-	<Copyright class="inline" size={15} />quantinium
-	{new Date().getFullYear()}
-</div>
-<div class="flex gap-3">
-	<a href="https://github.com/quantinium3" target="_blank"><Github /></a>
-	<a href="https://x.com/quantinium3" target="_blank"><Twitter /></a>
-	<a href="mailto:quant@quantinium.dev" target="_blank"><Mail /></a>
-	<a href="/rss-xml" target="_blank"><Rss /></a>
-</div>
+<footer class="mt-5 flex justify-between border-t border-[#3f3f3f] py-3">
+	<div class="">
+		<Copyright class="inline" size={15} />quantinium
+		{new Date().getFullYear()}
+	</div>
+	<div class="flex gap-3">
+		<a href="https://github.com/quantinium3" target="_blank"><Github /></a>
+		<a href="https://x.com/quantinium3" target="_blank"><Twitter /></a>
+		<a href="mailto:quant@quantinium.dev" target="_blank"><Mail /></a>
+		<a href="/rss-xml" target="_blank"><Rss /></a>
+	</div>
 </footer>
 
 <style>

@@ -15,7 +15,7 @@
 	/>
 	<div class="flex flex-col justify-center">
 		<div class="mt-3 text-center text-lg font-bold lg:text-left">quantinium</div>
-		<div class="text-[14px]">3rd year computer science student</div>
+		<div class="text-sm">3rd year computer science student</div>
 		<div class="mt-3 flex justify-center gap-3 lg:justify-start">
 			<a href="https://github.com/quantinium3" target="_blank">
 				<Github size="20" />
@@ -35,10 +35,10 @@
 	<p class="my-2">
 		<span class="mb-1 block text-lg font-semibold">Good day,</span>
 		I'm a programmer who started with an urge to deploying a html page on my old pc and then fell down
-		the rabbit hole of linux, window managers, neovim and then started to learn to program on May 12
-		2024. I have dabbled in various domains and learnt many languages along the way. Primarily i focus
-		on backend and frontend development and devops but is interested in systems programming. Some facts
-		about me -
+		the rabbit hole of linux, window managers, neovim and then started to learn to program on May 12 2024.
+		I have dabbled in various domains and learnt many languages along the way. Primarily i focus on backend
+		and frontend development and devops but is interested in systems programming. Some facts about me
+		-
 	</p>
 	<ul class="list-disc pb-2 pl-[1rem]">
 		<li class="">

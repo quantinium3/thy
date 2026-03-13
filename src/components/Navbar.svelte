@@ -10,10 +10,10 @@
 		// 	name: 'home',
 		// 	href: '/'
 		// },
-        //{
-        //    name: 'about',
-        //    href: "/about"
-        //},
+		//{
+		//    name: 'about',
+		//    href: "/about"
+		//},
 		//{
 		//	name: 'blog',
 		//	href: '/blog'
@@ -38,10 +38,10 @@
 </script>
 
 <div
-	class="fixed top-0 left-1/2 z-1 flex h-[3rem] w-full max-w-5xl -translate-x-1/2 transform items-center justify-between bg-[#FCFAF6]/90 px-3 lg:px-0 py-[1rem] dark:bg-[#161411]/90"
+	class="fixed top-0 left-1/2 z-1 flex h-[3rem] w-full max-w-5xl -translate-x-1/2 transform items-center justify-between bg-[#FCFAF6]/90 px-3 py-[1rem] lg:px-0 dark:bg-[#161411]/90"
 >
 	<div class="flex items-center space-x-1 font-bold text-orange-400 dark:text-orange-300">
-		<span class="text-md flex items-center font-bold text-[#fabd2f]">
+		<span class="flex items-center text-base font-bold text-[#fabd2f]">
 			<button class="pointer-events-auto mr-2 md:pointer-events-none" onclick={toggleSidebar}
 				>></button
 			>
@@ -53,7 +53,7 @@
 	</div>
 
 	<div class="flex gap-2">
-		<div class="flex flex-wrap items-center gap-2 text-md md:text-lg">
+		<div class="flex flex-wrap items-center gap-2 text-base md:text-lg">
 			{#each links as link (link.name)}
 				[<a
 					href={link.href}
