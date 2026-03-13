@@ -23,14 +23,14 @@
 	</a>
 	<hgroup class="mb-1 flex flex-col">
 		<h1 class="heading mb-1 text-xl font-semibold">{data.meta.title}</h1>
-		<div class="flex gap-3">
-			<p class="text-sm dark:text-zinc-400">
-				published: {formatDate(data.meta.date)}
-			</p>
-			|
-			<div class="flex gap-3 text-sm">
+		<div class="flex flex-wrap items-center gap-2 text-sm dark:text-zinc-400">
+			<p>{formatDate(data.meta.date)}</p>
+			<span class="dark:text-zinc-600">·</span>
+			<div class="flex flex-wrap gap-2">
 				{#each data.meta.categories as category (category)}
-					<a href="#" class="">#{category}</a>
+					<span class="rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-300">
+						#{category}
+					</span>
 				{/each}
 			</div>
 		</div>
