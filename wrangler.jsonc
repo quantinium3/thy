@@ -1,0 +1,26 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "thy",
+	"compatibility_date": "2026-03-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+	"workers_dev": true,
+	"preview_urls": true,
+	"observability": {
+		"enabled": true
+	},
+	"routes": [
+		{
+			"pattern": "quantinium.dev",
+			"custom_domain": true
+		},
+		{
+			"pattern": "www.quantinium.dev",
+			"custom_domain": true
+		}
+	]
+}
