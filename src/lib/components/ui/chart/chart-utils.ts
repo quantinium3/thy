@@ -1,7 +1,6 @@
-import type { Tooltip } from "layerchart";
-import { getContext, setContext, type Component, type ComponentProps, type Snippet } from "svelte";
+import { getContext, setContext, type Component } from 'svelte';
 
-export const THEMES = { light: "", dark: ".dark" } as const;
+export const THEMES = { light: '', dark: '.dark' } as const;
 
 export type ChartConfig = {
 	[k in string]: {
@@ -13,22 +12,25 @@ export type ChartConfig = {
 	);
 };
 
-export type ExtractSnippetParams<T> = T extends Snippet<[infer P]> ? P : never;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type TooltipPayload = Record<string, any> & {
+	key?: string;
+	name?: string;
+	value?: unknown;
+	color?: string;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	payload?: Record<string, any>;
+};
 
-export type TooltipPayload = ExtractSnippetParams<
-	ComponentProps<typeof Tooltip.Root>["children"]
->["payload"][number];
-
-// Helper to extract item config from a payload.
 export function getPayloadConfigFromPayload(
 	config: ChartConfig,
 	payload: TooltipPayload,
 	key: string
 ) {
-	if (typeof payload !== "object" || payload === null) return undefined;
+	if (typeof payload !== 'object' || payload === null) return undefined;
 
 	const payloadPayload =
-		"payload" in payload && typeof payload.payload === "object" && payload.payload !== null
+		'payload' in payload && typeof payload.payload === 'object' && payload.payload !== null
 			? payload.payload
 			: undefined;
 
@@ -38,12 +40,12 @@ export function getPayloadConfigFromPayload(
 		configLabelKey = payload.key;
 	} else if (payload.name === key) {
 		configLabelKey = payload.name;
-	} else if (key in payload && typeof payload[key as keyof typeof payload] === "string") {
+	} else if (key in payload && typeof payload[key as keyof typeof payload] === 'string') {
 		configLabelKey = payload[key as keyof typeof payload] as string;
 	} else if (
 		payloadPayload &&
 		key in payloadPayload &&
-		typeof payloadPayload[key as keyof typeof payloadPayload] === "string"
+		typeof payloadPayload[key as keyof typeof payloadPayload] === 'string'
 	) {
 		configLabelKey = payloadPayload[key as keyof typeof payloadPayload] as string;
 	}
@@ -55,7 +57,7 @@ type ChartContextValue = {
 	config: ChartConfig;
 };
 
-const chartContextKey = Symbol("chart-context");
+const chartContextKey = Symbol('chart-context');
 
 export function setChartContext(value: ChartContextValue) {
 	return setContext(chartContextKey, value);
@@ -63,4 +65,18 @@ export function setChartContext(value: ChartContextValue) {
 
 export function useChart() {
 	return getContext<ChartContextValue>(chartContextKey);
+}
+
+type TooltipContextValue = {
+	payload: TooltipPayload[];
+};
+
+const tooltipContextKey = Symbol('tooltip-context');
+
+export function setTooltipContext(value: TooltipContextValue) {
+	return setContext(tooltipContextKey, value);
+}
+
+export function getTooltipContext() {
+	return getContext<TooltipContextValue>(tooltipContextKey);
 }

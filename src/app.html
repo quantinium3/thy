@@ -1,52 +1,22 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<script>
+			var s = localStorage.getItem('theme');
+			if (s ? s === 'dark' : true) document.documentElement.classList.add('dark');
+		</script>
+		%sveltekit.head%
+		<link rel="alternate" type="application/rss+xml" title="quantinium's blog" href="/rss.xml" />
+	</head>
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%sveltekit.assets%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
-
-    <meta property="og:title" content="quantinium" />
-    <meta property="og:type" content="profile" />
-    <meta property="og:url" content="https://quantinium.dev" />
-    <meta property="og:image" content="https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdbQQdcGL2bDKu8v17GsaP0WA3NQCBqSgcjIX9" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:description"
-        content="Hi i'm quantinium. this is my personal corner on the web. here i try to post everything i learn. " />
-    %sveltekit.head%
-</head>
-
-<body data-sveltekit-preload-data="hover" class="dark:bg-[#161411] bg-[#FCFAF6] mx-auto dark:text-white text-black">
-    <div>
-        %sveltekit.body%
-    </div>
-</body>
-
-<script type="module">
-    const theme = localStorage.getItem('color-scheme')
-
-    theme
-        ? document.documentElement.setAttribute('color-scheme', theme)
-        : localStorage.setItem('color-scheme', 'dark')
-</script>
-
+	<body
+		data-sveltekit-preload-data="hover"
+		class="bg-white text-black dark:bg-[#1a1a1a] dark:text-white"
+	>
+		<div style="display: contents">%sveltekit.body%</div>
+		<script src="/oneko.js" data-cat="/oneko.gif"></script>
+	</body>
 </html>
-
-<style>
-    body {
-        font-family: 'Menlo Regular', monospace;
-        font-weight: normal;
-        font-size: 15px;
-        line-height: 150%;
-        padding: 0 1rem;
-    }
-</style>

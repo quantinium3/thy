@@ -1,73 +1,329 @@
 <script lang="ts">
-	import { formatDate } from '$lib/utils';
-	import { ArrowLeft, Copyright, Github, Mail, Rss, Twitter } from '@lucide/svelte';
+	import { ChevronLeft, Copy, Check, X } from '@lucide/svelte';
+	import { onMount, mount } from 'svelte';
+	import { resolve } from '$app/paths';
 	let { data } = $props();
+
+	onMount(() => {
+		document.querySelectorAll('.prose li input[type="checkbox"]').forEach((checkbox) => {
+			const checked = (checkbox as HTMLInputElement).checked;
+			const iconEl = document.createElement('span');
+			iconEl.className = 'task-icon';
+			mount(checked ? Check : X, {
+				target: iconEl,
+				props: { size: 15, class: checked ? 'task-done' : 'task-todo' }
+			});
+			checkbox.replaceWith(iconEl);
+		});
+
+		document.querySelectorAll('.prose pre').forEach((pre) => {
+			(pre as HTMLElement).style.position = 'relative';
+
+			const btn = document.createElement('button');
+			btn.className = 'copy-btn';
+
+			const iconEl = document.createElement('span');
+			mount(Copy, { target: iconEl, props: { size: 14 } });
+			btn.appendChild(iconEl);
+
+			btn.addEventListener('click', async () => {
+				const code = pre.querySelector('code')?.innerText ?? '';
+				await navigator.clipboard.writeText(code);
+				iconEl.innerHTML = '';
+				mount(Check, { target: iconEl, props: { size: 14 } });
+				setTimeout(() => {
+					iconEl.innerHTML = '';
+					mount(Copy, { target: iconEl, props: { size: 14 } });
+				}, 2000);
+			});
+
+			pre.appendChild(btn);
+		});
+	});
 </script>
 
-<svelte:head>
-	<title>{data.meta.title}</title>
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content={data.meta.title} />
-	<link
-		rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css"
-		integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"
-	/>
-</svelte:head>
-
-<article class="mt-[4rem] flex flex-col gap-2 dark:text-white">
-	<a href="/blog" class="flex items-center hover:underline hover:underline-offset-2"
-		><ArrowLeft class="h-[15px]" /> back
+<article class="py-4">
+	<a
+		href={resolve('/blog')}
+		class="mb-4 inline-flex items-center gap-0.5 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+	>
+		<span class="flex items-center"><ChevronLeft size={14} /></span>[/blog]
 	</a>
-	<hgroup class="mb-1 flex flex-col">
-		<h1 class="heading mb-1 text-xl font-semibold">{data.meta.title}</h1>
-		<div class="flex flex-wrap items-center gap-2 text-sm dark:text-zinc-400">
-			<p>{formatDate(data.meta.date)}</p>
-			<span class="dark:text-zinc-600">·</span>
-			<div class="flex flex-wrap gap-2">
-				{#each data.meta.categories as category (category)}
-					<span class="rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-300">
-						#{category}
-					</span>
+
+	<div class="mb-6 border-b pb-4 dark:border-zinc-400">
+		<h1 class="font-bold">{data.title}</h1>
+		<p class="mt-1 text-xs opacity-70">
+			{Intl.DateTimeFormat('en-GB', {
+				dateStyle: 'full'
+			}).format(new Date(data.date))}
+		</p>
+		{#if data.description}
+			<p class="my-2 text-sm opacity-90">{data.description}</p>
+		{/if}
+		{#if data.tags.length}
+			<div class="mt-2 flex gap-2">
+				{#each data.tags as tag (tag)}
+					<span class="text-xs text-emerald-600 dark:text-emerald-400">&lbrace;{tag}&rbrace;</span>
 				{/each}
 			</div>
-		</div>
-	</hgroup>
+		{/if}
+	</div>
 
-	<div class="content">
+	<div class="prose">
 		<data.content />
 	</div>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js"
-		integrity="sha512-Uw06iFFf9hwoN77+kPl/1DZL66tKsvZg6EWm7n6QxInyptVuycfrO52hATXDRozk7KWeXnrSueiglILct8IkkA=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"
-	></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js"
-		integrity="sha512-SkmBfuA2hqjzEVpmnMt/LINrjop3GKWqsuLSSB3e7iBmYK7JuWw4ldmmxwD9mdm2IRTTi0OxSAfEGvgEi0i2Kw=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"
-	></script>
 </article>
 
-<footer class="mt-5 flex justify-between border-t border-[#3f3f3f] py-3">
-	<div class="">
-		<Copyright class="inline" size={15} />quantinium
-		{new Date().getFullYear()}
-	</div>
-	<div class="flex gap-3">
-		<a href="https://github.com/quantinium3" target="_blank"><Github /></a>
-		<a href="https://x.com/quantinium3" target="_blank"><Twitter /></a>
-		<a href="mailto:quant@quantinium.dev" target="_blank"><Mail /></a>
-		<a href="/rss-xml" target="_blank"><Rss /></a>
-	</div>
-</footer>
-
 <style>
-	.heading {
-		text-transform: capitalize;
+	.prose :global(h1),
+	.prose :global(h2),
+	.prose :global(h3),
+	.prose :global(h4),
+	.prose :global(h5),
+	.prose :global(h6) {
+		font-weight: bold;
+		font-size: 1rem;
+		margin-top: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+	.prose :global(h1)::before {
+		content: '# ';
+		opacity: 0.4;
+	}
+	.prose :global(h2)::before {
+		content: '## ';
+		opacity: 0.4;
+	}
+	.prose :global(h3)::before {
+		content: '### ';
+		opacity: 0.4;
+	}
+	.prose :global(h4)::before {
+		content: '#### ';
+		opacity: 0.4;
+	}
+	.prose :global(h5)::before {
+		content: '##### ';
+		opacity: 0.4;
+	}
+	.prose :global(h6)::before {
+		content: '###### ';
+		opacity: 0.4;
+	}
+	.prose :global(p) {
+		margin-bottom: 1rem;
+		line-height: 1.7;
+	}
+	.prose :global(ul),
+	.prose :global(ol) {
+		padding-left: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	.prose :global(ol) {
+		margin-left: 0.75rem;
+	}
+	.prose :global(li) {
+		margin-bottom: 0.25rem;
+	}
+	.prose :global(.task-icon) {
+		display: inline-flex;
+		align-items: center;
+		vertical-align: middle;
+		margin-right: 0.35rem;
+	}
+	.prose :global(.task-done) {
+		color: #16a34a;
+	}
+	.prose :global(.task-todo) {
+		color: #dc2626;
+	}
+	:global(html.dark) .prose :global(.task-done) {
+		color: #4ade80;
+	}
+	:global(html.dark) .prose :global(.task-todo) {
+		color: #f87171;
+	}
+	.prose :global(ul) {
+		list-style-type: disc;
+	}
+	.prose :global(ol) {
+		list-style-type: decimal;
+	}
+	.prose :global(code) {
+		font-family: 'Menlo', monospace;
+		font-size: 0.875rem;
+	}
+	.prose :global(:not(pre) > code) {
+		background-color: rgba(0, 0, 0, 0.08);
+		border-radius: 0.25rem;
+		padding: 0.1rem 0.35rem;
+	}
+	:global(html.dark) .prose :global(:not(pre) > code) {
+		background-color: rgba(255, 255, 255, 0.12);
+	}
+	.prose :global(pre) {
+		margin-bottom: 1rem;
+		overflow-x: auto;
+		border-radius: 0.375rem;
+	}
+	.prose :global(.shiki) {
+		padding: 1rem;
+	}
+	.prose :global(.copy-btn) {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		padding: 0.25rem;
+		opacity: 0;
+		transition: opacity 0.15s;
+		cursor: pointer;
+		border-radius: 0.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.prose :global(pre:hover .copy-btn) {
+		opacity: 0.6;
+	}
+	.prose :global(.copy-btn:hover) {
+		opacity: 1 !important;
+	}
+	/* shiki dual-theme: show light by default, dark when .dark is on <html> */
+	:global(html:not(.dark)) .prose :global(.shiki) {
+		background-color: #f4f4f5 !important;
+	}
+	:global(html.dark) .prose :global(.shiki) {
+		background-color: #242424 !important;
+	}
+	:global(html.dark) .prose :global(.shiki span) {
+		color: var(--shiki-dark) !important;
+	}
+	.prose :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.875rem;
+	}
+	.prose :global(table) {
+		display: block;
+		overflow-x: auto;
+		margin-bottom: 1rem;
+		scrollbar-width: thin;
+		scrollbar-color: rgba(128, 128, 128, 0.4) transparent;
+	}
+	.prose :global(table::-webkit-scrollbar) {
+		height: 4px;
+	}
+	.prose :global(table::-webkit-scrollbar-track) {
+		background: transparent;
+	}
+	.prose :global(table::-webkit-scrollbar-thumb) {
+		background-color: rgba(128, 128, 128, 0.4);
+		border-radius: 9999px;
+	}
+	.prose :global(table::-webkit-scrollbar-thumb:hover) {
+		background-color: rgba(128, 128, 128, 0.7);
+	}
+	.prose :global(thead) {
+		border-bottom: 2px solid;
+		opacity: 1;
+	}
+	.prose :global(th) {
+		text-align: left;
+		font-weight: bold;
+		padding: 0.5rem 0.75rem;
+	}
+	.prose :global(td) {
+		padding: 0.5rem 0.75rem;
+		border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+	}
+	.prose :global(tr:last-child td) {
+		border-bottom: none;
+	}
+	.prose :global(tr:hover td) {
+		background-color: rgba(128, 128, 128, 0.06);
+	}
+
+	.prose :global(a) {
+		color: #2563eb;
+		text-decoration: underline;
+	}
+	.prose :global(a)::before {
+		content: '[';
+		opacity: 0.6;
+	}
+	.prose :global(a)::after {
+		content: ']';
+		opacity: 0.6;
+	}
+	.prose :global(a:hover) {
+		color: #1d4ed8;
+	}
+	:global(html.dark) .prose :global(a) {
+		color: #60a5fa;
+	}
+	:global(html.dark) .prose :global(a:hover) {
+		color: #93c5fd;
+	}
+	.prose :global(blockquote) {
+		border-left: 2px solid;
+		padding-left: 1rem;
+		opacity: 0.7;
+		margin-bottom: 1rem;
+	}
+	.prose :global(mark) {
+		background: none;
+		color: inherit;
+		border: 1px solid currentColor;
+		border-radius: 0.2rem;
+		padding: 0 0.2rem;
+	}
+	.prose :global(details) {
+		border: 1px solid rgba(128, 128, 128, 0.3);
+		border-radius: 0.375rem;
+		padding: 0.4rem 0.6rem 0.2rem;
+		margin-bottom: 1rem;
+	}
+	.prose :global(summary) {
+		cursor: pointer;
+		font-weight: bold;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		user-select: none;
+	}
+	.prose :global(summary)::before {
+		content: '▸';
+		font-size: 0.75rem;
+		transition: transform 0.2s;
+		display: inline-block;
+		opacity: 0.5;
+	}
+	.prose :global(details[open] summary)::before {
+		transform: rotate(90deg);
+	}
+	.prose :global(details[open] summary) {
+		margin-bottom: 0.4rem;
+	}
+	.prose :global(details[open]) {
+		border-color: rgba(128, 128, 128, 0.5);
+	}
+
+	:global(html) {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(128, 128, 128, 0.35) transparent;
+	}
+	:global(html::-webkit-scrollbar) {
+		width: 5px;
+	}
+	:global(html::-webkit-scrollbar-track) {
+		background: transparent;
+	}
+	:global(html::-webkit-scrollbar-thumb) {
+		background-color: rgba(128, 128, 128, 0.35);
+		border-radius: 9999px;
+	}
+	:global(html::-webkit-scrollbar-thumb:hover) {
+		background-color: rgba(128, 128, 128, 0.6);
 	}
 </style>

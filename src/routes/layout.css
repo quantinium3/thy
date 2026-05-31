@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+	--color-surface-100: white;
+	--color-surface-300: white;
+	--color-surface-content: #18181b;
+}
+
+.dark {
+	--color-surface-100: #18181b;
+	--color-surface-300: #18181b;
+	--color-surface-content: #fafafa;
+}
+
+@font-face {
+	font-family: 'Menlo';
+	src: url('/Menlo-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}

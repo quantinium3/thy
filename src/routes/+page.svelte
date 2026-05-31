@@ -1,164 +1,136 @@
 <script lang="ts">
-	import * as config from '$lib/config';
-	import { formatDate } from '$lib/utils';
-	import Code from '$components/Code.svelte';
-	import CoolButtons from '$components/CoolButtons.svelte';
-	import Sidebar from '$components/Sidebar.svelte';
-	import CodeStatus from '$components/CodeStatus.svelte';
-	import Peripheral from '$components/Peripheral.svelte';
-	import Song from '$components/Song.svelte';
+	import FileTree from '$lib/components/file-tree.svelte';
+	import Listening from '$lib/components/listening.svelte';
+	import Stats from '$lib/components/stats.svelte';
+	import InputStats from '$lib/components/input-stats.svelte';
+	import WakatimeCharts from '$lib/components/wakatime-charts.svelte';
+	import ImageCarousel from '$lib/components/image-carousel.svelte';
+	import { projects } from '$lib/projects';
+	import { ArrowRight } from '@lucide/svelte';
+	import { slide } from 'svelte/transition';
+	import { sidebar } from '$lib/sidebar.svelte';
+	import { resolve } from '$app/paths';
 	let { data } = $props();
 
-	const projects = [
-		{
-			name: 'grimoire',
-			href: 'https://github.com/quantinium3/grimoire',
-			description: 'a cli static site generator',
-			tech: ['Rust']
-		},
-		{
-			name: 'coderunner',
-			href: 'https://coderunner.quantinium.dev/',
-			description: 'an online code editor',
-			tech: ['reactjs, expressjs']
-		},
-		{
-			name: 'dampe',
-			href: 'https://github.com/quantinium3/dampe',
-			description: 'ai powered file storage',
-			tech: ['nextjs']
-		},
-		{
-			name: 'asami',
-			href: 'https://asami.vercel.app',
-			description: 'ascii art generator',
-			tech: ['reactjs']
-		},
-        {
-            name: 'webalyze',
-            href: 'https://github.com/quantinium3/webalyze',
-            description: 'ai powered web scraper',
-            tech: ['python', 'streamlit', 'ollama', 'langchain']
-        },
-		{
-			name: 'kairos',
-			href: 'https://github.com/quantinium3/kairos',
-			description: 'self hosted media server',
-			tech: ['reactjs', 'golang', 'rust', 'honojs']
-		}
-	];
+	function truncate(text: string, words = 20) {
+		const parts = text.split(' ');
+		return parts.length <= words ? text : parts.slice(0, words).join(' ') + '…';
+	}
 </script>
 
-<svelte:head>
-	<title>{config.title}</title>
-	<meta name="robots" content="index, follow" />
-</svelte:head>
+{#if sidebar.open}
+	<aside
+		transition:slide={{ duration: 200 }}
+		class="flex flex-col gap-3 border-b py-3 md:hidden dark:border-zinc-400"
+	>
+		<ImageCarousel />
+		<FileTree />
+	</aside>
+{/if}
 
-<div class="mt-16">
-	<div class="flex">
-		<div class="hidden flex-1 flex-col px-3 md:block">
-			<Sidebar />
-		</div>
-		<div class="max-w-fit flex-3 px-3">
-			<div class="intro item-center border-b">
-				<div class="item-center mb-3 flex flex-col justify-center gap-3">
-					<div class="text-xl font-semibold">Hi, im quantinium</div>
-					<div>currently pursuing undergrad in computer engineering</div>
-					<div>
-						my interests generally revolve around backend and hardware stuff but i can do frontends,
-						devops and systems programming. Apart from computers, i enjoy physics, watching anime,
-						history, reading books, playing games and eeping.
-					</div>
-					<div>
-						this site is will be in eternal under construction cause i would definitely change it in
-						the future.
-					</div>
-					<div>
-						feel free to talk or dm on
-						<a href="https://x.com/quantinium3" class="hover:underline" target="_blank">X</a> or discord
-						(@quantinium3) or pigeons.
-					</div>
-					<div class="font-bold underline">Open to new roles</div>
-					<div><a href="/about" class="hover:underline hover:underline-offset-2">more...</a></div>
-				</div>
+<div class="flex w-full gap-6 py-3">
+	<aside class="hidden w-1/4 shrink-0 flex-col gap-3 md:flex">
+		<ImageCarousel />
+		<FileTree />
+		<Listening />
+		<Stats />
+		<InputStats />
+	</aside>
 
-				<div class="cool-sites">
-					<CoolButtons />
-				</div>
+	<main class="flex w-full flex-col">
+		<div class="border-b dark:border-zinc-400">
+			<div>
+				<h2 class="font-bold">Hi, I'm quantinium</h2>
+				<span class="text-sm opacity-70">compsci undergrad</span>
 			</div>
-
-			<div class="border-b py-3">
-				<span class="text-xl font-bold">Projects</span>
-				<ul class="my-2">
-					{#each projects as project (project)}
-						<div class="text-md">
-							- <a
-								href={project.href}
-								target="_blank"
-								class="hover:underline hover:underline-offset-2">{project.name}</a
-							>
-							-
-							{project.description}
-						</div>
-					{/each}
-				</ul>
-				<div>
-					<a href="/project" target="_blank" class="hover:underline hover:underline-offset-2"
-						>more...</a
-					>
-				</div>
-			</div>
-
-			<div class="border-b py-3">
-				<span class="text-xl font-bold">Blog</span>
-				<ul class="my-2">
-					{#each data.blogs as blog (blog)}
-						<div class="text-md">
-							- <a href="/blog/{blog.slug}" class="hover:underline hover:underline-offset-2"
-								>{blog.title}</a
-							>
-							-
-							{formatDate(blog.date)}
-						</div>
-					{/each}
-				</ul>
-				<div>
-					<a href="/blog" target="_blank" class="hover:underline hover:underline-offset-2"
-						>more...</a
-					>
-				</div>
-			</div>
-
-			 <!--div class="border-b py-3">
-			 	<Server />
-			 </div -->
-
-			<div class="block md:hidden">
-				<div class="border-b py-3">
-					<Peripheral />
-				</div>
-
-				<div class="border-b py-3">
-					<CodeStatus />
-				</div>
-
-				<div class="border-b py-3">
-					<Song />
-				</div>
-			</div>
-
-			<div class="mb-10">
-				<Code />
+			<div class="space-y-3 py-3">
+				<p>
+					This is my personal website and a place to store all the stuff that i write, make and
+					like. My interests generally revolve around backend and hardware stuff but i can do
+					frontends, devops and systems programming. Apart from computers, i enjoy physics, watching
+					anime, history, reading books, playing games.
+				</p>
+				<p>
+					Feel free to talk or dm on <a
+						href="https://twitter.com/quantinium3"
+						class="text-blue-700 dark:text-blue-400">[X]</a
+					> or discord (@quantinium3) or pigeons.
+				</p>
+				<p class="opacity-70">open to new roles</p>
 			</div>
 		</div>
-	</div>
+
+		<div class="border-b pb-3 dark:border-zinc-400">
+			<div class="flex items-center justify-between py-3">
+				<h1 class="font-bold">Blog</h1>
+				<a
+					href={resolve('/blog')}
+					class="flex items-center gap-1 text-xs opacity-50 hover:opacity-100"
+					>see all <ArrowRight size={12} /></a
+				>
+			</div>
+			<div>
+				{#each data.posts as post (post.slug)}
+					<div class="space-y-0.5">
+						<div class="flex flex-wrap items-baseline gap-3">
+							<a
+								href={resolve(`/blog/${post.slug}`)}
+								class="font-bold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+								>[{post.title}]</a
+							>
+							<span class="text-xs opacity-50"
+								>{Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(
+									new Date(post.date)
+								)}</span
+							>
+						</div>
+						{#if post.description}
+							<p class="text-sm opacity-80">{truncate(post.description)}</p>
+						{/if}
+					</div>
+				{/each}
+			</div>
+		</div>
+
+		<div class="border-b pb-3 dark:border-zinc-400">
+			<div class="flex items-center justify-between py-3">
+				<h1 class="font-bold">Projects</h1>
+				<a
+					href={resolve('/project')}
+					class="flex items-center gap-1 text-xs opacity-50 hover:opacity-90"
+					>see all <ArrowRight size={12} /></a
+				>
+			</div>
+			<div class="flex flex-col space-y-1">
+				{#each projects.slice(0, 4) as project (project.name)}
+					<div>
+						<div class="flex flex-wrap items-baseline gap-3">
+							{#if project.repo}
+								<a
+									href={project.repo}
+									target="_blank"
+									rel="noopener noreferrer external"
+									class="font-bold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+								>
+									[{project.name}]
+								</a>
+							{:else}
+								<span class="font-bold">[{project.name}]</span>
+							{/if}
+							<span class="text-xs opacity-70">{project.status}</span>
+						</div>
+						<p class="text-sm opacity-80">{truncate(project.description)}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+
+		<WakatimeCharts />
+
+		<div class="flex flex-col gap-3 pt-3 md:hidden">
+			<Listening />
+			<Stats />
+			<InputStats />
+		</div>
+	</main>
 </div>
-
-<style>
-	.cool-sites {
-		margin: 20px 0;
-		position: relative;
-		height: 33px;
-		overflow: hidden;
-	}
-</style>

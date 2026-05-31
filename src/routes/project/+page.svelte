@@ -1,97 +1,78 @@
 <script lang="ts">
-	import * as config from '$lib/config';
-	import Project from '$components/Project.svelte';
+	import { projects } from '$lib/projects';
 
-	const projects = [
-		{
-			title: 'Dampe',
-			description: 'An AI powered file storage',
-			tech: ['Nextjs'],
-			slug: 'https://github.com/quantinium3/dampe'
-		},
-		{
-			title: 'Grimoire',
-			description: 'A Cli static site generator that converts markdown into fully fledged websites',
-			tech: ['Rust', 'Comrak'],
-			slug: 'https://grimoire.quantinium.dev'
-		},
-		{
-			title: 'Coderunner',
-			description: 'an online editor for some fun languages',
-			tech: ['Reactjs', 'Rust(Axum)'],
-			slug: 'https://coderunner.quantinium.dev'
-		},
-		{
-			title: 'TSH',
-			description:
-				'tmux sessionizer to create tmux session at a blazingly fast speed and increase productivity',
-			tech: ['Rust'],
-			slug: 'https://github.com/quantinium3/tsh'
-		},
-		{
-			name: 'Webalyze',
-			href: 'https://github.com/quantinium3/webalyze',
-			description: 'AI integrated web scraper',
-			tech: ['python', 'streamlit', 'ollama', 'langchain']
-		},
-		{
-			title: 'Kairos',
-			description: 'A self hostable media server',
-			tech: ['ReactJS', 'Golang', 'Rust', 'HonoJS'],
-			slug: 'https://github.com/quantinium3/kairos'
-		},
-		{
-			title: 'Xunbao',
-			description: 'an online quiz platform for a college hackathon',
-			tech: ['ReactJS', 'ExpressJS', 'MongoDB', 'ClerkJS'],
-			slug: 'https://github.com/quantinium3/xunbao'
-		},
-		{
-			title: 'Tanshilink',
-			description: 'url shortener',
-			tech: ['ElysiaJS'],
-			slug: 'https://github.com/quantinium3/tanshilink'
-		},
-		{
-			title: 'Asami',
-			description: 'an ascii art generator to convert normal images into ascii',
-			tech: ['Typescript', 'ReactJS'],
-			slug: 'https://github.com/quantinium3/asami'
-		},
-		{
-			title: 'Yumi',
-			description: 'package manager to fetch npm packages',
-			tech: ['Typescript'],
-			slug: 'https://github.com/quantinium3/yumi'
-		},
-		{
-			title: 'Ryu',
-			description: 'a web server written',
-			tech: ['C'],
-			slug: 'https://github.com/quantinium3/ryu'
-		}
-	];
+	let query = $state('');
+
+	const statusColor: Record<string, string> = {
+		active: 'text-emerald-600 dark:text-emerald-400',
+		finished: 'text-blue-600 dark:text-blue-400',
+		wip: 'text-amber-600 dark:text-amber-400',
+		abandoned: 'text-zinc-400 dark:text-zinc-500'
+	};
+
+	const filtered = $derived(
+		query.trim() === ''
+			? projects
+			: projects.filter((p) => {
+					const q = query.toLowerCase();
+					return (
+						p.name.toLowerCase().includes(q) ||
+						p.description.toLowerCase().includes(q) ||
+						p.tags.some((t) => t.toLowerCase().includes(q))
+					);
+				})
+	);
 </script>
 
-<svelte:head>
-	<title>{config.title}</title>
-	<meta name="description" content="quantinium's projects" />
-</svelte:head>
-
-<div class="mt-[3rem] flex">
-	<div class="pr-0 md:flex-3 md:pr-12">
-		{#each projects as project (project.title)}
-			<Project {project} />
-		{/each}
+<div class="py-4">
+	<div class="mx-1 flex items-center justify-between">
+		<h1 class="font-bold">
+			Projects <span class="text-sm font-normal opacity-70">({filtered.length})</span>
+		</h1>
+		<input
+			type="search"
+			placeholder="search..."
+			bind:value={query}
+			class="border border-black bg-transparent px-2 py-0.5 text-sm dark:border-zinc-400"
+		/>
 	</div>
 
-	<div class="hidden flex-1 px-0 py-9 md:block md:px-3">
-		{#each projects as project (project.title)}
-			<div class="flex">
-				<div class="hover:font-semibold hover:underline hover:underline-offset-4">
-					-> <a href={project.slug}>{project.title}</a>
+	{#if filtered.length === 0}
+		<p class="pt-4 text-sm opacity-50">no projects found.</p>
+	{:else}
+		<div class="grid grid-cols-2 gap-4 pt-4">
+			{#each filtered as project (project.name)}
+				<div class="flex flex-col gap-2">
+					{#if project.image}
+						<img src={project.image} alt={project.name} class="aspect-video w-full object-cover" />
+					{/if}
+					<div class="flex flex-col gap-1">
+						<div class="flex flex-wrap items-baseline gap-3">
+							{#if project.repo}
+								<a
+									href={project.repo}
+									target="_blank"
+									rel="noopener noreferrer external"
+									class="font-bold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+								>
+									[{project.name}]
+								</a>
+							{:else}
+								<span class="font-bold">[{project.name}]</span>
+							{/if}
+							<span class="text-xs {statusColor[project.status]}">{project.status}</span>
+						</div>
+						<p class="text-sm opacity-80">{project.description}</p>
+						<div class="flex flex-wrap gap-1">
+							{#each project.tags as tag (tag)}
+								<span class="text-xs text-emerald-600 dark:text-emerald-400"
+									>&lbrace;{tag}&rbrace;</span
+								>
+							{/each}
+						</div>
+					</div>
 				</div>
-			</div>
-		{/each}
-	</div>
+			{/each}
+		</div>
+	{/if}
 </div>
