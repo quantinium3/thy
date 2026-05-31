@@ -14,12 +14,14 @@
 	"preview_urls": true,
 	"routes": [
 		{
-			"pattern": "quantinium.dev",
-			"zone_name": "quantinium.dev"
+			"pattern": "quantinium.dev/*",
+			"zone_name": "quantinium.dev",
+			"custom_domain": true
 		},
 		{
-			"pattern": "www.quantinium.dev",
-			"zone_name": "quantinium.dev"
+			"pattern": "www.quantinium.dev/*",
+			"zone_name": "quantinium.dev",
+			"custom_domain": true
 		}
 	]
 }
