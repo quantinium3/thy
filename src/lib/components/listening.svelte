@@ -35,40 +35,38 @@
 	});
 </script>
 
-<div>
-	<div class="flex items-center gap-1 pb-1 font-bold">
-		Listening
-		{#if songUri}
-			<a href={songUri} target="_blank" rel="noopener noreferrer external"
-				><ExternalLink size={12} /></a
-			>
-		{/if}
-	</div>
-	<div class="flex gap-2">
-		{#if songImgUri}
-			<img src={songImgUri} alt={songName} class="w-12 shrink-0" />
-		{:else}
-			<div class="h-12 w-12 shrink-0 bg-zinc-200 opacity-50 dark:bg-zinc-700"></div>
-		{/if}
-		<div class="flex min-w-0 flex-col justify-center">
-			<div class="overflow-hidden text-sm whitespace-nowrap">
-				{#if loading}
-					<span class="opacity-50">...</span>
-				{:else if error}
-					<span class="opacity-50">n/a</span>
-				{:else}
-					<span class="marquee">{songName}&nbsp;&nbsp;&nbsp;&nbsp;{songName}</span>
-				{/if}
-			</div>
-			<div class="overflow-hidden text-xs whitespace-nowrap opacity-70">
-				{#if loading}
-					<span class="opacity-50">...</span>
-				{:else if error}
-					<span class="opacity-50">n/a</span>
-				{:else}
-					<span class="marquee-slow">{songArtist}&nbsp;&nbsp;&nbsp;&nbsp;{songArtist}</span>
-				{/if}
-			</div>
+<div class="flex items-center gap-1 pb-1 font-bold w-full">
+	Listening
+	{#if songUri}
+		<a href={songUri} target="_blank" rel="noopener noreferrer external"
+			><ExternalLink size={12} /></a
+		>
+	{/if}
+</div>
+<div class="flex gap-2 w-full">
+	{#if songImgUri}
+		<img src={songImgUri} alt={songName} class="w-12 shrink-0" />
+	{:else}
+		<div class="h-12 w-12 shrink-0 bg-zinc-200 opacity-50 dark:bg-zinc-700"></div>
+	{/if}
+	<div class="flex min-w-0 flex-col justify-center">
+		<div class="overflow-hidden text-sm whitespace-nowrap">
+			{#if loading}
+				<span class="opacity-50">...</span>
+			{:else if error}
+				<span class="opacity-50">n/a</span>
+			{:else}
+				<span class="marquee">{songName}&nbsp;&nbsp;&nbsp;&nbsp;{songName}</span>
+			{/if}
+		</div>
+		<div class="overflow-hidden text-xs whitespace-nowrap opacity-70">
+			{#if loading}
+				<span class="opacity-50">...</span>
+			{:else if error}
+				<span class="opacity-50">n/a</span>
+			{:else}
+				<span class="marquee-slow">{songArtist}&nbsp;&nbsp;&nbsp;&nbsp;{songArtist}</span>
+			{/if}
 		</div>
 	</div>
 </div>

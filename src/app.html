@@ -1,23 +1,22 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="text-scale" content="scale" />
-		<script>
-			var s = localStorage.getItem('theme');
-			if (s ? s === 'dark' : true) document.documentElement.classList.add('dark');
-		</script>
-		%sveltekit.head%
-		<link rel="icon" type="image/jpeg" href="/frieren.jpg" />
-		<link rel="alternate" type="application/rss+xml" title="quantinium's blog" href="/rss.xml" />
-	</head>
 
-	<body
-		data-sveltekit-preload-data="hover"
-		class="bg-white text-black dark:bg-[#1a1a1a] dark:text-white"
-	>
-		<div style="display: contents">%sveltekit.body%</div>
-		<script src="/oneko.js" data-cat="/oneko.gif"></script>
-	</body>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="text-scale" content="scale" />
+	<script>
+		var s = localStorage.getItem('theme');
+		if (s ? s === 'dark' : true) document.documentElement.classList.add('dark');
+	</script>
+	%sveltekit.head%
+	<link rel="icon" type="image/jpeg" href="/frieren.jpg" />
+	<link rel="alternate" type="application/rss+xml" title="quantinium's blog" href="/rss.xml" />
+</head>
+
+<body data-sveltekit-preload-data="hover" class="bg-white text-black dark:bg-[#1a1a1a] dark:text-white">
+	<div style="display: contents">%sveltekit.body%</div>
+	<script src="/oneko.js" data-cat="/oneko.gif"></script>
+</body>
+
 </html>
