@@ -568,6 +568,30 @@
 			p5.keyReleased = () => {
 				if (p5.keyCode === p5.DOWN_ARROW) STATE.dino.duck(false);
 			};
+
+			let touchStartY = 0;
+
+			container.addEventListener('touchstart', (e) => {
+				e.preventDefault();
+				touchStartY = e.touches[0].clientY;
+				if (STATE.isRunning) {
+					if (STATE.dino.jump()) sounds.playSound('jump');
+				} else {
+					resetGame();
+					STATE.dino.jump();
+				}
+			}, { passive: false });
+
+			container.addEventListener('touchmove', (e) => {
+				e.preventDefault();
+				if (!STATE.isRunning) return;
+				if (e.touches[0].clientY - touchStartY > 30) STATE.dino.duck(true);
+			}, { passive: false });
+
+			container.addEventListener('touchend', (e) => {
+				e.preventDefault();
+				STATE.dino.duck(false);
+			}, { passive: false });
 		}, container);
 	}
 
