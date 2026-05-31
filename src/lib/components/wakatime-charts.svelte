@@ -60,7 +60,7 @@
 	});
 </script>
 
-<div class="border-b py-3 dark:border-zinc-400">
+<div class="border-b py-3 dark:border-zinc-400 pl-1">
 	<h1 class="pb-3 font-bold">Wakatime Stats</h1>
 
 	{#if error}

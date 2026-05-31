@@ -38,7 +38,7 @@
 	</aside>
 
 	<main class="flex w-full flex-col">
-		<div class="border-b dark:border-zinc-400">
+		<div class="border-b dark:border-zinc-400 pl-1">
 			<div>
 				<h2 class="font-bold">Hi, I'm quantinium</h2>
 				<span class="text-sm opacity-70">compsci undergrad</span>
@@ -62,14 +62,14 @@
 
 		<div class="border-b pb-3 dark:border-zinc-400">
 			<div class="flex items-center justify-between py-3">
-				<h1 class="font-bold">Blog</h1>
+				<h1 class="font-bold pl-1">Blog</h1>
 				<a
 					href={resolve('/blog')}
 					class="flex items-center gap-1 text-xs opacity-50 hover:opacity-100"
 					>see all <ArrowRight size={12} /></a
 				>
 			</div>
-			<div>
+			<div class="space-y-2">
 				{#each data.posts as post (post.slug)}
 					<div class="space-y-0.5">
 						<div class="flex flex-wrap items-baseline gap-3">
@@ -78,14 +78,14 @@
 								class="font-bold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
 								>[{post.title}]</a
 							>
-							<span class="text-xs opacity-50"
+						</div>
+						{#if post.description}
+							<span class="text-xs opacity-70 flex self-center pl-1"
 								>{Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(
 									new Date(post.date)
 								)}</span
 							>
-						</div>
-						{#if post.description}
-							<p class="text-sm opacity-80">{truncate(post.description)}</p>
+							<p class="text-sm pl-1">{truncate(post.description)}</p>
 						{/if}
 					</div>
 				{/each}
@@ -94,14 +94,14 @@
 
 		<div class="border-b pb-3 dark:border-zinc-400">
 			<div class="flex items-center justify-between py-3">
-				<h1 class="font-bold">Projects</h1>
+				<h1 class="font-bold pl-1">Projects</h1>
 				<a
 					href={resolve('/project')}
 					class="flex items-center gap-1 text-xs opacity-50 hover:opacity-90"
 					>see all <ArrowRight size={12} /></a
 				>
 			</div>
-			<div class="flex flex-col space-y-1">
+			<div class="flex flex-col space-y-2">
 				{#each projects.slice(0, 4) as project (project.name)}
 					<div>
 						<div class="flex flex-wrap items-baseline gap-3">
@@ -117,9 +117,8 @@
 							{:else}
 								<span class="font-bold">[{project.name}]</span>
 							{/if}
-							<span class="text-xs opacity-70">{project.status}</span>
 						</div>
-						<p class="text-sm opacity-80">{truncate(project.description)}</p>
+						<p class="text-sm pl-1">{truncate(project.description)}</p>
 					</div>
 				{/each}
 			</div>
