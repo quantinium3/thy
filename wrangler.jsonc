@@ -2,12 +2,24 @@
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "thy",
 	"compatibility_date": "2026-05-28",
-	"compatibility_flags": ["nodejs_als"],
+	"compatibility_flags": [
+		"nodejs_als"
+	],
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"assets": {
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare"
 	},
 	"workers_dev": true,
-	"preview_urls": true
+	"preview_urls": true,
+	"routes": [
+		{
+			"pattern": "quantinium.dev",
+			"zone_name": "quantinium.dev"
+		},
+		{
+			"pattern": "www.quantinium.dev",
+			"zone_name": "quantinium.dev"
+		}
+	]
 }
