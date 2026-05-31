@@ -18,7 +18,6 @@
 			>
 				<Terminal size={16} />
 			</button>
-			<span class="md:hidden">|</span>
 		{/if}
 		<a href={resolve('/')} class="flex items-center gap-1 hover:underline">
 			<div class="flex items-center space-x-2">
