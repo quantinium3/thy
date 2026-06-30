@@ -28,6 +28,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
+          version: 10
           cache: pnpm
 
       - name: Install dependencies
