@@ -1,7 +1,7 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "thy",
-	"compatibility_date": "2026-05-28",
+	"compatibility_date": "2026-06-30",
 	"compatibility_flags": [
 		"nodejs_als"
 	],
