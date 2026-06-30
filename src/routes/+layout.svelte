@@ -1,6 +1,6 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.jpg';
 	import Navbar from '$lib/components/navbar.svelte';
 
 	let { children } = $props();
@@ -12,17 +12,17 @@
 	<meta name="description" content="quantinium's personal website">
 
 	<meta property="og:description" content="quantinium's personal website">
-  <meta property="og:title" content="quantinium" />
-  <meta property="og:type" content="profile" />
-  <meta property="og:url" content="https://quantinium.dev" />
-  <meta property="og:image" content="https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdbQQdcGL2bDKu8v17GsaP0WA3NQCBqSgcjIX9" />
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://quantinium.dev">
+	<meta property="og:image" content="https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdbQQdcGL2bDKu8v17GsaP0WA3NQCBqSgcjIX9">
+	<meta property="og:image:type" content="image/gif">
 
-	<meta name="twitter:card" content="https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdbQQdcGL2bDKu8v17GsaP0WA3NQCBqSgcjIX9">
-	<meta property="twitter:domain" content="quantinium.dev">
-	<meta property="twitter:url" content="quantinium.dev">
+	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="quantinium">
 	<meta name="twitter:description" content="quantinium's personal website">
 	<meta name="twitter:image" content="https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdbQQdcGL2bDKu8v17GsaP0WA3NQCBqSgcjIX9">
+	<meta name="twitter:domain" content="quantinium.dev">
+	<meta name="twitter:url" content="https://quantinium.dev">
 
   <meta property="og:locale" content="en_US" />
 </svelte:head>
