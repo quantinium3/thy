@@ -39,13 +39,13 @@ jobs:
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v4
+        env:
+          VITE_TIME_URI: ${{ vars.VITE_TIME_URI }}
+          VITE_LANG_URI: ${{ vars.VITE_LANG_URI }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           secrets: |
             VITE_TIME_URI
             VITE_LANG_URI
-          env:
-            VITE_TIME_URI: ${{ vars.VITE_TIME_URI }}
-            VITE_LANG_URI: ${{ vars.VITE_LANG_URI }}
           command: deploy
