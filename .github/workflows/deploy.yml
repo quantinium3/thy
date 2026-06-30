@@ -34,6 +34,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Verify env vars
+        run: |
+          test -n "$VITE_TIME_URI" && echo "VITE_TIME_URI set" || exit 1
+          test -n "$VITE_LANG_URI" && echo "VITE_LANG_URI set" || exit 1
+        env:
+          VITE_TIME_URI: ${{ vars.VITE_TIME_URI }}
+          VITE_LANG_URI: ${{ vars.VITE_LANG_URI }}
+
       - name: Build
         run: pnpm run build
         env:
