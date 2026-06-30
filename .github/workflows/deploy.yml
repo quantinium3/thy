@@ -42,4 +42,11 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          environment: production
+          secrets: |
+            VITE_TIME_URI
+            VITE_LANG_URI
+          env:
+            VITE_TIME_URI: ${{ vars.VITE_TIME_URI }}
+            VITE_LANG_URI: ${{ vars.VITE_LANG_URI }}
           command: deploy
