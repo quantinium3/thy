@@ -9,6 +9,10 @@
 	let loading = $state(true);
 	let error = $state(false);
 
+	let songNameWidth = $state(0);
+	let songArtistWidth = $state(0);
+	const pxPerSecond = 40;
+
 	onMount(async () => {
 		try {
 			const res = await fetch('https://eris.quantinium.workers.dev/api/lastfm');
@@ -56,7 +60,17 @@
 			{:else if error}
 				<span class="opacity-50">n/a</span>
 			{:else}
-				<span class="marquee">{songName}&nbsp;&nbsp;&nbsp;&nbsp;{songName}</span>
+				<span
+					class="marquee"
+					style="animation-duration: {(songNameWidth || 200) / pxPerSecond}s"
+				>
+					<span bind:clientWidth={songNameWidth} class="inline-block"
+						>{songName}&nbsp;&nbsp;&nbsp;&nbsp;</span
+					>
+					<span class="inline-block" aria-hidden="true"
+						>{songName}&nbsp;&nbsp;&nbsp;&nbsp;</span
+					>
+				</span>
 			{/if}
 		</div>
 		<div class="overflow-hidden text-xs whitespace-nowrap opacity-70">
@@ -65,7 +79,17 @@
 			{:else if error}
 				<span class="opacity-50">n/a</span>
 			{:else}
-				<span class="marquee-slow">{songArtist}&nbsp;&nbsp;&nbsp;&nbsp;{songArtist}</span>
+				<span
+					class="marquee"
+					style="animation-duration: {(songArtistWidth || 200) / pxPerSecond}s"
+				>
+					<span bind:clientWidth={songArtistWidth} class="inline-block"
+						>{songArtist}&nbsp;&nbsp;&nbsp;&nbsp;</span
+					>
+					<span class="inline-block" aria-hidden="true"
+						>{songArtist}&nbsp;&nbsp;&nbsp;&nbsp;</span
+					>
+				</span>
 			{/if}
 		</div>
 	</div>
@@ -74,11 +98,9 @@
 <style>
 	.marquee {
 		display: inline-block;
-		animation: marquee 10s linear infinite;
-	}
-	.marquee-slow {
-		display: inline-block;
-		animation: marquee 8s linear infinite;
+		animation-name: marquee;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
 	}
 	@keyframes marquee {
 		0% {
