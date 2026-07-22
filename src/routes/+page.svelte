@@ -3,6 +3,7 @@
 	import Listening from '$lib/components/listening.svelte';
 	import Stats from '$lib/components/stats.svelte';
 	import InputStats from '$lib/components/input-stats.svelte';
+	import Buttons from '$lib/components/buttons.svelte';
 	import WakatimeCharts from '$lib/components/wakatime-charts.svelte';
 	import ImageCarousel from '$lib/components/image-carousel.svelte';
 	import { projects } from '$lib/projects';
@@ -35,6 +36,7 @@
 		<Listening />
 		<Stats />
 		<InputStats />
+		<Buttons />
 	</aside>
 
 	<main class="flex w-full flex-col">
@@ -130,6 +132,7 @@
 			<Listening />
 			<Stats />
 			<InputStats />
+			<Buttons />
 		</div>
 	</main>
 </div>
