@@ -1,5 +1,9 @@
+export type Collection = 'blog' | 'learnings';
+
 interface Post {
 	slug: string;
+	collection: Collection;
+	href: string;
 	title: string;
 	date: string;
 	description: string;
@@ -18,25 +22,35 @@ type PostModule = {
 		date?: string;
 		description?: string;
 		tags?: string[];
+		categories?: string[];
 	};
 };
 
-export function loadPosts({ limit, readingTime = false }: LoadOptions = {}): Post[] {
-	const posts = import.meta.glob<PostModule>('/content/blog/*.md', { eager: true });
-	const rawPosts = import.meta.glob<string>('/content/blog/*.md', {
+export function loadPosts(
+	collection: Collection,
+	{ limit, readingTime = false }: LoadOptions = {}
+): Post[] {
+	const posts = import.meta.glob<PostModule>('/content/*/*.md', { eager: true });
+	const rawPosts = import.meta.glob<string>('/content/*/*.md', {
 		eager: true,
 		query: '?raw',
 		import: 'default'
 	});
 
+	const prefix = `/content/${collection}/`;
+
 	const allPosts = Object.entries(posts)
+		.filter(([path]) => path.startsWith(prefix))
 		.map(([path, post]) => {
+			const slug = path.split('/').pop()?.replace('.md', '') ?? '';
 			const result: Post = {
-				slug: path.split('/').pop()?.replace('.md', '') ?? '',
+				slug,
+				collection,
+				href: `/${collection}/${slug}`,
 				title: post.metadata?.title ?? 'untitled',
 				date: post.metadata?.date ?? '',
 				description: post.metadata?.description ?? '',
-				tags: post.metadata?.tags ?? []
+				tags: post.metadata?.tags ?? post.metadata?.categories ?? []
 			};
 
 			if (readingTime) {

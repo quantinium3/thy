@@ -40,7 +40,7 @@
 	</aside>
 
 	<main class="flex w-full flex-col">
-		<div class="border-b dark:border-zinc-400 pl-1">
+		<div class="border-b pl-1 dark:border-zinc-400">
 			<div>
 				<h2 class="font-bold">Hi, I'm quantinium</h2>
 				<span class="text-sm opacity-70">compsci undergrad</span>
@@ -64,7 +64,7 @@
 
 		<div class="border-b pb-3 dark:border-zinc-400">
 			<div class="flex items-center justify-between py-3">
-				<h1 class="font-bold pl-1">Blog</h1>
+				<h1 class="pl-1 font-bold">Blog</h1>
 				<a
 					href={resolve('/blog')}
 					class="flex items-center gap-1 text-xs opacity-50 hover:opacity-100"
@@ -82,12 +82,12 @@
 							>
 						</div>
 						{#if post.description}
-							<span class="text-xs opacity-70 flex self-center pl-1"
+							<span class="flex self-center pl-1 text-xs opacity-70"
 								>{Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(
 									new Date(post.date)
 								)}</span
 							>
-							<p class="text-sm pl-1">{truncate(post.description)}</p>
+							<p class="pl-1 text-sm">{truncate(post.description)}</p>
 						{/if}
 					</div>
 				{/each}
@@ -96,7 +96,7 @@
 
 		<div class="border-b pb-3 dark:border-zinc-400">
 			<div class="flex items-center justify-between py-3">
-				<h1 class="font-bold pl-1">Projects</h1>
+				<h1 class="pl-1 font-bold">Projects</h1>
 				<a
 					href={resolve('/project')}
 					class="flex items-center gap-1 text-xs opacity-50 hover:opacity-90"
@@ -120,7 +120,39 @@
 								<span class="font-bold">[{project.name}]</span>
 							{/if}
 						</div>
-						<p class="text-sm pl-1">{truncate(project.description)}</p>
+						<p class="pl-1 text-sm">{truncate(project.description)}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+
+		<div class="border-b pb-3 dark:border-zinc-400">
+			<div class="flex items-center justify-between py-3">
+				<h1 class="pl-1 font-bold">Learnings</h1>
+				<a
+					href={resolve('/learnings')}
+					class="flex items-center gap-1 text-xs opacity-50 hover:opacity-100"
+					>see all <ArrowRight size={12} /></a
+				>
+			</div>
+			<div class="space-y-2">
+				{#each data.learnings as learning (learning.slug)}
+					<div class="space-y-0.5">
+						<div class="flex flex-wrap items-baseline gap-3">
+							<a
+								href={resolve(`/learnings/${learning.slug}`)}
+								class="font-bold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+								>[{learning.title}]</a
+							>
+						</div>
+						{#if learning.description}
+							<span class="flex self-center pl-1 text-xs opacity-70"
+								>{Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(
+									new Date(learning.date)
+								)}</span
+							>
+							<p class="pl-1 text-sm">{truncate(learning.description)}</p>
+						{/if}
 					</div>
 				{/each}
 			</div>

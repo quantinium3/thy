@@ -5,8 +5,8 @@
 </script>
 
 <EntryPage
-	backHref={resolve('/blog')}
-	backLabel="[/blog]"
+	backHref={resolve('/learnings')}
+	backLabel="[/learnings]"
 	title={data.title}
 	date={data.date}
 	description={data.description}

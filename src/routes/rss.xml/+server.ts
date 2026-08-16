@@ -1,23 +1,12 @@
 import type { RequestHandler } from '@sveltejs/kit';
+import { loadPosts } from '$lib/posts';
 
 const SITE_URL = 'https://quantinium.dev';
 const SITE_TITLE = "quantinium's blog";
 const SITE_DESCRIPTION = 'writings by quantinium — programming, systems, and other things.';
 
-type PostModule = {
-	metadata?: { title?: string; date?: string; description?: string };
-};
-
 export const GET: RequestHandler = async () => {
-	const posts = import.meta.glob<PostModule>('/content/blog/*.md', { eager: true });
-
-	const allPosts = Object.entries(posts)
-		.map(([path, post]) => ({
-			slug: path.split('/').pop()?.replace('.md', '') ?? '',
-			title: post.metadata?.title ?? 'untitled',
-			date: post.metadata?.date ?? '',
-			description: post.metadata?.description ?? ''
-		}))
+	const allPosts = [...loadPosts('blog'), ...loadPosts('learnings')]
 		.filter((p) => p.date)
 		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -34,8 +23,8 @@ export const GET: RequestHandler = async () => {
 				<item>
 					<title>${post.title}</title>
 					<description>${post.description}</description>
-					<link>${SITE_URL}/blog/${post.slug}</link>
-					<guid isPermaLink="true">${SITE_URL}/blog/${post.slug}</guid>
+					<link>${SITE_URL}${post.href}</link>
+					<guid isPermaLink="true">${SITE_URL}${post.href}</guid>
 					<pubDate>${new Date(post.date).toUTCString()}</pubDate>
 				</item>
 				`

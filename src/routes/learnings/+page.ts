@@ -1,5 +1,5 @@
 import { loadPosts } from '$lib/posts';
 
 export async function load() {
-	return { posts: loadPosts('blog', { readingTime: true }) };
+	return { learnings: loadPosts('learnings', { readingTime: true }) };
 }

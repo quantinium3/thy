@@ -5,6 +5,7 @@
 		{ name: 'about', href: '/about', external: false, reload: false },
 		{ name: 'project', href: '/project', external: false, reload: false },
 		{ name: 'blog', href: '/blog', external: false, reload: false },
+		{ name: 'learnings', href: '/learnings', external: false, reload: false },
 		{ name: 'github', href: 'https://github.com/quantinium3', external: true, reload: false },
 		{
 			name: 'last.fm',
