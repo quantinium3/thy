@@ -1,13 +1,14 @@
 <script lang="ts">
 	const buttons: { href: string; src: string }[] = [
+		{ href: 'https://namishh.com/', src: '/buttons/nam.png' },
+		{ href: 'https://quantinium.dev', src: '/buttons/quantinium.png' },
+		{ href: 'https://nithitsuki.com/', src: '/buttons/nithitsuki.png' },
+		{ href: 'https://haarshmap.github.io/', src: '/buttons/harsha.png'},
 		{ href: 'https://helix-editor.com/', src: '/buttons/helix.gif' },
 		{ href: 'https://anemoia.moe/', src: '/buttons/jesx.gif' },
 		{ href: 'https://youtu.be/GSV5UDaTXDA?si=QBGDSlWK-9Cw3KtZ', src: '/buttons/linux.jpg' },
-		{ href: 'https://namishh.com/', src: '/buttons/nam.png' },
 		{ href: '#', src: '/buttons/nerv.png' },
-		{ href: 'https://nithitsuki.com/', src: '/buttons/nithitsuki.png' },
 		{ href: 'https://nixos.org/manual/nixos/stable/', src: '/buttons/nix.gif' },
-		{ href: 'https://quantinium.dev', src: '/buttons/quantinium.png' },
 		{ href: 'https://svelte.dev/', src: '/buttons/svelte.gif' },
 		{ href: 'https://info.cern.ch/hypertext/WWW/TheProject.html', src: '/buttons/www.gif' },
 	];
