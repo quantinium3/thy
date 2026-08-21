@@ -3,11 +3,13 @@
 	import { ChevronLeft, ChevronRight } from '@lucide/svelte';
 	import GameOfLife from './game-of-life.svelte';
 	import AsciiClock from './ascii-clock.svelte';
+	import BadAppleLife from './bad-apple-life.svelte';
 
 	const items = [
 		{ type: 'image', src: '/frieren.jpg', alt: 'frieren 1' },
-		{ type: 'gol' },
 		{ type: 'clock' },
+		{ type: 'gol' },
+		{ type: 'badapple' },
 		{ type: 'image', src: '/teto.png', alt: 'teto' }
 	];
 
@@ -35,6 +37,8 @@
 					<GameOfLife />
 				{:else if items[current].type === 'clock'}
 					<AsciiClock />
+				{:else if items[current].type === 'badapple'}
+					<BadAppleLife />
 				{:else}
 					<img
 						src={items[current].src}
