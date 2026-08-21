@@ -48,7 +48,11 @@
 						<div
 							class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-2 pt-6 pb-1.5"
 						>
-							<span class="block text-[10px] uppercase {kindColor[item.kind]}">{item.kind}</span>
+							<span
+							class="inline-block rounded-sm bg-black/70 px-1 py-0.5 text-[10px] uppercase {kindColor[
+								item.kind
+							]}">{item.kind}</span
+						>
 							<span class="block truncate text-xs font-bold text-white">{item.name}</span>
 						</div>
 					</div>
