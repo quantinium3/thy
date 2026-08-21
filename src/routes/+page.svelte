@@ -126,7 +126,7 @@
 			</div>
 		</div>
 
-		<div class="border-b pb-3 dark:border-zinc-400">
+		<!-- div class="border-b pb-3 dark:border-zinc-400">
 			<div class="flex items-center justify-between py-3">
 				<h1 class="pl-1 font-bold">Learnings</h1>
 				<a
@@ -156,7 +156,7 @@
 					</div>
 				{/each}
 			</div>
-		</div>
+		</div -->
 
 		<WakatimeCharts />
 

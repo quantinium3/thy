@@ -1,12 +1,11 @@
 ---
 title: "DSA: Binary Search"
-description:
+description: Learning about binary search on sorted arrays and binary search on answer with leetcode questions for practice.
 author: quantinium
-date: '2026-08-18'
+date: '2026-08-19'
 categories:
-  - virtual-machine
-  - container
-  - isolates
+  - data-structures-and-algorithms
+  - binary-search
 published: true
 ---
 
@@ -136,13 +135,13 @@ low == high == 4, answer = 4
 - [4. Median of Two Sorted Arrays (Hard)](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
 
 ## Binary Search on Answer
-- [875. Koko Eating Bananas (Medium)](https://leetcode.com/problems/koko-eating-bananas/description/) — minimize the eating speed
-- [1011. Capacity To Ship Packages Within D Days (Medium)](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/description/) — minimize max load per day
-- [410. Split Array Largest Sum (Hard)](https://leetcode.com/problems/split-array-largest-sum/description/) — same shape as 1011, minimize the largest subarray sum
-- [1482. Minimum Number of Days to Make m Bouquets (Medium)](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/description/) — minimize the waiting day threshold
-- [1283. Find the Smallest Divisor Given a Threshold (Medium)](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/) — nearly identical shape to Koko
-- [1552. Magnetic Force Between Two Balls (Medium)](https://leetcode.com/problems/magnetic-force-between-two-balls/description/) — maximize the minimum distance ("Aggressive Cows" pattern)
-- [1231. Divide Chocolate (Hard)](https://leetcode.com/problems/divide-chocolate/description/) — maximize the minimum sweetness, mirror of Split Array Largest Sum
-- [878. Nth Magical Number (Hard)](https://leetcode.com/problems/nth-magical-number/description/) — feasibility check uses inclusion-exclusion instead of a greedy simulation
-- [668. Kth Smallest Number in Multiplication Table (Hard)](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/description/) — feasibility check counts values `<= x` in the table
-- [719. Find K-th Smallest Pair Distance (Hard)](https://leetcode.com/problems/find-k-th-smallest-pair-distance/description/) — binary search on the distance value, count pairs with two pointers
+- [875. Koko Eating Bananas (Medium)](https://leetcode.com/problems/koko-eating-bananas/description/)
+- [1011. Capacity To Ship Packages Within D Days (Medium)](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/description/)
+- [410. Split Array Largest Sum (Hard)](https://leetcode.com/problems/split-array-largest-sum/description/)
+- [1482. Minimum Number of Days to Make m Bouquets (Medium)](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/description/)
+- [1283. Find the Smallest Divisor Given a Threshold (Medium)](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/)
+- [1552. Magnetic Force Between Two Balls (Medium)](https://leetcode.com/problems/magnetic-force-between-two-balls/description/)
+- [1231. Divide Chocolate (Hard)](https://leetcode.com/problems/divide-chocolate/description/)
+- [878. Nth Magical Number (Hard)](https://leetcode.com/problems/nth-magical-number/description/)
+- [668. Kth Smallest Number in Multiplication Table (Hard)](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/description/)
+- [719. Find K-th Smallest Pair Distance (Hard)](https://leetcode.com/problems/find-k-th-smallest-pair-distance/description/)
