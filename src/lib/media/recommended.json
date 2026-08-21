@@ -2,16 +2,577 @@
 	{
 		"name": "Frieren: Beyond Journey's End",
 		"kind": "anime",
-		"image": "https://cdn.myanimelist.net/images/anime/1015/138006.jpg"
+		"image": "https://cdn.myanimelist.net/images/anime/1015/138006.jpg",
+		"url": "https://myanimelist.net/anime/52991/Sousou_no_Frieren"
 	},
 	{
 		"name": "Violet Evergarden",
 		"kind": "anime",
-		"image": "https://cdn.myanimelist.net/images/anime/1795/95088.jpg"
+		"image": "https://cdn.myanimelist.net/images/anime/1795/95088.jpg",
+		"url": "https://myanimelist.net/anime/33352/Violet_Evergarden"
 	},
 	{
 		"name": "Neon Genesis Evangelion",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1422/113533.jpg",
+		"url": "https://myanimelist.net/anime/30/Shinseiki_Evangelion"
+	},
+	{
+		"name": "Monster",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/10/18793.jpg",
+		"url": "https://myanimelist.net/anime/19/Monster"
+	},
+	{
+		"name": "Suzumiya Haruhi no Yuuutsu",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1470/137929.jpg",
+		"url": "https://myanimelist.net/anime/849/Suzumiya_Haruhi_no_Yuuutsu"
+	},
+	{
+		"name": "Code Geass: Hangyaku no Lelouch",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1032/135088.jpg",
+		"url": "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch"
+	},
+	{
+		"name": "Clannad",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1804/95033.jpg",
+		"url": "https://myanimelist.net/anime/2167/Clannad"
+	},
+	{
+		"name": "JoJo no Kimyou na Bouken",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/3/40409.jpg",
+		"url": "https://myanimelist.net/anime/14719/JoJo_no_Kimyou_na_Bouken_TV"
+	},
+	{
+		"name": "Mairimashita! Iruma-kun",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1009/103187.jpg",
+		"url": "https://myanimelist.net/anime/39196/Mairimashita_Iruma-kun"
+	},
+	{
+		"name": "Made in Abyss",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/6/86733.jpg",
+		"url": "https://myanimelist.net/anime/34599/Made_in_Abyss"
+	},
+	{
+		"name": "Mushoku Tensei: Isekai Ittara Honki Dasu",
+		"kind": "book",
+		"image": "https://cdn.myanimelist.net/images/manga/3/120337.jpg",
+		"url": "https://myanimelist.net/manga/70261/Mushoku_Tensei__Isekai_Ittara_Honki_Dasu"
+	},
+	{
+		"name": "Bocchi the Rock!",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1448/127956.jpg",
+		"url": "https://myanimelist.net/anime/47917/Bocchi_the_Rock"
+	},
+	{
+		"name": "Kage no Jitsuryokusha ni Naritakute!",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1091/128729.jpg",
+		"url": "https://myanimelist.net/anime/48316/Kage_no_Jitsuryokusha_ni_Naritakute"
+	},
+	{
+		"name": "Bungou Stray Dogs",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/3/79409.jpg",
+		"url": "https://myanimelist.net/anime/31478/Bungou_Stray_Dogs"
+	},
+	{
+		"name": "Monogatari Series",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/manga/2/210355.jpg",
+		"url": "https://myanimelist.net/anime/5081/Bakemonogatari"
+	},
+	{
+		"name": "Initial D",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1384/127972.jpg",
+		"url": "https://myanimelist.net/anime/185/Initial_D_First_Stage"
+	},
+	{
+		"name": "Hunter x Hunter",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1337/99013.jpg",
+		"url": "https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011"
+	},
+	{
+		"name": "Fate/*",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/12/67333.jpg",
+		"url": "https://myanimelist.net/anime/22297/Fate_stay_night__Unlimited_Blade_Works"
+	},
+	{
+		"name": "Psycho-Pass",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1314/142015.jpg",
+		"url": "https://myanimelist.net/anime/13601/Psycho-Pass"
+	},
+	{
+		"name": "Shigatsu wa Kimi no Uso",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1405/143284.jpg",
+		"url": "https://myanimelist.net/anime/23273/Shigatsu_wa_Kimi_no_Uso"
+	},
+	{
+		"name": "Koe no Katachi",
 		"kind": "movie",
-		"image": "https://cdn.myanimelist.net/images/anime/1422/113533.jpg"
+		"image": "https://cdn.myanimelist.net/images/anime/1122/96435.jpg",
+		"url": "https://myanimelist.net/anime/28851/Koe_no_Katachi"
+	},
+	{
+		"name": "Kono Subarashii Sekai ni Shukufuku wo!",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1895/142748.jpg",
+		"url": "https://myanimelist.net/anime/30831/Kono_Subarashii_Sekai_ni_Shukufuku_wo"
+	},
+	{
+		"name": "Kimi no Suizou wo Tabetai",
+		"kind": "movie",
+		"image": "https://cdn.myanimelist.net/images/anime/1768/93291.jpg",
+		"url": "https://myanimelist.net/anime/36098/Kimi_no_Suizou_wo_Tabetai"
+	},
+	{
+		"name": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/manga/2/184333.jpg",
+		"url": "https://myanimelist.net/manga/92182/Seishun_Buta_Yarou_wa_Bunny_Girl_Senpai_no_Yume_wo_Minai"
+	},
+	{
+		"name": "Vinland Saga",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/manga/2/188925.jpg",
+		"url": "https://myanimelist.net/manga/642/Vinland_Saga"
+	},
+	{
+		"name": "Kaguya-sama: Love is War",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/3/188896.jpg",
+		"url": "https://myanimelist.net/manga/90125/Kaguya-sama_wa_Kokurasetai__Tensai-tachi_no_Renai_Zunousen"
+	},
+	{
+		"name": "Ousama Ranking",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1347/117616.jpg",
+		"url": "https://myanimelist.net/anime/40834/Ousama_Ranking"
+	},
+	{
+		"name": "Tensei shitara Slime Datta Ken",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1069/123309.jpg",
+		"url": "https://myanimelist.net/anime/37430/Tensei_shitara_Slime_Datta_Ken"
+	},
+	{
+		"name": "Cyberpunk: Edgerunners",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1818/126435.jpg",
+		"url": "https://myanimelist.net/anime/42310/Cyberpunk__Edgerunners"
+	},
+	{
+		"name": "The Apothecary Diaries",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1708/138033.jpg",
+		"url": "https://myanimelist.net/anime/54492/Kusuriya_no_Hitorigoto"
+	},
+	{
+		"name": "Jellyfish Can't Swim in the Night",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1834/141827.jpg",
+		"url": "https://myanimelist.net/anime/54839/Yoru_no_Kurage_wa_Oyogenai"
+	},
+	{
+		"name": "Sentenced to Be a Hero",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1062/151911.jpg",
+		"url": "https://myanimelist.net/anime/56009/Yuusha-kei_ni_Shosu__Choubatsu_Yuusha_9004-tai_Keimu_Kiroku"
+	},
+	{
+		"name": "Make Heroine ga Oosugiru!",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1332/143513.jpg",
+		"url": "https://myanimelist.net/anime/57524/Make_Heroine_ga_Oosugiru"
+	},
+	{
+		"name": "Cowboy Bebop",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/4/19644.jpg",
+		"url": "https://myanimelist.net/anime/1/Cowboy_Bebop"
+	},
+	{
+		"name": "Akira",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1408/114012.jpg",
+		"url": "https://myanimelist.net/anime/47/Akira"
+	},
+	{
+		"name": "Steins;Gate",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1935/127974.jpg",
+		"url": "https://myanimelist.net/anime/9253/Steins_Gate"
+	},
+	{
+		"name": "Spy x Family",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/3/219741.jpg",
+		"url": "https://myanimelist.net/manga/119161/Spy_x_Family"
+	},
+	{
+		"name": "Spice and Wolf",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1059/142414.jpg",
+		"url": "https://myanimelist.net/anime/51122/Ookami_to_Koushinryou__Merchant_Meets_the_Wise_Wolf"
+	},
+	{
+		"name": "Orb: On the Movements of the Earth",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1749/145922.jpg",
+		"url": "https://myanimelist.net/anime/52215/Chi_Chikyuu_no_Undou_ni_Tsuite"
+	},
+	{
+		"name": "My Dress-Up Darling",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1179/119897.jpg",
+		"url": "https://myanimelist.net/anime/48736/Sono_Bisque_Doll_wa_Koi_wo_Suru"
+	},
+	{
+		"name": "Re:ZERO -Starting Life in Another World",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1522/128039.jpg",
+		"url": "https://myanimelist.net/anime/31240/Re_Zero_kara_Hajimeru_Isekai_Seikatsu"
+	},
+	{
+		"name": "Dandadan",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/2/248746.jpg",
+		"url": "https://myanimelist.net/manga/135496/Dandadan"
+	},
+	{
+		"name": "Kyoukai no Kanata",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/3/85468.jpg",
+		"url": "https://myanimelist.net/anime/18153/Kyoukai_no_Kanata"
+	},
+	{
+		"name": "Karakai Jouzu no (Moto) Takagi-san",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/2/204600.jpg",
+		"url": "https://myanimelist.net/manga/108187/Karakai_Jouzu_no_Moto_Takagi-san"
+	},
+	{
+		"name": "Takopi's Original Sin",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1182/149879.jpg",
+		"url": "https://myanimelist.net/anime/60489/Takopii_no_Genzai"
+	},
+	{
+		"name": "Smoking Behind the Supermarket with You",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1768/156339.jpg",
+		"url": "https://myanimelist.net/anime/62076/Super_no_Ura_de_Yani_Suu_Futari"
+	},
+	{
+		"name": "Youjo Senki",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/5/82890.jpg",
+		"url": "https://myanimelist.net/anime/32615/Youjo_Senki"
+	},
+	{
+		"name": "Tenmaku no Jaadugar",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1098/158891.jpg",
+		"url": "https://myanimelist.net/anime/61483/Tenmaku_no_Jaadugar"
+	},
+	{
+		"name": "Tongari Boushi no Atelier",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1726/155542.jpg",
+		"url": "https://myanimelist.net/anime/51553/Tongari_Boushi_no_Atelier"
+	},
+	{
+		"name": "The Ghost in the Shell",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1474/158937.jpg",
+		"url": "https://myanimelist.net/anime/58929/Koukaku_Kidoutai_TV"
+	},
+	{
+		"name": "https://cdn.myanimelist.net/images/manga/1/157897.jpg",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/1/157897.jpg",
+		"url": "https://myanimelist.net/manga/2/Berserk"
+	},
+	{
+		"name": "One Piece",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/2/253146.jpg",
+		"url": "https://myanimelist.net/manga/13/One_Piece"
+	},
+	{
+		"name": "Vagabond",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/1/259070.jpg",
+		"url": "https://myanimelist.net/manga/656/Vagabond"
+	},
+	{
+		"name": "One-Punch Man",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/3/80661.jpg",
+		"url": "https://myanimelist.net/manga/44347/One_Punch-Man"
+	},
+	{
+		"name": "Chainsaw Man",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1763/150638.jpg",
+		"url": "https://myanimelist.net/anime/44511/Chainsaw_Man"
+	},
+	{
+		"name": "Omniscient Reader's Viewpoint",
+		"kind": "manhwa",
+		"image": "https://cdn.myanimelist.net/images/manga/1/265768.jpg",
+		"url": "https://myanimelist.net/manga/143441/Omniscient_Readers_Viewpoint"
+	},
+	{
+		"name": "The Greatest Estate Developer",
+		"kind": "manhwa",
+		"image": "https://cdn.myanimelist.net/images/manga/1/290131.jpg",
+		"url": "https://myanimelist.net/manga/147272/The_Greatest_Estate_Developer"
+	},
+	{
+		"name": "Gachiakuta",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/1/259583.jpg",
+		"url": "https://myanimelist.net/manga/144180/Gachiakuta"
+	},
+	{
+		"name": "Koisuru (Otome) no Tsukurikata",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/2/234259.jpg",
+		"url": "https://myanimelist.net/manga/125746/Koisuru_Otome_no_Tsukurikata"
+	},
+	{
+		"name": "Gantz",
+		"kind": "manga",
+		"image": "https://cdn.myanimelist.net/images/manga/1/278020.jpg",
+		"url": "https://myanimelist.net/manga/564/Gantz?q=gantz&cat=manga"
+	},
+	{
+		"name": "To Be Hero X",
+		"kind": "anime",
+		"image": "https://cdn.myanimelist.net/images/anime/1492/150628.jpg",
+		"url": "https://myanimelist.net/anime/53447/Tu_Bian_Yingxiong_X"
+	},
+	{
+		"name": "Lord of Mysteries",
+		"kind": "book",
+		"image": "https://cdn.myanimelist.net/images/manga/2/287344.jpg",
+		"url": "https://myanimelist.net/manga/162032/Guimi_Zhi_Zhu"
+	},
+	{
+		"name": "The Shawshank Redemption",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/v4/movie/190/posters/6089f8cd44f59.jpg",
+		"url": "https://www.imdb.com/title/tt0111161/"
+	},
+	{
+		"name": "The Godfather",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/275/posters/60017eefeaa3a.jpg",
+		"url": "https://www.imdb.com/title/tt0068646/"
+	},
+	{
+		"name": "The Dark Knight",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/v4/movie/116/posters/60d4cbc556e3c.jpg",
+		"url": "https://www.imdb.com/title/tt0468569/"
+	},
+	{
+		"name": "Schindler's List",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/223/posters/2394887.jpg",
+		"url": "https://www.imdb.com/title/tt0108052/"
+	},
+	{
+		"name": "Pulp Fiction",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/228/posters/2395182.jpg",
+		"url": "https://www.imdb.com/title/tt0110912/"
+	},
+	{
+		"name": "Fight Club",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/247/posters/5f610c83ddd29.jpg",
+		"url": "https://www.imdb.com/title/tt0137523/"
+	},
+	{
+		"name": "Inception",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/113/posters/2195447.jpg",
+		"url": "https://www.imdb.com/title/tt1375666/"
+	},
+	{
+		"name": "The Matrix",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/169/posters/5f274c00c85c1.jpg",
+		"url": "https://www.imdb.com/title/tt0133093/"
+	},
+	{
+		"name": "Interstellar",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/131079/posters/1846628.jpg",
+		"url": "https://www.imdb.com/title/tt0816692/"
+	},
+	{
+		"name": "GoodFellas",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/380/posters/380.jpg",
+		"url": "https://www.imdb.com/title/tt0099685/"
+	},
+	{
+		"name": "The Terminator",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/v4/movie/470/posters/66b0b0e08750b.jpg",
+		"url": "https://www.imdb.com/title/tt0088247/"
+	},
+	{
+		"name": "Spirited Away",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/276/posters/25869803.jpg",
+		"url": "https://www.imdb.com/title/tt0245429/"
+	},
+	{
+		"name": "The Odyssey",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/v4/movie/362547/posters/69f9b9fe8a8be.jpg",
+		"url": "https://www.imdb.com/title/tt33764258/"
+	},
+	{
+		"name": "Pirates of the Caribbean",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/v4/movie/64/posters/633d92b3133bd.jpg",
+		"url": "https://www.imdb.com/title/tt0325980"
+	},
+	{
+		"name": "Oppenheimer",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/v4/movie/287533/posters/64552f43bff1e.jpg",
+		"url": "https://www.imdb.com/title/tt15398776"
+	},
+	{
+		"name": "Breaking Bad",
+		"kind": "show",
+		"image": "https://artworks.thetvdb.com/banners/posters/81189-10.jpg",
+		"url": "https://www.imdb.com/title/tt0903747"
+	},
+	{
+		"name": "Dark",
+		"kind": "show",
+		"image": "https://artworks.thetvdb.com/banners/posters/334824-1.jpg",
+		"url": "https://www.imdb.com/title/tt5753856"
+	},
+	{
+		"name": "The End of the F***ing World",
+		"kind": "show",
+		"image": "https://artworks.thetvdb.com/banners/posters/336522-9.jpg",
+		"url": "https://www.imdb.com/title/tt6257970"
+	},
+	{
+		"name": "Chernobyl",
+		"kind": "show",
+		"image": "https://artworks.thetvdb.com/banners/posters/5cc12861c93e4.jpg",
+		"url": "https://www.imdb.com/title/tt7366338/"
+	},
+	{
+		"name": "Better Call Saul",
+		"kind": "show",
+		"image": "https://artworks.thetvdb.com/banners/v4/series/273181/posters/625dca9d408d4.jpg",
+		"url": "https://www.imdb.com/title/tt3032476/"
+	},
+	{
+		"name": "Project Hail Mary",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=408&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Feditions%2F3274049%2F8741341047797682-91mYu67RfUL._SL1500_.jpg&width=270",
+		"url": "https://hardcover.app/books/project-hail-mary"
+	},
+	{
+		"name": "The Martian",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=410&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Feditions%2F21716111%2F5323176149970177.jpg&width=270",
+		"url": "https://hardcover.app/books/the-martian"
+	},
+	{
+		"name": "A Game of Thrones",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=413&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fedition%2F12841472%2Fa63e7ea1-9064-4eb8-afb4-5372db40aed2.jpg&width=270",
+		"url": "https://hardcover.app/books/a-game-of-thrones"
+	},
+	{
+		"name": "The Iliad - Homer, Robert Fagles",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=410&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Feditions%2F30427811%2F9420789400127984.jpg&width=270",
+		"url": "https://hardcover.app/books/the-iliad"
+	},
+	{
+		"name": "The Odyssey - Homer, Rober Fagles",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=393&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fedition%2F31387157%2F51b5a0d9-40e1-4e17-a1af-7948c234e4cd.jpeg&width=270",
+		"url": "https://hardcover.app/books/the-odyssey-translated-by-robert-fagles"
+	},
+	{
+		"name": "Minecraft",
+		"kind": "game",
+		"image": "https://nithitsuki.com/other-stuff/to-consume/game/minecraft/480/minecraft.jpg",
+		"url": "https://www.minecraft.net/en-us"
+	},
+	{
+		"name": "Hollow Knight",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/367520/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/367520/Hollow_Knight/"
+	},
+	{
+		"name": "Hollow Knight: Silksong",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/1030300/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"
+	},
+	{
+		"name": "Celeste",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/504230/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/504230/Celeste/"
+	},
+	{
+		"name": "Dead Cells",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/588650/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/588650/Dead_Cells/"
+	},
+	{
+		"name": "Katawa Shoujo",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/3068300/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/3068300/Katawa_Shoujo/"
+	},
+	{
+		"name": "Factorio",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/427520/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/427520/Factorio/"
+	},
+	{
+		"name": "Undertale",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/391540/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/391540/Undertale/"
+	},
+	{
+		"name": "Doki Doki Literature Club",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/698780/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/"
 	}
 ]
