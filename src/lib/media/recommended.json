@@ -504,12 +504,6 @@
 		"url": "https://hardcover.app/books/the-martian"
 	},
 	{
-		"name": "A Game of Thrones",
-		"kind": "book",
-		"image": "https://production-img.hardcover.app/enlarge?height=413&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fedition%2F12841472%2Fa63e7ea1-9064-4eb8-afb4-5372db40aed2.jpg&width=270",
-		"url": "https://hardcover.app/books/a-game-of-thrones"
-	},
-	{
 		"name": "The Iliad - Homer, Robert Fagles",
 		"kind": "book",
 		"image": "https://production-img.hardcover.app/enlarge?height=410&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Feditions%2F30427811%2F9420789400127984.jpg&width=270",
@@ -574,5 +568,47 @@
 		"kind": "game",
 		"image": "https://cdn.akamai.steamstatic.com/steam/apps/698780/library_600x900.jpg",
 		"url": "https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/"
+	},
+	{
+		"name": "DOOM Eternal",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/782330/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/782330/DOOM_Eternal/"
+	},
+	{
+		"name": "Black Mirror",
+		"kind": "show",
+		"image": "https://artworks.thetvdb.com/banners/posters/253463-4.jpg",
+		"url": "https://www.imdb.com/title/tt2085059/"
+	},
+	{
+		"name": "John Wick",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/155/posters/155.jpg",
+		"url": "https://www.imdb.com/title/tt2911666/"
+	},
+	{
+		"name": "Blade Runner 2049",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/117/posters/117.jpg",
+		"url": "https://www.imdb.com/title/tt1856101/"
+	},
+	{
+		"name": "The Wolf of Wall Street",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/389/posters/389.jpg",
+		"url": "https://www.imdb.com/title/tt0993846/"
+	},
+	{
+		"name": "Jaws",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/829/posters/829.jpg",
+		"url": "https://www.imdb.com/title/tt0073195/"
+	},
+	{
+		"name": "Downfall",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/2054/posters/2054.jpg",
+		"url": "https://www.imdb.com/title/tt0363163/"
 	}
 ]

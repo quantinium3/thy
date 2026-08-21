@@ -103,7 +103,7 @@
 
 	<section>
 		<h2 class="mx-1 font-bold">
-			Yet to Consume <span class="text-sm font-normal opacity-70">({filteredYetToConsume.length})</span
+			Backlog <span class="text-sm font-normal opacity-70">({filteredYetToConsume.length})</span
 			>
 		</h2>
 		{@render grid(filteredYetToConsume)}

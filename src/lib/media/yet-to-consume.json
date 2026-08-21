@@ -1,1 +1,205 @@
-[]
+[
+	{
+		"name": "Red Dead Redemption 2",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/1174180/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/"
+	},
+	{
+		"name": "Elden Ring",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/1245620/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/1245620/ELDEN_RING/"
+	},
+	{
+		"name": "Outer Wilds",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/753640/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/753640/Outer_Wilds/"
+	},
+	{
+		"name": "Metal Gear Rising: Revengeance",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/235460/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/235460/METAL_GEAR_RISING_REVENGEANCE/"
+	},
+	{
+		"name": "Quake",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/2310/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/2310/QUAKE/"
+	},
+	{
+		"name": "Deus Ex",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/6910/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/6910/Deus_Ex_GOTY_Edition/"
+	},
+	{
+		"name": "Half-Life",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/70/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/70/HalfLife/"
+	},
+	{
+		"name": "No Man's Sky",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/275850/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/275850/No_Mans_Sky/"
+	},
+	{
+		"name": "Metal Gear Solid",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/2131630/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/2131630/METAL_GEAR_SOLID_Master_Collection_Vol1/"
+	},
+	{
+		"name": "What Remains of Edith Finch",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/501300/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/501300/What_Remains_of_Edith_Finch/"
+	},
+	{
+		"name": "Disco Elysium",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/632470/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/"
+	},
+	{
+		"name": "The Legend of Zelda: Ocarina of Time",
+		"kind": "game",
+		"image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/The_Legend_of_Zelda_Ocarina_of_Time.jpg/250px-The_Legend_of_Zelda_Ocarina_of_Time.jpg",
+		"url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Ocarina_of_Time"
+	},
+	{
+		"name": "Ghost of Tsushima",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/2215430/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/"
+	},
+	{
+		"name": "Cyberpunk 2077",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/1091500/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"
+	},
+	{
+		"name": "Dark Souls",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/211420/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/211420/DARK_SOULS_Prepare_to_Die_Edition/"
+	},
+	{
+		"name": "Bloodborne",
+		"kind": "game",
+		"image": "https://upload.wikimedia.org/wikipedia/en/thumb/6/68/Bloodborne_Cover_Wallpaper.jpg/250px-Bloodborne_Cover_Wallpaper.jpg",
+		"url": "https://en.wikipedia.org/wiki/Bloodborne"
+	},
+	{
+		"name": "Sekiro: Shadows Die Twice",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/814380/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice__GOTY_Edition/"
+	},
+	{
+		"name": "The Count of Monte Cristo",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=432&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fexternal_data%2F27561581%2F253321bd80aa52383000f2f3a7795ccdd3277c23.jpeg&width=270"
+	},
+	{
+		"name": "A Game of Thrones",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=413&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fedition%2F12841472%2Fa63e7ea1-9064-4eb8-afb4-5372db40aed2.jpg&width=270",
+		"url": "https://hardcover.app/books/a-game-of-thrones"
+	},
+	{
+		"name": "Musashi",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=414&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Feditions%2F31290651%2F2294256773833714.jpg&width=270",
+		"url": "https://hardcover.app/books/musashi"
+	},
+	{
+		"name": "The Brothers Karamazov",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=404&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fedition%2F31370986%2Ff057a871e6635e92341a5d3c47840dd16a91c543.jpeg&width=270",
+		"url": "https://hardcover.app/books/the-brothers-karamazov"
+	},
+	{
+		"name": "Recursion",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=411&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fexternal_data%2F31968027%2F91983cb00d2a53d0c88cf8b9eacf2d7714428465.jpeg&width=270",
+		"url": "https://hardcover.app/books/recursion"
+	},
+	{
+		"name": "The Stand",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=414&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fedition%2F21840079%2Fda029af124d14c28d6ade5a3b69bfcf8d4a17472.jpeg&width=270",
+		"url": "https://hardcover.app/books/the-stand"
+	},
+	{
+		"name": "Shogun",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=414&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Fexternal_data%2F925345%2Ffcf14e4ecfc553f27f96cd74b6e27d9c52e25500.jpeg&width=270",
+		"url": "https://hardcover.app/books/shogun"
+	},
+	{
+		"name": "Risk of Rain 2",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/632360/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/632360/Risk_of_Rain_2/"
+	},
+	{
+		"name": "Hades",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/1145360/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/1145360/Hades/"
+	},
+	{
+		"name": "Blue Prince",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/1569580/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/1569580/Blue_Prince/"
+	},
+	{
+		"name": "Inscryption",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/1092790/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/1092790/Inscryption/"
+	},
+	{
+		"name": "Return of the Obra Dinn",
+		"kind": "game",
+		"image": "https://cdn.akamai.steamstatic.com/steam/apps/653530/library_600x900.jpg",
+		"url": "https://store.steampowered.com/app/653530/Return_of_the_Obra_Dinn/"
+	},
+	{
+		"name": "Dune",
+		"kind": "book",
+		"image": "https://production-img.hardcover.app/enlarge?height=414&type=webp&url=https%3A%2F%2Fassets.hardcover.app%2Feditions%2F30426415%2F8362709973192601-9780441013593-us.jpg&width=270",
+		"url": "https://hardcover.app/books/dune"
+	},
+	{
+		"name": "Band of Brothers",
+		"kind": "show",
+		"image": "https://artworks.thetvdb.com/banners/posters/74205-12.jpg",
+		"url": "https://www.imdb.com/title/tt0185906/"
+	},
+	{
+		"name": "Django Unchained",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/v4/movie/289/posters/67c8b5a2590a1.jpg",
+		"url": "https://www.imdb.com/title/tt1853728/"
+	},
+	{
+		"name": "Se7en",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/movies/268/posters/268.jpg",
+		"url": "https://www.imdb.com/title/tt0114369/"
+	},
+	{
+		"name": "No Country for Old Men",
+		"kind": "movie",
+		"image": "https://artworks.thetvdb.com/banners/v4/movie/207/posters/65be596964e58.jpg",
+		"url": "https://www.imdb.com/title/tt0477348/"
+	}
+]
