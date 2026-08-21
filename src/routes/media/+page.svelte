@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { media } from '$lib/media';
+	import { recommended, yetToConsume, type Media } from '$lib/media';
 
 	let query = $state('');
 
@@ -11,34 +11,22 @@
 		book: 'text-zinc-500 dark:text-zinc-400'
 	};
 
-	const filtered = $derived(
-		query.trim() === ''
-			? media
-			: media.filter((m) => {
-					const q = query.toLowerCase();
-					return m.name.toLowerCase().includes(q) || m.kind.toLowerCase().includes(q);
-				})
-	);
+	function filter(items: Media[]) {
+		const q = query.trim().toLowerCase();
+		if (q === '') return items;
+		return items.filter((m) => m.name.toLowerCase().includes(q) || m.kind.toLowerCase().includes(q));
+	}
+
+	const filteredRecommended = $derived(filter(recommended));
+	const filteredYetToConsume = $derived(filter(yetToConsume));
 </script>
 
-<div class="py-4">
-	<div class="mx-1 flex items-center justify-between">
-		<h1 class="font-bold">
-			Media <span class="text-sm font-normal opacity-70">({filtered.length})</span>
-		</h1>
-		<input
-			type="search"
-			placeholder="search..."
-			bind:value={query}
-			class="border border-black bg-transparent px-2 py-0.5 text-sm dark:border-zinc-400"
-		/>
-	</div>
-
-	{#if filtered.length === 0}
-		<p class="pt-4 text-sm opacity-50">no media found.</p>
+{#snippet grid(items: Media[])}
+	{#if items.length === 0}
+		<p class="pt-2 text-sm opacity-50">nothing here.</p>
 	{:else}
-		<div class="grid grid-cols-2 gap-4 pt-4 sm:grid-cols-3">
-			{#each filtered as item (item.name)}
+		<div class="grid grid-cols-2 gap-4 pt-2 sm:grid-cols-3">
+			{#each items as item (item.name)}
 				{#snippet card()}
 					<div class="relative aspect-2/3 w-full overflow-hidden bg-zinc-200 dark:bg-zinc-800">
 						{#if item.image}
@@ -66,4 +54,31 @@
 			{/each}
 		</div>
 	{/if}
+{/snippet}
+
+<div class="flex flex-col gap-8 py-4">
+	<div class="mx-1 flex items-center justify-between">
+		<h1 class="font-bold">Media</h1>
+		<input
+			type="search"
+			placeholder="search..."
+			bind:value={query}
+			class="border border-black bg-transparent px-2 py-0.5 text-sm dark:border-zinc-400"
+		/>
+	</div>
+
+	<section>
+		<h2 class="mx-1 font-bold">
+			Recommended <span class="text-sm font-normal opacity-70">({filteredRecommended.length})</span>
+		</h2>
+		{@render grid(filteredRecommended)}
+	</section>
+
+	<section>
+		<h2 class="mx-1 font-bold">
+			Yet to Consume <span class="text-sm font-normal opacity-70">({filteredYetToConsume.length})</span
+			>
+		</h2>
+		{@render grid(filteredYetToConsume)}
+	</section>
 </div>
