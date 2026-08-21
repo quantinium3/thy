@@ -117,7 +117,7 @@ Containers in essence are just made with the existing kernel features such as:
 # Isolates
 An isolate is a lightweight, secure execution context inside a single OS process, rather than an OS-level mechanism. Instead of isolating a process from the kernel (like a container) or a whole machine from hardware (like a VM), an isolate isolates one piece of code from another *within* the same process, using the guarantees of a language VM (V8 for JavaScript/Wasm). Many isolates share one process, one engine instance, and one host OS process footprint, but each gets its own heap, global object, and compiled code.
 
-![isolates](https://blog.cloudflare.com/content/images/2018/03/image3-3.png)
+![isolates](https://blog.cloudflare.com/_image?href=https%3A%2F%2Fblog.cloudflare.com%2F_emdash%2Fapi%2Fmedia%2Ffile%2F01KW45Y7DRY8HFDEADFRR8PVXE.png&w=1920&h=700&f=webp)
 
 ## Architecture
 - Own heap per isolate: Each isolate gets its own V8 heap. There's no shared mutable memory between isolates, so one isolate can't reach into another's objects.
