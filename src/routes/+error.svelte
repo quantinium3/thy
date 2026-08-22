@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
+	import Seo from '$lib/components/seo.svelte';
 
 	onMount(() => {
 		const script = document.createElement('script');
@@ -9,6 +10,8 @@
 		return () => script.remove();
 	});
 </script>
+
+<Seo title={`${page.status}`} description={page.error?.message ?? 'something went wrong'} />
 
 <div class="py-4">
 	<p class="font-bold">{page.status}</p>

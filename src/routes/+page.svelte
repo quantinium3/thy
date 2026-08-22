@@ -6,6 +6,7 @@
 	import Buttons from '$lib/components/buttons.svelte';
 	import WakatimeCharts from '$lib/components/wakatime-charts.svelte';
 	import ImageCarousel from '$lib/components/image-carousel.svelte';
+	import Seo from '$lib/components/seo.svelte';
 	import { projects } from '$lib/projects';
 	import { ArrowRight } from '@lucide/svelte';
 	import { slide } from 'svelte/transition';
@@ -18,6 +19,8 @@
 		return parts.length <= words ? text : parts.slice(0, words).join(' ') + '…';
 	}
 </script>
+
+<Seo title="quantinium" description="quantinium's personal website" />
 
 {#if sidebar.open}
 	<aside

@@ -1,3 +1,12 @@
+<script lang="ts">
+	import Seo from '$lib/components/seo.svelte';
+</script>
+
+<Seo
+	title="About"
+	description="compsci undergrad interested in backend, frontend, devops and systems programming."
+/>
+
 <div class="flex flex-col gap-8 py-10">
 	<div class="flex flex-row items-center gap-6">
 		<img src="/violet.jpg" alt="violet" class="h-28 w-28 rounded-full object-cover" />

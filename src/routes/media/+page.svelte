@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { recommended, yetToConsume, kindCategory, type Media, type MediaCategory } from '$lib/media';
+	import Seo from '$lib/components/seo.svelte';
 
 	let query = $state('');
 	let category = $state<MediaCategory | 'all'>('all');
@@ -29,6 +30,8 @@
 	const filteredRecommended = $derived(filter(recommended));
 	const filteredYetToConsume = $derived(filter(yetToConsume));
 </script>
+
+<Seo title="Media" description="Movies, anime, games and books quantinium is watching, playing, reading or recommends." />
 
 {#snippet grid(items: Media[])}
 	{#if items.length === 0}

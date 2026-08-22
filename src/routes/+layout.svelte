@@ -1,7 +1,6 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.jpg';
-	import ogGif from "$lib/assets/og.gif"
 	import Navbar from '$lib/components/navbar.svelte';
 
 	let { children } = $props();
@@ -9,23 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>quantinium</title>
-	<meta name="description" content="quantinium's personal website">
-
-	<meta property="og:description" content="quantinium's personal website">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://quantinium.dev">
-	<meta property="og:image" content={ogGif}>
-	<meta property="og:image:type" content="image/gif">
-
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="quantinium">
-	<meta name="twitter:description" content="quantinium's personal website">
-	<meta name="twitter:image" content={ogGif} >
-	<meta name="twitter:domain" content="quantinium.dev">
-	<meta name="twitter:url" content="https://quantinium.dev">
-
-  <meta property="og:locale" content="en_US" />
+	<meta property="og:locale" content="en_US" />
 </svelte:head>
 
 <main class="mx-auto max-w-200 px-4" style="font-family: 'Menlo', monospace;">

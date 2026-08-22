@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { projects } from '$lib/projects';
+	import Seo from '$lib/components/seo.svelte';
 
 	let query = $state('');
 
@@ -23,6 +24,8 @@
 				})
 	);
 </script>
+
+<Seo title="Projects" description="Projects built by quantinium spanning backend, frontend, devops and systems programming." />
 
 <div class="py-4">
 	<div class="mx-1 flex items-center justify-between">

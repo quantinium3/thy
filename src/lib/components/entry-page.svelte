@@ -2,6 +2,7 @@
 	import { ChevronLeft } from '@lucide/svelte';
 	import type { Component } from 'svelte';
 	import Prose from './prose.svelte';
+	import Seo from './seo.svelte';
 
 	let {
 		backHref,
@@ -21,6 +22,8 @@
 		content: Component;
 	} = $props();
 </script>
+
+<Seo {title} {description} type="article" />
 
 <article class="py-4">
 	<!-- eslint-disable svelte/no-navigation-without-resolve -- backHref is resolved by the caller -->

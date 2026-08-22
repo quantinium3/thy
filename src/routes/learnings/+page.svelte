@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Seo from '$lib/components/seo.svelte';
 	let { data } = $props();
 	let query = $state('');
 
@@ -16,6 +17,8 @@
 				})
 	);
 </script>
+
+<Seo title="Learnings" description="Notes and deep dives by quantinium on systems, devops and computer science fundamentals." />
 
 <div class="py-4">
 	<div class="mx-1 flex items-center justify-between">
