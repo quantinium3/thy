@@ -258,7 +258,7 @@ For more examples and ideas, visit:
 
 ## Building and Pushing Containers
 
-If you're following along with your own repo, create a Dockerfile for your application. For this guide, I'll be using my own application which already has Dockerfiles set up for building and deploying. If you wanna learn how to write dockerfiles refer to [this](https://example.com).
+If you're following along with your own repo, create a Dockerfile for your application. For this guide, I'll be using my own application which already has Dockerfiles set up for building and deploying. If you wanna learn how to write dockerfiles refer to [this](http://localhost:5173/blog/containerization-deep-dive).
 Now, choose your preferred container registry and login into using `docker login`. I'll be using `ghcr`
 
 ```bash
