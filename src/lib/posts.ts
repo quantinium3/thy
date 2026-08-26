@@ -1,4 +1,4 @@
-export type Collection = 'blog' | 'learnings';
+export type Collection = 'blog' | 'learnings' | 'misc';
 
 interface Post {
 	slug: string;
