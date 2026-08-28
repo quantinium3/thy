@@ -1,6 +1,7 @@
 <script>
 	import { Terminal } from '@lucide/svelte';
 	import ThemeSwitcher from './theme-switcher.svelte';
+	import OnekoPicker from './oneko-picker.svelte';
 	import { sidebar } from '$lib/sidebar.svelte';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
@@ -27,5 +28,8 @@
 			<span class="animate-pulse font-bold">|</span>
 		</a>
 	</div>
-	<ThemeSwitcher />
+	<div class="flex items-center gap-2">
+		<OnekoPicker />
+		<ThemeSwitcher />
+	</div>
 </nav>
