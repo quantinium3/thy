@@ -173,6 +173,8 @@
 
 		document.body.appendChild(nekoEl);
 
+		window.dispatchEvent(new CustomEvent('oneko:ready'));
+
 		document.addEventListener('mousemove', function(event) {
 			mousePosX = event.clientX;
 			mousePosY = event.clientY;

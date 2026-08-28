@@ -15,7 +15,13 @@
 	let typed = '';
 
 	onMount(() => {
-		available = !!window.oneko;
+		if (window.oneko) {
+			available = true;
+			return;
+		}
+		const onReady = () => (available = true);
+		window.addEventListener('oneko:ready', onReady, { once: true });
+		return () => window.removeEventListener('oneko:ready', onReady);
 	});
 
 	function openPicker() {
