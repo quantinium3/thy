@@ -8,7 +8,8 @@ import type { CarouselItem } from '$lib/carousel';
  * the url actually being visited is sent down.
  */
 const pins: Record<string, CarouselItem> = {
-	harsha: { type: 'image', src: '/harsha.png', alt: 'harsha' }
+	harsha: { type: 'image', src: '/harsha.png', alt: 'harsha' },
+	nam: { type: 'image', src: '/nam.webp', alt: 'nam' }
 };
 
 export const getPin = (slug: string): CarouselItem | undefined => pins[slug];
