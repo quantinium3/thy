@@ -1,6 +1,6 @@
 export type Collection = 'blog' | 'learnings' | 'misc';
 
-interface Post {
+export interface Post {
 	slug: string;
 	collection: Collection;
 	href: string;

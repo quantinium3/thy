@@ -4,17 +4,17 @@
 	import GameOfLife from './game-of-life.svelte';
 	import AsciiClock from './ascii-clock.svelte';
 	import BadAppleLife from './bad-apple-life.svelte';
+	import { items as allItems, type CarouselItem } from '$lib/carousel';
 
-	const items = [
-		{ type: 'image', src: '/frieren.jpg', alt: 'frieren 1' },
-		{ type: 'clock' },
-		{ type: 'gol' },
-		{ type: 'badapple' },
-		{ type: 'image', src: '/teto.png', alt: 'teto' }
-	];
+	/** when set, the carousel shows only this screen instead of the rotation */
+	let { pin }: { pin?: CarouselItem } = $props();
+
+	const items: CarouselItem[] = $derived(pin ? [pin] : allItems);
 
 	let current = $state(0);
 	let direction = $state(1);
+
+	const item: CarouselItem = $derived(items[current] ?? items[0]);
 
 	function go(next: number) {
 		direction = next > current ? 1 : -1;
@@ -33,16 +33,16 @@
 				in:fly={{ x: direction * 40, duration: 150 }}
 				out:fly={{ x: direction * -40, duration: 150 }}
 			>
-				{#if items[current].type === 'gol'}
+				{#if item.type === 'gol'}
 					<GameOfLife />
-				{:else if items[current].type === 'clock'}
+				{:else if item.type === 'clock'}
 					<AsciiClock />
-				{:else if items[current].type === 'badapple'}
+				{:else if item.type === 'badapple'}
 					<BadAppleLife />
-				{:else}
+				{:else if item.type === 'image'}
 					<img
-						src={items[current].src}
-						alt={items[current].alt}
+						src={item.src}
+						alt={item.alt}
 						class="h-full w-full bg-transparent object-cover"
 					/>
 				{/if}

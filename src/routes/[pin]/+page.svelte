@@ -4,4 +4,4 @@
 	let { data } = $props();
 </script>
 
-<Home {data} />
+<Home {data} pin={data.pin} />
