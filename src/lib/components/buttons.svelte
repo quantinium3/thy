@@ -1,7 +1,7 @@
 <script lang="ts">
 	const buttons: { href: string; src: string }[] = [
 		{ href: 'https://namishh.com/', src: '/buttons/nam.png' },
-		{ href: 'https://quantinium.dev', src: '/buttons/quantinium.png' },
+		{ href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', src: '/buttons/quantinium.png' },
 		{ href: 'https://nithitsuki.com/', src: '/buttons/nithitsuki.png' },
 		{ href: 'https://haarshmap.github.io/', src: '/buttons/harsha.png'},
 		{ href: 'https://helix-editor.com/', src: '/buttons/helix.gif' },
