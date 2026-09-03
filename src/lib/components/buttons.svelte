@@ -13,6 +13,8 @@
 		{ href: 'https://info.cern.ch/hypertext/WWW/TheProject.html', src: '/buttons/www.gif' },
 	];
 
+	const label = (src: string) => src.split('/').pop()?.replace(/\.[^.]+$/, '') ?? 'button';
+
 	const repeatCount = 4;
 	const track = Array.from({ length: repeatCount }, () => buttons).flat();
 	const pxPerSecond = 60;
@@ -26,8 +28,23 @@
 			style="animation-duration: {duration}s"
 		>
 			{#each [...track, ...track] as button, i (i)}
-				<a href={button.href} target="_blank" rel="noopener noreferrer external">
-					<img src={button.src} alt="88x31 button" width="88" height="31" class="shrink-0" />
+				{@const decorative = i >= buttons.length}
+				<a
+					href={button.href}
+					target="_blank"
+					rel="noopener noreferrer external"
+					aria-hidden={decorative ? 'true' : undefined}
+					tabindex={decorative ? -1 : undefined}
+				>
+					<img
+						src={button.src}
+						alt={decorative ? '' : `${label(button.src)} — 88x31 button`}
+						width="88"
+						height="31"
+						loading="lazy"
+						decoding="async"
+						class="shrink-0"
+					/>
 				</a>
 			{/each}
 		</div>

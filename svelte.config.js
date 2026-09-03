@@ -8,7 +8,10 @@ const config = {
 	compilerOptions: {
 		runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
 	},
-	kit: { adapter: adapter() },
+	kit: {
+		adapter: adapter(),
+		inlineStyleThreshold: 30000
+	},
 	preprocess: [
 		mdsvex({
 			extensions: ['.svx', '.md'],

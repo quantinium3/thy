@@ -4,9 +4,9 @@ export type CarouselItem =
 
 /** the default rotation shown on every normal route */
 export const items: CarouselItem[] = [
-	{ type: 'image', src: '/frieren.jpg', alt: 'frieren 1' },
+	{ type: 'image', src: '/frieren.webp', alt: 'frieren 1' },
 	{ type: 'clock' },
 	{ type: 'gol' },
 	{ type: 'badapple' },
-	{ type: 'image', src: '/teto.png', alt: 'teto' }
+	{ type: 'image', src: '/teto.webp', alt: 'teto' }
 ];

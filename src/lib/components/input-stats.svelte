@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { fetchJson } from '$lib/fetch-json';
 
 	const fmt = new Intl.NumberFormat('en', { notation: 'compact', compactDisplay: 'short' });
 
@@ -13,8 +14,7 @@
 
 	onMount(async () => {
 		try {
-			const res = await fetch('https://eris.quantinium.workers.dev/api/stats');
-			const data = (await res.json()) as {
+			const data = await fetchJson<{
 				stats: {
 					keypress: number;
 					left_click: number;
@@ -22,7 +22,7 @@
 					mouse_distance: number;
 					scroll_distance: number;
 				};
-			};
+			}>('https://eris.quantinium.workers.dev/api/stats');
 			keypress = data.stats.keypress;
 			leftClick = data.stats.left_click;
 			rightClick = data.stats.right_click;

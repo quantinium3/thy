@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChevronLeft } from '@lucide/svelte';
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
 	import type { Component } from 'svelte';
 	import Prose from './prose.svelte';
 	import Seo from './seo.svelte';
@@ -23,7 +23,7 @@
 	} = $props();
 </script>
 
-<Seo {title} {description} type="article" />
+<Seo {title} {description} {date} {tags} type="article" />
 
 <article class="py-4">
 	<!-- eslint-disable svelte/no-navigation-without-resolve -- backHref is resolved by the caller -->

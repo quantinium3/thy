@@ -47,7 +47,15 @@
 			{#each filtered as project (project.name)}
 				<div class="flex flex-col gap-2">
 					{#if project.image}
-						<img src={project.image} alt={project.name} class="aspect-video w-full object-cover" />
+						<img
+							src={project.image}
+							alt={project.name}
+							width="640"
+							height="360"
+							loading="lazy"
+							decoding="async"
+							class="aspect-video w-full object-cover"
+						/>
 					{/if}
 					<div class="flex flex-col gap-1">
 						<div class="flex flex-wrap items-baseline gap-3">

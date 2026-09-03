@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Cat } from '@lucide/svelte';
+	import Cat from '@lucide/svelte/icons/cat';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { nextSwatchPose, onekoSkins, onekoSwatchStyle } from '$lib/oneko';

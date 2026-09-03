@@ -9,7 +9,14 @@
 
 <div class="flex flex-col gap-8 py-10">
 	<div class="flex flex-row items-center gap-6">
-		<img src="/violet.jpg" alt="violet" class="h-28 w-28 rounded-full object-cover" />
+		<img
+			src="/violet.webp"
+			alt="violet"
+			width="112"
+			height="112"
+			decoding="async"
+			class="h-28 w-28 rounded-full object-cover"
+		/>
 		<div class="flex flex-col gap-1">
 			<h1 class="text-lg font-bold">@quantinium3</h1>
 			<div class="text-sm opacity-60">compsci undergrad</div>

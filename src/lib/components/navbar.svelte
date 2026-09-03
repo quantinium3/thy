@@ -1,5 +1,5 @@
 <script>
-	import { Terminal } from '@lucide/svelte';
+	import Terminal from '@lucide/svelte/icons/terminal';
 	import ThemeSwitcher from './theme-switcher.svelte';
 	import OnekoPicker from './oneko-picker.svelte';
 	import { sidebar } from '$lib/sidebar.svelte';

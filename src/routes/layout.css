@@ -15,7 +15,20 @@
 
 @font-face {
 	font-family: 'Menlo';
-	src: url('/Menlo-Regular.ttf') format('truetype');
+	src:
+		local('Menlo'),
+		url('/Menlo-Regular.woff2') format('woff2'),
+		url('/Menlo-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Menlo Fallback';
+	src: local('Courier New'), local('Liberation Mono'), local('DejaVu Sans Mono');
+	size-adjust: 100.33%;
+	ascent-override: 92.52%;
+	descent-override: 23.51%;
+	line-gap-override: 0%;
 }

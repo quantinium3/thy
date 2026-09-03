@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { ExternalLink } from '@lucide/svelte';
+	import ExternalLink from '@lucide/svelte/icons/external-link';
 	import { onMount } from 'svelte';
+	import { fetchJson } from '$lib/fetch-json';
 
 	let songName = $state('');
 	let songArtist = $state('');
@@ -15,8 +16,7 @@
 
 	onMount(async () => {
 		try {
-			const res = await fetch('https://eris.quantinium.workers.dev/api/lastfm');
-			const data = (await res.json()) as {
+			const data = await fetchJson<{
 				songs: {
 					track: Array<{
 						name: string;
@@ -25,7 +25,7 @@
 						url: string;
 					}>;
 				};
-			};
+			}>('https://eris.quantinium.workers.dev/api/lastfm');
 			const track = data.songs.track[0];
 			songName = track.name;
 			songArtist = track.artist['#text'];
@@ -42,14 +42,26 @@
 <div class="flex items-center gap-1 pb-1 font-bold w-full">
 	Listening
 	{#if songUri}
-		<a href={songUri} target="_blank" rel="noopener noreferrer external"
+		<a
+			href={songUri}
+			target="_blank"
+			rel="noopener noreferrer external"
+			aria-label={songName ? `Open "${songName}" on Last.fm` : 'Open current track on Last.fm'}
 			><ExternalLink size={12} /></a
 		>
 	{/if}
 </div>
 <div class="flex gap-2 w-full">
 	{#if songImgUri}
-		<img src={songImgUri} alt={songName} class="w-12 shrink-0" />
+		<img
+			src={songImgUri}
+			alt={songName}
+			width="48"
+			height="48"
+			loading="lazy"
+			decoding="async"
+			class="h-12 w-12 shrink-0 object-cover"
+		/>
 	{:else}
 		<div class="h-12 w-12 shrink-0 bg-zinc-200 opacity-50 dark:bg-zinc-700"></div>
 	{/if}

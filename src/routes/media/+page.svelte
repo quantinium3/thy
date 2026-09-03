@@ -38,11 +38,19 @@
 		<p class="pt-2 text-sm opacity-50">nothing here.</p>
 	{:else}
 		<div class="grid grid-cols-2 gap-4 pt-2 sm:grid-cols-3 md:grid-cols-5">
-			{#each items as item (item.name)}
+			{#each items as item, i (item.name)}
 				{#snippet card()}
 					<div class="relative aspect-2/3 w-full overflow-hidden bg-zinc-200 dark:bg-zinc-800">
 						{#if item.image}
-							<img src={item.image} alt={item.name} class="h-full w-full object-cover" />
+							<img
+								src={item.image}
+								alt={item.name}
+								width="200"
+								height="300"
+								loading={i < 5 ? "eager" : "lazy"}
+								decoding="async"
+								class="h-full w-full object-cover"
+							/>
 						{:else}
 							<div class="flex h-full w-full items-center justify-center p-2 text-center text-xs opacity-50">
 								{item.name}

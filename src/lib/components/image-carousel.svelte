@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { ChevronLeft, ChevronRight } from '@lucide/svelte';
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import GameOfLife from './game-of-life.svelte';
 	import AsciiClock from './ascii-clock.svelte';
 	import BadAppleLife from './bad-apple-life.svelte';
 	import { items as allItems, type CarouselItem } from '$lib/carousel';
 
-	/** when set, the carousel shows only this screen instead of the rotation */
 	let { pin }: { pin?: CarouselItem } = $props();
 
 	const items: CarouselItem[] = $derived(pin ? [pin] : allItems);
@@ -43,6 +43,10 @@
 					<img
 						src={item.src}
 						alt={item.alt}
+						width="380"
+						height="380"
+						fetchpriority="high"
+						decoding="async"
 						class="h-full w-full bg-transparent object-cover"
 					/>
 				{/if}
@@ -52,11 +56,11 @@
 
 	{#if items.length > 1}
 		<div class="flex items-center justify-between text-xs opacity-60">
-			<button onclick={prev} class="cursor-pointer hover:opacity-100"
+			<button onclick={prev} aria-label="Previous item" class="cursor-pointer hover:opacity-100"
 				><ChevronLeft size={14} /></button
 			>
 			<span>[{current + 1}/{items.length}]</span>
-			<button onclick={next} class="cursor-pointer hover:opacity-100"
+			<button onclick={next} aria-label="Next item" class="cursor-pointer hover:opacity-100"
 				><ChevronRight size={14} /></button
 			>
 		</div>

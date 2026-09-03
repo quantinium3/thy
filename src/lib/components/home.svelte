@@ -8,7 +8,7 @@
 	import ImageCarousel from '$lib/components/image-carousel.svelte';
 	import Seo from '$lib/components/seo.svelte';
 	import { projects } from '$lib/projects';
-	import { ArrowRight } from '@lucide/svelte';
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import { slide } from 'svelte/transition';
 	import { sidebar } from '$lib/sidebar.svelte';
 	import { resolve } from '$app/paths';

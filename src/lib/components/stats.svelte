@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { fetchJson } from '$lib/fetch-json';
 
 	let totalTime = $state(0);
 	let loading = $state(true);
@@ -10,8 +11,9 @@
 			const timeUri = import.meta.env.VITE_TIME_URI;
 			if (!timeUri) throw new Error('VITE_TIME_URI is not set');
 
-			const res = await fetch(timeUri);
-			const data = (await res.json()) as { data: Array<{ grand_total: { decimal: string } }> };
+			const data = await fetchJson<{ data: Array<{ grand_total: { decimal: string } }> }>(
+				timeUri
+			);
 			totalTime = data.data.reduce(
 				(acc: number, day: { grand_total: { decimal: string } }) =>
 					acc + parseFloat(day.grand_total.decimal),

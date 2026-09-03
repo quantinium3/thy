@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Copy, Check, X } from '@lucide/svelte';
+	import Copy from '@lucide/svelte/icons/copy';
+	import Check from '@lucide/svelte/icons/check';
+	import X from '@lucide/svelte/icons/x';
 	import { onMount, mount, type Component } from 'svelte';
 
 	let { content: Content }: { content: Component } = $props();
@@ -122,7 +124,7 @@
 		list-style-type: decimal;
 	}
 	.prose :global(code) {
-		font-family: 'Menlo', monospace;
+		font-family: 'Menlo', 'Menlo Fallback', monospace;
 		font-size: 0.875rem;
 	}
 	.prose :global(:not(pre) > code) {
