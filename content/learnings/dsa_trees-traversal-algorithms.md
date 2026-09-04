@@ -1,5 +1,5 @@
 ---
-title: "DSA: Trees - Searching algorithms and Traversal techniques"
+title: "DSA: Trees - Traversal techniques"
 description: Learning about Trees, Searching algorithms such as BFS and DFS and Tree Traversal techniques such as In-order, Pre-order, Post-order.
 author: quantinium
 date: '2026-09-02'
@@ -87,6 +87,14 @@ void dfsIterative(TreeNode* root) {
 - Time Complexity: `O(V + E)`
 - Space Complexity: `O(h)` where `h` is the height of the tree - `O(log n)` on a balanced tree but `O(n)` on a skewed one, which is the mirror of BFS paying for the widest level instead.
 
+Which of the three orders below a problem wants is often not stated, and plenty of problems do not care - they just need the walk. Some questions of that kind are as follows:
+- [100. Same Tree (Easy)](https://leetcode.com/problems/same-tree/description/)
+- [101. Symmetric Tree (Easy)](https://leetcode.com/problems/symmetric-tree/description/)
+- [226. Invert Binary Tree (Easy)](https://leetcode.com/problems/invert-binary-tree/description/)
+- [112. Path Sum (Easy)](https://leetcode.com/problems/path-sum/description/)
+- [257. Binary Tree Paths (Easy)](https://leetcode.com/problems/binary-tree-paths/description/)
+- [437. Path Sum III (Medium)](https://leetcode.com/problems/path-sum-iii/description/)
+
 #### Pre-Order Traversal
 Pre-order traversal is a method in which we traverse a tree such that for each node, we visit the node first, then traverse the left subtree and then right subtree - `Root, Left, Right`.
 
@@ -131,16 +139,15 @@ That placement decides which direction information can flow. Because the node is
 - [113. Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
 - [1448. Count Good Nodes](https://leetcode.com/problems/count-good-nodes-in-binary-tree/description/)
 - [98. Validate BST](https://leetcode.com/problems/validate-binary-search-tree/description/).
-- [144. Binary Tree Preorder Traversal (Easy)](https://leetcode.com/problems/binary-tree-preorder-traversal/description/) — the traversal itself, worth writing both ways
-- [589. N-ary Tree Preorder Traversal (Easy)](https://leetcode.com/problems/n-ary-tree-preorder-traversal/description/) — same shape once `left/right` becomes a loop over children
-- [105. Construct Binary Tree from Preorder and Inorder Traversal (Medium)](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/) — why one sequence alone is not enough
-- [1008. Construct Binary Search Tree from Preorder Traversal (Medium)](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/description/) — the BST property replaces the second sequence
-- [114. Flatten Binary Tree to Linked List (Medium)](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/) — the list you are asked to build is the pre-order
-- [297. Serialize and Deserialize Binary Tree (Hard)](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/) — pre-order with null markers, so the shape survives the round trip
+- [144. Binary Tree Preorder Traversal (Easy)](https://leetcode.com/problems/binary-tree-preorder-traversal/description/)
+- [589. N-ary Tree Preorder Traversal (Easy)](https://leetcode.com/problems/n-ary-tree-preorder-traversal/description/)
+- [105. Construct Binary Tree from Preorder and Inorder Traversal (Medium)](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
+- [1008. Construct Binary Search Tree from Preorder Traversal (Medium)](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/description/)
+- [114. Flatten Binary Tree to Linked List (Medium)](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
+- [297. Serialize and Deserialize Binary Tree (Hard)](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/)
 
 #### In Order Traversal
 In-order traversal is a method in which we traverse a tree such that for each node, we visit the node's left subtree, then node itself and then right subtree - `Left, Root, Right`.
-
 
 ```cpp
 void inorder(TreeNode* root) {
@@ -153,10 +160,7 @@ void inorder(TreeNode* root) {
 
 On the tree above this gives `7 4 2 5 1 3 6`.
 
-##### Doing it iteratively
-The iterative version is the one that is actually worth understanding, because unlike pre-order it is not a straight rewrite.
-
-In pre-order a node is finished the moment it is reached - print it, push the children, never look at it again. In-order cannot do that. When the walk first arrives at a node it is not allowed to visit it yet, because everything in its left subtree has to come out first. The node has to be remembered, set aside while an unknown amount of work happens below it, and returned to afterwards. Recursion hides this: the node sits in a paused stack frame, and the frame resumes at the `cout` line on its own. Iteratively that "come back to me later" has to be built by hand, which is the whole difficulty.
+When the walk first arrives at a node it is not allowed to visit it yet, because everything in its left subtree has to come out first. The node has to be remembered, set aside while an unknown amount of work happens below it, and returned to afterwards. Recursion hides this as the node sits in a paused stack frame, and the frame resumes at the `cout` line on its own.
 
 ```cpp
 void inorderIterative(TreeNode* root) {
@@ -189,16 +193,6 @@ The loop alternates between two modes. While `curr` is non-null it is descending
                          order: 7 4 2 5 1 3 6
 ```
 
-Three details carry the correctness:
-
-- **The popped node is never pushed back.** That is what makes each node visited exactly once. By the time a node is popped its left subtree is provably finished, so there is no state left to track for it - no `visited` flag is needed anywhere.
-- **The loop condition needs both halves.** `!st.empty()` alone fails immediately, since the stack starts empty. `curr` alone fails the moment a node with no right child is visited while ancestors are still waiting. Work remains if either there is a subtree still to descend into, or a node still waiting to be visited.
-- **`curr = curr->right` is the return step.** It is the iterative spelling of the recursive function's last line. Assigning null there is fine and common - it just means the next iteration skips the descent and pops an ancestor instead.
-
-Each node is pushed once and popped once, so it is `O(n)` time and `O(h)` space, the same as the recursive version - the stack is the same stack, just written out. Morris traversal gets the space down to `O(1)` by temporarily rewiring leaf pointers back to their in-order successor, at the cost of mutating the tree while it runs.
-
-The reason this specific traversal earns the extra effort is that in-order on a BST emits the keys in sorted order, and the iterative form can be paused midway. That is what makes it possible to stop at the `k`th value instead of walking the whole tree, and what a BST iterator is built out of.
-
 Some questions are as follows:
 - [94. Binary Tree Inorder Traversal (Easy)](https://leetcode.com/problems/binary-tree-inorder-traversal/description/) — write it both ways
 - [230. Kth Smallest Element in a BST (Medium)](https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/) — stop after `k` pops instead of finishing the walk
@@ -207,9 +201,116 @@ Some questions are as follows:
 - [99. Recover Binary Search Tree (Medium)](https://leetcode.com/problems/recover-binary-search-tree/description/) — the two swapped nodes show up as inversions in that sequence
 - [897. Increasing Order Search Tree (Easy)](https://leetcode.com/problems/increasing-order-search-tree/description/) — rebuild the tree as its own in-order
 
+#### Post-Order Traversal
+Post-order traversal is a method in which we traverse a tree such that for each node, we visit the node's left subtree, then its right subtree, and only then the node itself - `Left, Right, Root`.
 
-## Search Algorithms
-### Breadth First Search (BFS)
+```
+              1          the root is emitted after everything below it
+            /   \
+          2       3      order: 7 4 5 2 6 3 1
+        /   \       \           |_____| |_| ^
+      4       5       6         |         |  \ the root itself
+     /                          |          \ right subtree of 1
+    7                           \ left subtree of 1
+```
+
+```cpp
+void postorder(TreeNode* root) {
+  if (!root) return;
+  postorder(root->left);
+  postorder(root->right);
+  cout << root->val << ' ';            // descend first, visit on the way back
+}
+```
+
+A pre-order visit happens before the children exist as answers, so it can only push something *down* - a running sum, a valid range, the max seen so far. A post-order visit happens once both children have already returned, so it is the only placement where a node can compute something *up* out of what its subtrees reported. Height, size, "is this subtree balanced", "does this subtree contain both targets".
+
+```cpp
+int height(TreeNode* root) {
+  if (!root) return 0;
+  int l = height(root->left);          // both children answer first
+  int r = height(root->right);
+  return 1 + max(l, r);                // then this node forms its own answer
+}
+```
+
+A node here has to be passed over **twice** - once when its left subtree finishes and the right one still has to run, and again when the right one is done and the node may finally be visited. Peeking at the top of the stack is no longer enough, because the same node looks identical in both situations. Something has to distinguish them.
+
+```cpp
+void postorderTwoStacks(TreeNode* root) {
+  if (!root) return;
+  stack<TreeNode*> st, out;
+  st.push(root);
+  while (!st.empty()) {
+    TreeNode* curr = st.top();
+    st.pop();
+    out.push(curr);                    // collect in Root, Right, Left order
+    if (curr->left)  st.push(curr->left);
+    if (curr->right) st.push(curr->right);
+  }
+  while (!out.empty()) {               // reversed, that is Left, Right, Root
+    cout << out.top()->val << ' ';
+    out.pop();
+  }
+}
+```
+
+The honest version keeps one stack and remembers the last node it visited:
+
+```cpp
+void postorderIterative(TreeNode* root) {
+  stack<TreeNode*> st;
+  TreeNode* curr = root;
+  TreeNode* lastVisited = nullptr;
+  while (curr || !st.empty()) {
+    while (curr) {                     // descend, remembering every node passed through
+      st.push(curr);
+      curr = curr->left;
+    }
+    TreeNode* peek = st.top();         // do not pop, this node may not be done yet
+    if (peek->right && peek->right != lastVisited) {
+      curr = peek->right;              // left is finished, right is still owed
+    } else {
+      cout << peek->val << ' ';        // both subtrees done, so visit and retire it
+      lastVisited = peek;
+      st.pop();
+    }
+  }
+}
+```
+
+`lastVisited` is the whole trick. When the walk comes back to a node the second time, the node it just finished with is that node's own right child - so `peek->right == lastVisited` means "the right subtree is done, this node is free to go", and anything else means the right subtree has not been entered yet. One pointer replaces the visit-count flag the naive version wants to store on every node.
+
+```
+              1          curr=1,2,4,7   descend left            stack: [1,2,4,7]
+            /   \        peek 7, no right   visit 7, last=7     stack: [1,2,4]
+          2       3      peek 4, no right   visit 4, last=4     stack: [1,2]
+        /   \       \    peek 2, right=5    curr=5, push        stack: [1,2,5]
+      4       5       6  peek 5, no right   visit 5, last=5     stack: [1,2]
+     /                   peek 2, right=last visit 2, last=2     stack: [1]
+    7                    peek 1, right=3    curr=3, push        stack: [1,3]
+                         peek 3, right=6    curr=6, push        stack: [1,3,6]
+                         peek 6, no right   visit 6, last=6     stack: [1,3]
+                         peek 3, right=last visit 3, last=3     stack: [1]
+                         peek 1, right=last visit 1             stack: []
+                         order: 7 4 5 2 6 3 1
+```
+
+Some questions are as follows:
+- [145. Binary Tree Postorder Traversal (Easy)](https://leetcode.com/problems/binary-tree-postorder-traversal/description/) — write it all three ways
+- [590. N-ary Tree Postorder Traversal (Easy)](https://leetcode.com/problems/n-ary-tree-postorder-traversal/description/) — same shape once `left/right` becomes a loop over children
+- [104. Maximum Depth of Binary Tree (Easy)](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/) — the smallest thing that has to be computed upward
+- [110. Balanced Binary Tree (Easy)](https://leetcode.com/problems/balanced-binary-tree/description/) — return the height and the verdict together, so one pass is enough
+- [543. Diameter of Binary Tree (Easy)](https://leetcode.com/problems/diameter-of-binary-tree/description/) — the answer forms at a node, but the value returned upward is a height
+- [124. Binary Tree Maximum Path Sum (Hard)](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/) — the same split, taken seriously
+- [236. Lowest Common Ancestor of a Binary Tree (Medium)](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/) — each node decides from what its two children report
+- [106. Construct Binary Tree from Inorder and Postorder Traversal (Medium)](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/) — the last element of a post-order run is the root of it
+- [1110. Delete Nodes And Return Forest (Medium)](https://leetcode.com/problems/delete-nodes-and-return-forest/description/) — delete on the way up, so children are already detached
+- [652. Find Duplicate Subtrees (Medium)](https://leetcode.com/problems/find-duplicate-subtrees/description/) — serialize each subtree from its children's serializations
+- [508. Most Frequent Subtree Sum (Medium)](https://leetcode.com/problems/most-frequent-subtree-sum/description/) — a sum is the plainest thing a subtree can report
+
+
+### Breadth First Traversal (Level Order)
 It is a traversal algorithm that starts from a source node and visits every node at distance `k` from it before visiting any node at distance `k + 1`.
 
 The mechanism is a queue (FIFO) holding the nodes that have been discovered but not yet expanded: pop a node, push its unvisited children (or neighbours, on a graph), repeat until the queue is empty.
@@ -275,23 +376,3 @@ Some questions are as follows:
 - [993. Cousins in Binary Tree (Easy)](https://leetcode.com/problems/cousins-in-binary-tree/description/) — same level, different parent
 - [116. Populating Next Right Pointers in Each Node (Medium)](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/) — wire each node to the next one in its level
 - [863. All Nodes Distance K in Binary Tree (Medium)](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/description/) — add parent pointers to make it a graph, then BFS from the target
-
-### Depth First Search (DFS)
-
-
-Some questions are as follows:
-- [104. Maximum Depth of Binary Tree (Easy)](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/) — the shape every other one of these borrows
-- [100. Same Tree (Easy)](https://leetcode.com/problems/same-tree/description/) — walk two trees in lockstep
-- [101. Symmetric Tree (Easy)](https://leetcode.com/problems/symmetric-tree/description/) — the same walk, mirrored
-- [226. Invert Binary Tree (Easy)](https://leetcode.com/problems/invert-binary-tree/description/) — swap on the way back up
-- [110. Balanced Binary Tree (Easy)](https://leetcode.com/problems/balanced-binary-tree/description/) — return the height and the verdict in one pass
-- [543. Diameter of Binary Tree (Easy)](https://leetcode.com/problems/diameter-of-binary-tree/description/) — the answer forms at a node, but the return value is a height
-- [112. Path Sum (Easy)](https://leetcode.com/problems/path-sum/description/) — carry the running sum down
-- [113. Path Sum II (Medium)](https://leetcode.com/problems/path-sum-ii/description/) — same, but push and pop the path as you go
-- [257. Binary Tree Paths (Easy)](https://leetcode.com/problems/binary-tree-paths/description/) — the stack is the path, made literal
-- [437. Path Sum III (Medium)](https://leetcode.com/problems/path-sum-iii/description/) — prefix sums along the current root to node path
-- [236. Lowest Common Ancestor of a Binary Tree (Medium)](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/) — answer computed from what the two children report
-- [1448. Count Good Nodes in Binary Tree (Medium)](https://leetcode.com/problems/count-good-nodes-in-binary-tree/description/) — pass the max seen so far downward
-- [98. Validate Binary Search Tree (Medium)](https://leetcode.com/problems/validate-binary-search-tree/description/) — pass a valid range downward, not a single value
-- [124. Binary Tree Maximum Path Sum (Hard)](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/) — what you return upward is not what you record
-
