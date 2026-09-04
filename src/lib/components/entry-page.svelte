@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
-	import type { Component } from 'svelte';
+	import type { Component, Snippet } from 'svelte';
 	import Prose from './prose.svelte';
 	import Seo from './seo.svelte';
 
@@ -11,7 +11,8 @@
 		date,
 		description,
 		tags,
-		content
+		content,
+		meta
 	}: {
 		backHref: string;
 		backLabel: string;
@@ -20,6 +21,7 @@
 		description: string;
 		tags: string[];
 		content: Component;
+		meta?: Snippet;
 	} = $props();
 </script>
 
@@ -41,6 +43,9 @@
 				dateStyle: 'full'
 			}).format(new Date(date))}
 		</p>
+		{#if meta}
+			<div class="mt-2 flex flex-wrap items-center gap-2 text-xs">{@render meta()}</div>
+		{/if}
 		{#if description}
 			<p class="my-2 text-sm opacity-90">{description}</p>
 		{/if}

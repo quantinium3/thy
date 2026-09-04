@@ -6,12 +6,12 @@
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 
-	const isHome = $derived(page.url.pathname === '/');
+	const hasSidebar = $derived(page.route.id === '/' || page.route.id === '/[pin]');
 </script>
 
 <nav class="flex items-center justify-between border-b border-zinc-500 py-2">
 	<div class="flex items-center gap-1">
-		{#if isHome}
+		{#if hasSidebar}
 			<button
 				class="flex items-center gap-1 hover:opacity-70 md:hidden"
 				onclick={() => sidebar.toggle()}

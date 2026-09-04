@@ -1,8 +1,8 @@
-export type CarouselItem =
-	| { type: 'image'; src: string; alt: string }
-	| { type: 'clock' | 'gol' | 'badapple' };
+export const CELL = 4;
 
-/** the default rotation shown on every normal route */
+export type CarouselItem =
+	{ type: 'image'; src: string; alt: string } | { type: 'clock' | 'gol' | 'badapple' };
+
 export const items: CarouselItem[] = [
 	{ type: 'image', src: '/frieren.webp', alt: 'frieren 1' },
 	{ type: 'clock' },
