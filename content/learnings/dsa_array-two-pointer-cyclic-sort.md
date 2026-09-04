@@ -115,11 +115,13 @@ For example, sorting `[3, 1, 5, 4, 2]` (values `1..5`, so value `v` belongs at i
 
 > each swap places one element permanently, so across the whole array there are at most `n` swaps total, keeping the algorithm O(n) despite the nested loop.
 
-Some questions are as follows:
-- [268. Missing Number](https://leetcode.com/problems/missing-number/description/) — find the missing number
-- [448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/) — find all missing numbers
-- [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/description/) — find the duplicate number
-- [442. Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/description/) — find all duplicates
-- [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/description/) — find the first missing positive
-- [645. Set Mismatch](https://leetcode.com/problems/set-mismatch/description/) — find corrupt pair (one duplicate, one missing)
+## Leetcode Practice
 
+- [268. Missing Number (Easy)](https://leetcode.com/problems/missing-number/description/) — find the missing number
+- [448. Find All Numbers Disappeared in an Array (Easy)](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/) — find all missing numbers
+- [645. Set Mismatch (Easy)](https://leetcode.com/problems/set-mismatch/description/) — find the corrupt pair: one duplicate and one missing value
+
+- [287. Find the Duplicate Number (Medium)](https://leetcode.com/problems/find-the-duplicate-number/description/) — identify the duplicate under stricter space constraints
+- [442. Find All Duplicates in an Array (Medium)](https://leetcode.com/problems/find-all-duplicates-in-an-array/description/) — find every duplicate in the range `1..n`
+
+- [41. First Missing Positive (Hard)](https://leetcode.com/problems/first-missing-positive/description/) — ignore values outside `1..n`, then find the first misplaced index
