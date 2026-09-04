@@ -31,7 +31,6 @@ A tree is a hierarchical data structure used to organize and represent data in a
 - **Level**: The number of edges in path from the root node. The root node `1` is at level 0, `[2, 3]` are at level 1.
 - **Ancestors**: The nodes that lie in the path from a particular node to root node.
 
-
 ## Tree Traversal Techniques
 Tree traversal refers to the process of visiting or accessing each node of a tree exactly once in a specific order.
 There are two types of traversal techniques:
