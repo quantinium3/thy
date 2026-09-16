@@ -67,21 +67,19 @@ The two pointer approach uses two pointers say `i` and `j` which store the index
 
 Based on how the pointers move relative to each other, there are a few different patterns:
 - Opposite Direction / Converging Pointers: We have one pointer at the start and the other pointer at the end, and they move towards each other until they meet or cross. Here's some question:
-  - [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
-  - [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
-  - [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
-  - [15. 3Sum](https://leetcode.com/problems/3sum/description/)
-  - [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/description/)
-  - [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
-- Same Direction Pointers: Both pointers start at the same position but move under different conditions or at different speeds. Here's some question:
-  - [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
-  - [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/description/)
-  - [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/)
-  - [27. Remove Element](https://leetcode.com/problems/remove-element/description/)
-  - [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/description/)
-  - [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/description/)
-- Fixed Gap Pointers: Both pointers move in the same direction while maintaining a fixed distance between them, forming a window of fixed size that can be analyzed. Here's some question:
-  - [Maximum Sum Subarray of Size K](https://www.geeksforgeeks.org/dsa/find-maximum-minimum-sum-subarray-size-k/)
+  - [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) — [solution](/dsa/leetcode/167)
+  - [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/) — [solution](/dsa/leetcode/125)
+  - [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/) — [solution](/dsa/leetcode/11)
+  - [15. 3Sum](https://leetcode.com/problems/3sum/description/) — [solution](/dsa/leetcode/15)
+  - [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/description/) — [solution](/dsa/leetcode/151)
+  - [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/) — [solution](/dsa/leetcode/42)
+  - [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/) — [solution](/dsa/leetcode/26)
+  - [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/description/) — [solution](/dsa/leetcode/283)
+  - [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/) — [solution](/dsa/leetcode/75)
+  - [27. Remove Element](https://leetcode.com/problems/remove-element/description/) — [solution](/dsa/leetcode/27)
+  - [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/description/) — [solution](/dsa/leetcode/287)
+  - [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/description/) — [solution](/dsa/leetcode/142)
+  - [643. Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/description/) — [solution](/dsa/leetcode/643)
 
 ## Cyclic Sort
 Cyclic sort is a sorting algorithm that sort the elements in O(n) time and O(1) space where elements must be in a tightly bounded range such as `0..n-1` or `1..n`, one occurence each or occasionally with some duplicates or missing values. It tries to put the elements in their place such as element `v` would go on index `v - 1`. Walk through the array; at each position, if the current element isn't already at its correct index, swap it there. Repeat until the element at the current position is correct, then move on.
@@ -117,11 +115,9 @@ For example, sorting `[3, 1, 5, 4, 2]` (values `1..5`, so value `v` belongs at i
 
 ## Leetcode Practice
 
-- [268. Missing Number (Easy)](https://leetcode.com/problems/missing-number/description/) — find the missing number
-- [448. Find All Numbers Disappeared in an Array (Easy)](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/) — find all missing numbers
-- [645. Set Mismatch (Easy)](https://leetcode.com/problems/set-mismatch/description/) — find the corrupt pair: one duplicate and one missing value
-
-- [287. Find the Duplicate Number (Medium)](https://leetcode.com/problems/find-the-duplicate-number/description/) — identify the duplicate under stricter space constraints
-- [442. Find All Duplicates in an Array (Medium)](https://leetcode.com/problems/find-all-duplicates-in-an-array/description/) — find every duplicate in the range `1..n`
-
-- [41. First Missing Positive (Hard)](https://leetcode.com/problems/first-missing-positive/description/) — ignore values outside `1..n`, then find the first misplaced index
+- [268. Missing Number (Easy)](https://leetcode.com/problems/missing-number/description/) — [solution](/dsa/leetcode/268)
+- [448. Find All Numbers Disappeared in an Array (Easy)](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/) — [solution](/dsa/leetcode/448)
+- [645. Set Mismatch (Easy)](https://leetcode.com/problems/set-mismatch/description/) — [solution](/dsa/leetcode/645)
+- [287. Find the Duplicate Number (Medium)](https://leetcode.com/problems/find-the-duplicate-number/description/) — [solution](/dsa/leetcode/287)
+- [442. Find All Duplicates in an Array (Medium)](https://leetcode.com/problems/find-all-duplicates-in-an-array/description/) — [solution](/dsa/leetcode/442)
+- [41. First Missing Positive (Hard)](https://leetcode.com/problems/first-missing-positive/description/) — [solution](/dsa/leetcode/41)
