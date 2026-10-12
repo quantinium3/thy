@@ -7,9 +7,9 @@
 	import BadAppleLife from './bad-apple-life.svelte';
 	import { items as allItems, type CarouselItem } from '$lib/carousel';
 
-	let { pin }: { pin?: CarouselItem } = $props();
+	let { pin }: { pin?: CarouselItem[] } = $props();
 
-	const items: CarouselItem[] = $derived(pin ? [pin] : allItems);
+	const items: CarouselItem[] = $derived(pin ?? allItems);
 
 	let current = $state(0);
 	let direction = $state(1);

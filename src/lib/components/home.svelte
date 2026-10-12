@@ -14,7 +14,7 @@
 	import { resolve } from '$app/paths';
 	import type { Post } from '$lib/posts';
 	import type { CarouselItem } from '$lib/carousel';
-	let { data, pin }: { data: { posts: Post[]; learnings: Post[] }; pin?: CarouselItem } = $props();
+	let { data, pin }: { data: { posts: Post[]; learnings: Post[] }; pin?: CarouselItem[] } = $props();
 
 	function truncate(text: string, words = 20) {
 		const parts = text.split(' ');
