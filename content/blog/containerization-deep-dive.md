@@ -14,7 +14,9 @@ cover_image:
 This a deep dive into containers, images, dockerfiles, multi-stage builds, docker compose and some more stuff i'll go through.
 
 # Containers
+
 Containers are just a linux process which by the use of various linux features have been given the illusion of isolation. Some of the features that are:
+
 - Namespaces: It partitions kernel resources such that one set of processes sees one set of resources, while another set of processes sees a different set of resources. The feature works by assigning the same namespace type to a set of resources and processes, but allowing those namespaces to refer to distinctly isolated environments. This provides the illusion that a process or a process group is the sole user of the system's hardware and software resources. There are various such as `pid`, `net`, `mnt`, `uts`, `ipc`, `user`, etc.
 - Cgroups: It is a kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, etc.) of a collection of processes.
 - A root filesystem swap: This maps the process `/` to unpacked image using `mnt` namespace and `chroot` so that the process can't see the hosts real filesystem.
@@ -25,29 +27,34 @@ Docker itself didnt invent anything of this. `docker run` in simple words just u
 > For a more deeper dive refer to [Devops: Virtual Machines, Containers and Isolates](https://quantinium.dev/learnings/devops_virtual-machines-containers-isolates)
 
 # Images vs Containers
+
 The relationship between images and containers is analogous to the relationship between a program and a process:
+
 - Image (Program): A static, read-only stack of filesystem layers and metadata (environment variables, default entrypoints, ports). Like an executable stored on disk, it contains the code, runtime, and libraries needed to run the application.
 - Container (Process): An active, isolated running instance of an image in memory. Like an OS process, it has its own runtime state, isolated process space (PID), dedicated network stack, and a temporary, thin read-write layer mounted over the base image layers.
 
 # Writing a Dockerfile
+
 For this section, I'll be using a small `node` app but everything can easily be applicable to other languages.
+
 ```js
-import http from "node:http";
+import http from 'node:http';
 
 const server = http.createServer((req, res) => {
-  if (req.method === 'GET' && req.url === '/') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: 'hello from inside a container' }));
-    return;
-  }
-  res.writeHead(404);
-  res.end();
+	if (req.method === 'GET' && req.url === '/') {
+		res.writeHead(200, { 'Content-Type': 'application/json' });
+		res.end(JSON.stringify({ message: 'hello from inside a container' }));
+		return;
+	}
+	res.writeHead(404);
+	res.end();
 });
 
 server.listen(3000, () => console.log('listening on :3000'));
 ```
 
 The most naive dockerfile we can write for this may look like this.
+
 ```dockerfile
 FROM node:26
 WORKDIR /app
@@ -58,6 +65,7 @@ CMD ["node", "src/index.js"]
 ```
 
 This may feel similar to commands that we write in our shell but just in dockerfile flavor. Let's understand what is happening:
+
 - `FROM node:26`: This fetches the base `node:26` image from [dockerhub](https://hub.docker.com/_/node) which acts as the base layer.
 - `WORKDIR /app`: This sets up the current working directory to be `/app`
 - `COPY . .`: Copies contents from the `.`(path where `docker run` command is run from ) to `.`(current working directory inside container).
@@ -66,6 +74,7 @@ This may feel similar to commands that we write in our shell but just in dockerf
 - `CMD ["node", "src/index.js"]`: Shell command telling how to run the software. This always come at end.
 
 Now if we build our image using the following command we would get the following as output
+
 ```sh
 $ docker build -f Dockerfile -t temp .
 [+] Building 132.5s (9/9) FINISHED
@@ -110,6 +119,7 @@ $ docker build -f Dockerfile -t temp .
 As told above docker image are built using read only filesystem laters stacked upon each other. As we can see in the output with `[n/4]` steps. we get 8 layers from base node image and then 3 more layers from `[{2,3,4}/4]` are being added on top of the node image. When we run this container a thin read-write layer would be created on top of all these layers where the program can do their stuff.
 
 Each layer is uniquely identified by its SHA hash. If a future build step generates an identical hash, it means the content hasn't changed—Docker skips the build step entirely and reuses the cached layer, saving both build time and disk space.
+
 ```sh
 $ docker run -p 3000:3000 temp
 # -p forwards incoming host traffic on port 3000 to port 3000 inside the container
@@ -121,7 +131,9 @@ $ curl localhost:3000
 ```
 
 ## Optimizing Images
+
 We can check the size of the image using
+
 ```sh
 $ docker image ls temp
 IMAGE         ID             DISK USAGE   CONTENT SIZE   EXTRA
@@ -144,7 +156,9 @@ $ dive temp # truncated output
 As we can see most of the image size comes from before we run `WORKDIR /app` therefore `FROM node:26`.
 
 ### Choosing a small base image
+
 Since a lot of image size can come from the base image, we can try to choose a smaller base image. If we go to [node:26](https://hub.docker.com/_/node), we can find various images such as
+
 - `node:26-bookworm`: This is similar to `node:26` which uses the debian bookworm as base.
 - `node:26-alpine`: This image uses alpine linux instead of debian which makes it way lighter but strips glibc with musl.
 - `node:26-slim`: This is stripped debian image.
@@ -166,7 +180,9 @@ temp:latest   6d2f7d5068b1        234MB         58.3MB
 ```
 
 ### Order Instructions by Volatility (Layer Caching)
+
 Since docker images are made up of cacheable layers, the way we write dockerfile, we can make docker cache different layers so that the build step is faster. We put frequently changing lines different from stable dependencies. We can change the dockerfile as follows.
+
 ```dockerfile
 FROM node:26-slim
 WORKDIR /app
@@ -183,7 +199,9 @@ CMD ["node", "src/index.js"]
 ```
 
 ### Use .dockerignore
+
 As shown in the build output (`=> [internal] load .dockerignore`), Docker checks `.dockerignore` before sending files to the build daemon. Just like .gitignore, it excludes heavy or sensitive files (e.g., node_modules, dist, .git) so you don't accidentally overwrite container builds or bloat the build context.
+
 ```
 .git
 node_modules
@@ -193,7 +211,9 @@ npm-debug.log
 ```
 
 ### Combine `RUN` commands and clean up in same layer
+
 Each RUN instruction creates a persistent layer. Clean up package manager caches in the same command so deleted files aren't permanently baked into that layer.
+
 ```dockerfile
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
@@ -202,19 +222,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ```
 
 ### Use Non-Root Users
+
 Node images have a default non-root user `node` which can be set as the user that runs the `CMD` command. If the images dont have default non-root user, we can create using
+
 ```dockerfile
 RUN adduser -D appuser
 USER appuser
 ```
 
 ### Leverage BuildKit Cache Mounts
+
 Keep package manager caches between builds without baking them into the final image:
+
 ```dockerfile
 RUN --mount=type=cache,target=/root/.npm npm ci
 ```
 
 ### Use Multi-Stage Builds
+
 Some software that is compiled and then deployed can reduce the image size and attack surface with this. Since build environments such as (compilers, SDKs, devDependencies) are big and not needed during runtime, they can easily be removed from the final runtime image. For example, a react app's dockerfile may look like:
 
 ```dockerfile
@@ -245,9 +270,11 @@ EXPOSE 3000
 
 CMD ["npx", "serve", "-s", "dist", "-l", "3000"]
 ```
+
 As shown we build the `dist` directory in the build step and just copy the `dist` directory as that is the content we need to deploy, thus stripping every unneeded dependencies.
 
 # Docker Compose
+
 When an application requires multiple containers such as a Node.js app, a PostgreSQL database, and other services. Running `docker run` for each container becomes tedious, and the commands can get excessively long. Instead, you can use a compose.yaml file to store all the configuration needed to run the containers together. Docker Compose lets you declare the whole stack in a single YAML file and bring it up with one command.
 
 ```yml
@@ -282,7 +309,7 @@ services:
       POSTGRES_DB: ${DB_NAME}
     # not exposing to the host, only reachable by other containers on the network
     expose:
-      - "5432"
+      - '5432'
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -297,6 +324,7 @@ volumes:
 ```
 
 Run the container using
+
 ```sh
 $ docker compose up -d
 [+] Running 3/3
@@ -337,7 +365,9 @@ services:
 ```
 
 ## Networks
+
 Every Docker network uses a driver that determines how it behaves such as:
+
 - bridge — the default. A private internal network on the host, containers on it get their own IP, NAT'd out to the internet. This is what compose sets up automatically.
 - host — no network namespace isolation at all; the container shares the host's network stack directly. No port mapping needed, but you lose all network isolation and can't run two containers on the same port.
 - overlay — spans multiple Docker hosts (Swarm/multi-node setups). Not relevant for single-host compose.
@@ -356,7 +386,9 @@ $ docker run --rm --network mynet alpine getent hosts db
 ```
 
 ## Volumes
+
 Docker containers have an ephemeral (temporary) filesystem by default therefore any data created inside a container is permanently deleted when the container is removed. There volumes provide the ability to
+
 - Persist data across docker state change such as container restart, removal, etc.
 - Sharing data across multiple containers
 - More I/O performance as its is more performative to write to docker volumes compared to containers writable layer.
@@ -364,17 +396,17 @@ Docker containers have an ephemeral (temporary) filesystem by default therefore 
 
 Docker has three ways to get data into a container:
 
-| Type | Managed by | Use case |
-|---|---|---|
-| Named volume | Docker | Persistent data (databases, uploads) |
-| Bind mount | You (host path) | Dev-time live source mounting |
-| tmpfs mount | Kernel (RAM only) | Ephemeral secrets, never touches disk |
+| Type         | Managed by        | Use case                              |
+| ------------ | ----------------- | ------------------------------------- |
+| Named volume | Docker            | Persistent data (databases, uploads)  |
+| Bind mount   | You (host path)   | Dev-time live source mounting         |
+| tmpfs mount  | Kernel (RAM only) | Ephemeral secrets, never touches disk |
 
 ```yaml
 volumes:
-  - pgdata:/var/lib/postgresql/data   # named volume
-  - ./src:/app/src                     # bind mount
-  - type: tmpfs                        # tmpfs
+  - pgdata:/var/lib/postgresql/data # named volume
+  - ./src:/app/src # bind mount
+  - type: tmpfs # tmpfs
     target: /run/secrets
 ```
 

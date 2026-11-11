@@ -34,6 +34,7 @@ $ ssh -i ~/.ssh/aws-vpn.pem ubuntu@<ip-address>
 > NOTE: the username that is used in the ssh command may vary depending upon the os you chose while creating an instance. The easiest way to confirm your user is by using your cloud providers web ssh shell to ssh into the server.
 
 Before moving forward, allow UDP port `51820` in the instance's inbound rules.
+
 - Click on your instance ID in `EC2 > Instances > Instances > <your-instance-id>`,
 - Switch to the Security tab and click on the security group under inbound rules eg. `launch-wizard-x` which will redirect to a page containing your security group. Click on your **Security Group ID**.
 - In Inbound rules, click on **Edit inbound rules**
@@ -48,6 +49,7 @@ Before moving forward, allow UDP port `51820` in the instance's inbound rules.
 ![add security group](https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdHl4z2y6RSZmdip83v1POIKXsxuyoQcBhjkae)
 
 WireGuard needs a stable public endpoint so clients always know where to connect. We will assign an Elastic IP to the instance. Pi-hole will separately use WireGuard's static internal address configured later.
+
 - In `EC2 > Network and Security > Elastic IPs`, Click on **Allocate Elastic IP address**.
   - Choose **Amazon's pool of IPv4 addresses**
   - In **Network border group**, choose your region.
@@ -74,6 +76,7 @@ $ sudo reboot
 ```
 
 ## Installing WireGuard
+
 We are gonna use the `angristan/wireguard-install` script to install WireGuard and configure forwarding for us.
 
 ```bash
@@ -152,6 +155,7 @@ peer: (hidden)
 ```
 
 ## Setting Up Pi-hole
+
 Now we can install Pi-hole on the server. Download the installer script and audit it.
 
 ```bash
@@ -173,12 +177,12 @@ Now Choose the DNS server you prefer to do your dns stuff. I'll just go with clo
 ![Pihole DNS](https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdiakgEHKEuwbqs5N1zohxeIj4ZLFTYPr9HUXm)
 
 Choose default for most setting such as:
+
 - Using default blocking list
 - enable query logging
 - Select a privacy mode for FTL: show everthing
 
 Now let the script setup everything for us. At the end it'll give some info about the IPv4 and IPv6 address to use and the password to our pihole admin page.
-
 
 ## Setup Firewall
 
@@ -224,6 +228,7 @@ Input the password that Pi-hole outputted (if you forgot it, reset it using `sud
 ![Pihole Dashboard](https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdDLVmN8XjYvQNOUkzZHVm3E4CxIqgSMPhedc8)
 
 It is recommended to leave the interface listening mode on **Allow only local requests** to add a bit of additional security and your WireGuard peers/clients will be correctly recognized as being only one hop away. This should be on by default by its good to check
+
 - In sidebar under `Systen > Settings > Dns`, Click on **Basic** toggle to switch to expert mode
 - Switch on **Allow only local requests**.
 
@@ -247,6 +252,7 @@ PresharedKey = <hidden>
 Endpoint = 65.0.143.91:51820
 AllowedIPs = 0.0.0.0/0,::/0
 ```
+
 Reconnect the client after editing the profile. WireGuard routes the traffic, while Pi-hole filters DNS lookups.
 Verify the setup from the connected client:
 
@@ -259,9 +265,11 @@ $ sudo wg show
 The DNS query should be answered by Pi-hole, the reported IPv4 address should be the server's Elastic IP, and `wg show` should display a recent handshake.
 
 ## Setting up IPv6
+
 At this point, IPv4 browsing works normally. Pi-hole can already resolve both A and AAAA DNS records over IPv4. We have to configure actual IPv6 connectivity to the VPN because the client profile routes `::/0` through WireGuard, IPv6-only sites will fail until the server has working IPv6 egress, while dual-stack sites usually fall back to IPv4.
 
 Before assigning an IPv6 address to our instance, we have to [add IPv6 support to our VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6-add.html).
+
 - Under `EC2 > Instances > Instances`. Click on your instance ID.
 - Click on your **VPC ID** which will redirect to your vpc.
 - Under **Actions**, click **Edit CIDRs**
@@ -276,6 +284,7 @@ Before assigning an IPv6 address to our instance, we have to [add IPv6 support t
 ![IPv6 address block assignment](https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGd1NFAUac2LlsUD6Bx9VaTSd5WCpn0XRZvjHOA)
 
 Now associate an IPv6 CIDR block with the subnet. Go to your instance again and click its `Subnet ID`.
+
 - Under `EC2 > Instances > Instances`. Click on your instance ID.
 - Click on your **Subnet ID** which will redirect to your subnet.
 - Under **Actions**, click **Add IPv6 CIDR**.
@@ -284,6 +293,7 @@ Now associate an IPv6 CIDR block with the subnet. Go to your instance again and 
 ![IPv6 CIDR subnet](https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGd8mBkfqbPJy3euBdMbmO75wtlVCN60s2QaKW8)
 
 Now we have to update the route table for your public subnets to enable instances to use the internet gateway for IPv6 traffic.
+
 - Under `EC2 > Instances > Instances`. Click on your instance ID.
 - Click on your **Subnet ID** which will redirect to your subnet page.
 - Click on your **Routing Table** which will redirect to subnets routing table.
@@ -297,6 +307,7 @@ Now we have to update the route table for your public subnets to enable instance
 ![Update Routing table](https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGd52Xug7RflKY75VtmRiGL9UHgzXau0dAwPWv4)
 
 Lastly we assign IPv6 address to our instance
+
 - Under `EC2 > Instances > Instances`. Click on your instance ID.
 - Under **Action**, Go to `Networking > Manage IP addresses`
 - Select your primary network interface `eth0`.
@@ -306,10 +317,12 @@ Lastly we assign IPv6 address to our instance
 ![Add IPv6 Address](https://x2onawsk55.ufs.sh/f/eZ86CwF4BrGdbtiYzUcL2bDKu8v17GsaP0WA3NQCBqSgcjIX)
 
 Confirm that the host and connected client can actually reach the IPv6 internet:
+
 ```bash
 # Run on the server, then on the connected client
 $ curl -6 ifconfig.me
 ```
+
 > It should report the public IPv6 address. If the server succeeds but the client fails, check the `::/0` client route, `net.ipv6.conf.all.forwarding`, the UFW route rule, and the installer's `ip6tables` masquerading rule. Custom network ACLs or outbound security-group rules must also permit IPv6 traffic.
 
 Thanks for reading ♥︎. If you have any suggestion or fixes feel free to contact me.
