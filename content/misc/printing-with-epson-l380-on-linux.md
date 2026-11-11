@@ -9,6 +9,7 @@ categories:
 published: true
 cover_image:
 ---
+
 ## SYNOPSIS
 
 ```sh
@@ -31,13 +32,13 @@ IPP-over-USB are therefore all unavailable. A real driver is mandatory.
 
 ## HARDWARE
 
-| Property | Value |
-|---|---|
-| Model | Epson L380 Series |
-| USB ID | `04b8:1120` (Seiko Epson Corp.) |
-| Serial | `583251353036313557` |
-| Kernel node | `/dev/usb/lp0` |
-| Ink system | 4-tank CMYK |
+| Property    | Value                           |
+| ----------- | ------------------------------- |
+| Model       | Epson L380 Series               |
+| USB ID      | `04b8:1120` (Seiko Epson Corp.) |
+| Serial      | `583251353036313557`            |
+| Kernel node | `/dev/usb/lp0`                  |
+| Ink system  | 4-tank CMYK                     |
 
 Device URI as discovered by the CUPS USB backend:
 
@@ -54,7 +55,7 @@ No exact driver exists for this model on Fedora 44. Three facts drove the
 choice:
 
 1. **`epson-inkjet-printer-escpr` is gone from Fedora.** `dnf search escpr
-   epson` returns no matches. Fedora retired this class of package in favour
+epson` returns no matches. Fedora retired this class of package in favour
    of PAPPL printer applications; `pappl-retrofit` and `legacy-printer-app`
    are the replacements, and the latter exists specifically for "classic
    printer drivers which are not part of official Linux repositories".
@@ -99,28 +100,28 @@ Queue defaults are poor for photo work and for anyone outside the US. The
 values below are what the installed PPD actually offers; `lpoptions -p
 EPSON_L380 -l` lists all of them.
 
-| Option | Default | Best-quality value | Notes |
-|---|---|---|---|
-| `PageSize` | `Letter` | `A4` | Default clips or mis-scales A4 documents |
-| `MediaType` | `Plain` | match the paper | Largest single quality lever |
-| `StpQuality` | `Standard` | `Best` | Scale: `Economy` `Draft` `Standard` `High` `Photo` `HighPhoto` `UltraPhoto` `Best` |
-| `Resolution` | `361x360dpi` | `1440x720dpi` | A 4x increase |
-| `StpImageType` | `TextGraphics` | `Photo` | Default favours edge sharpness over tonal smoothness |
-| `StpColorCorrection` | `None` | `Accurate` | Default applies no correction at all |
-| `StpFullBleed` | `False` | `True` | Borderless; supported sizes only |
-| `ColorModel` | `RGB` | leave as `RGB` | See **CAVEATS** |
+| Option               | Default        | Best-quality value | Notes                                                                              |
+| -------------------- | -------------- | ------------------ | ---------------------------------------------------------------------------------- |
+| `PageSize`           | `Letter`       | `A4`               | Default clips or mis-scales A4 documents                                           |
+| `MediaType`          | `Plain`        | match the paper    | Largest single quality lever                                                       |
+| `StpQuality`         | `Standard`     | `Best`             | Scale: `Economy` `Draft` `Standard` `High` `Photo` `HighPhoto` `UltraPhoto` `Best` |
+| `Resolution`         | `361x360dpi`   | `1440x720dpi`      | A 4x increase                                                                      |
+| `StpImageType`       | `TextGraphics` | `Photo`            | Default favours edge sharpness over tonal smoothness                               |
+| `StpColorCorrection` | `None`         | `Accurate`         | Default applies no correction at all                                               |
+| `StpFullBleed`       | `False`        | `True`             | Borderless; supported sizes only                                                   |
+| `ColorModel`         | `RGB`          | leave as `RGB`     | See **CAVEATS**                                                                    |
 
 ### MediaType values
 
-| Value | Paper |
-|---|---|
-| `Plain` | Ordinary paper |
-| `GlossyPhoto` | Epson **Premium** Glossy Photo Paper |
-| `GlossyPaper` | Generic / basic glossy photo paper |
-| `Semigloss` | Premium Semigloss |
-| `Luster` | Premium Luster |
-| `GlossyFilm` | Photo Quality Glossy Film |
-| `Matte`, `MatteHeavy` | Matte stock |
+| Value                 | Paper                                |
+| --------------------- | ------------------------------------ |
+| `Plain`               | Ordinary paper                       |
+| `GlossyPhoto`         | Epson **Premium** Glossy Photo Paper |
+| `GlossyPaper`         | Generic / basic glossy photo paper   |
+| `Semigloss`           | Premium Semigloss                    |
+| `Luster`              | Premium Luster                       |
+| `GlossyFilm`          | Photo Quality Glossy Film            |
+| `Matte`, `MatteHeavy` | Matte stock                          |
 
 Each value carries a distinct ink-density and drying profile. Printing with
 `Plain` settings on glossy stock gives flat, under-saturated output.
@@ -165,14 +166,14 @@ $ lp -d EPSON_L380 /usr/share/cups/data/testprint
 
 ## FILES
 
-| Path | Purpose |
-|---|---|
-| `/etc/cups/printers.conf` | Queue definition (root) |
-| `/etc/cups/ppd/EPSON_L380.ppd` | Generated PPD |
-| `~/.cups/lpoptions` | Per-user option defaults |
-| `/var/log/cups/error_log` | CUPS errors (root) |
-| `/dev/usb/lp0` | Kernel USB printer node |
-| `/usr/share/cups/data/testprint` | CUPS test page |
+| Path                             | Purpose                  |
+| -------------------------------- | ------------------------ |
+| `/etc/cups/printers.conf`        | Queue definition (root)  |
+| `/etc/cups/ppd/EPSON_L380.ppd`   | Generated PPD            |
+| `~/.cups/lpoptions`              | Per-user option defaults |
+| `/var/log/cups/error_log`        | CUPS errors (root)       |
+| `/dev/usb/lp0`                   | Kernel USB printer node  |
+| `/usr/share/cups/data/testprint` | CUPS test page           |
 
 ## TROUBLESHOOTING
 
@@ -240,12 +241,12 @@ plain paper.
 
 ## ENVIRONMENT
 
-| Component | Version |
-|---|---|
-| Fedora | 44 |
-| CUPS | 2.4.19 |
-| Gutenprint | 5.3.5 |
-| Driver | `gutenprint.5.3://escp2-l310/expert` |
+| Component  | Version                              |
+| ---------- | ------------------------------------ |
+| Fedora     | 44                                   |
+| CUPS       | 2.4.19                               |
+| Gutenprint | 5.3.5                                |
+| Driver     | `gutenprint.5.3://escp2-l310/expert` |
 
 ## SEE ALSO
 
