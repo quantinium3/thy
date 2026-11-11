@@ -1,0 +1,21 @@
+{
+	"displayName": "Go Template",
+	"name": "gotmpl",
+	"scopeName": "text.gotmpl",
+	"patterns": [{ "include": "#action" }, { "include": "text.html.basic" }],
+	"repository": {
+		"action": {
+			"name": "meta.embedded.go-template",
+			"contentName": "source.go-template",
+			"begin": "\\{\\{-?[\\t ]*",
+			"beginCaptures": {
+				"0": { "name": "punctuation.section.embedded.begin.go-template" }
+			},
+			"end": "[\\t ]*-?\\}\\}",
+			"endCaptures": {
+				"0": { "name": "punctuation.section.embedded.end.go-template" }
+			},
+			"patterns": [{ "include": "source.go-template" }]
+		}
+	}
+}

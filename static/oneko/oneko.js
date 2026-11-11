@@ -175,12 +175,12 @@
 
 		window.dispatchEvent(new CustomEvent('oneko:ready'));
 
-		document.addEventListener('mousemove', function(event) {
+		document.addEventListener('mousemove', function (event) {
 			mousePosX = event.clientX;
 			mousePosY = event.clientY;
 		});
 
-		nekoEl.addEventListener('mousedown', function(event) {
+		nekoEl.addEventListener('mousedown', function (event) {
 			if (event.button !== 0) return;
 			event.preventDefault();
 
@@ -212,7 +212,7 @@
 				if (grabStop || absDeltaX > 10 || absDeltaY > 10) {
 					grabStop = false;
 					clearTimeout(grabTimer);
-					grabTimer = setTimeout(function() {
+					grabTimer = setTimeout(function () {
 						grabStop = true;
 						startX = event.clientX;
 						startY = event.clientY;
@@ -245,7 +245,7 @@
 			window.addEventListener('mouseup', onDragEnd);
 		});
 
-		nekoEl.addEventListener('contextmenu', function(event) {
+		nekoEl.addEventListener('contextmenu', function (event) {
 			event.preventDefault();
 			window.oneko.setKuro(!kuroNeko);
 		});
@@ -379,7 +379,7 @@
       `;
 
 	document.head.appendChild(style);
-	nekoEl.addEventListener('click', function() {
+	nekoEl.addEventListener('click', function () {
 		if (dragged) {
 			dragged = false;
 			return;

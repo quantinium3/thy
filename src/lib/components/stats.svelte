@@ -11,9 +11,7 @@
 			const timeUri = import.meta.env.VITE_TIME_URI;
 			if (!timeUri) throw new Error('VITE_TIME_URI is not set');
 
-			const data = await fetchJson<{ data: Array<{ grand_total: { decimal: string } }> }>(
-				timeUri
-			);
+			const data = await fetchJson<{ data: Array<{ grand_total: { decimal: string } }> }>(timeUri);
 			totalTime = data.data.reduce(
 				(acc: number, day: { grand_total: { decimal: string } }) =>
 					acc + parseFloat(day.grand_total.decimal),

@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { recommended, yetToConsume, kindCategory, type Media, type MediaCategory } from '$lib/media';
+	import {
+		recommended,
+		yetToConsume,
+		kindCategory,
+		type Media,
+		type MediaCategory
+	} from '$lib/media';
 	import Seo from '$lib/components/seo.svelte';
 
 	let query = $state('');
@@ -31,7 +37,10 @@
 	const filteredYetToConsume = $derived(filter(yetToConsume));
 </script>
 
-<Seo title="Media" description="Movies, anime, games and books quantinium is watching, playing, reading or recommends." />
+<Seo
+	title="Media"
+	description="Movies, anime, games and books quantinium is watching, playing, reading or recommends."
+/>
 
 {#snippet grid(items: Media[])}
 	{#if items.length === 0}
@@ -47,12 +56,14 @@
 								alt={item.name}
 								width="200"
 								height="300"
-								loading={i < 5 ? "eager" : "lazy"}
+								loading={i < 5 ? 'eager' : 'lazy'}
 								decoding="async"
 								class="h-full w-full object-cover"
 							/>
 						{:else}
-							<div class="flex h-full w-full items-center justify-center p-2 text-center text-xs opacity-50">
+							<div
+								class="flex h-full w-full items-center justify-center p-2 text-center text-xs opacity-50"
+							>
 								{item.name}
 							</div>
 						{/if}
@@ -60,10 +71,10 @@
 							class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-2 pt-6 pb-1.5"
 						>
 							<span
-							class="inline-block rounded-sm bg-black/70 px-1 py-0.5 text-[10px] uppercase {kindColor[
-								item.kind
-							]}">{item.kind}</span
-						>
+								class="inline-block rounded-sm bg-black/70 px-1 py-0.5 text-[10px] uppercase {kindColor[
+									item.kind
+								]}">{item.kind}</span
+							>
 							<span class="block truncate text-xs font-bold text-white">{item.name}</span>
 						</div>
 					</div>
@@ -114,8 +125,7 @@
 
 	<section>
 		<h2 class="mx-1 font-bold">
-			Backlog <span class="text-sm font-normal opacity-70">({filteredYetToConsume.length})</span
-			>
+			Backlog <span class="text-sm font-normal opacity-70">({filteredYetToConsume.length})</span>
 		</h2>
 		{@render grid(filteredYetToConsume)}
 	</section>

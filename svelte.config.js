@@ -1,7 +1,23 @@
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import adapter from '@sveltejs/adapter-cloudflare';
-import { codeToHtml } from 'shiki';
+import { createHighlighter } from 'shiki';
 import remarkGfm from 'remark-gfm';
+import { readFileSync } from 'node:fs';
+
+const grammar = (name) =>
+	JSON.parse(
+		readFileSync(new URL(`./src/lib/shiki/${name}.tmLanguage.json`, import.meta.url), 'utf8')
+	);
+
+const themes = { light: 'github-light', dark: 'github-dark' };
+
+/** Shiki has no Go text/template grammar, so we vendor one that embeds HTML. */
+let highlighterPromise;
+const getHighlighter = () =>
+	(highlighterPromise ??= createHighlighter({
+		themes: Object.values(themes),
+		langs: ['html', grammar('go-template'), { ...grammar('gotmpl'), aliases: ['tmpl', 'gohtml'] }]
+	}));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -18,12 +34,17 @@ const config = {
 			remarkPlugins: [remarkGfm],
 			highlight: {
 				async highlighter(code, lang = 'text') {
-					const html = await codeToHtml(code, {
-						lang,
-						themes: { light: 'github-light', dark: 'github-dark' },
-						defaultColor: 'light'
-					});
-					return `{@html \`${escapeSvelte(html)}\`}`;
+					const highlighter = await getHighlighter();
+					if (!highlighter.getLoadedLanguages().includes(lang)) {
+						try {
+							await highlighter.loadLanguage(lang);
+						} catch {
+							console.warn(`[mdsvex] unknown code fence language "${lang}", rendering as text`);
+							lang = 'text';
+						}
+					}
+					const html = highlighter.codeToHtml(code, { lang, themes, defaultColor: 'light' });
+					return `{@html \`${escapeSvelte(html).replace(/\\/g, '\\\\')}\`}`;
 				}
 			}
 		}),

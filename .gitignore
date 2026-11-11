@@ -8,6 +8,9 @@ node_modules
 /.svelte-kit
 /build
 
+# cph (Competitive Programming Helper)
+content/dsa/codeforces/**/.cph/
+
 # OS
 .DS_Store
 Thumbs.db

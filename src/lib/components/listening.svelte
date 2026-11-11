@@ -39,7 +39,7 @@
 	});
 </script>
 
-<div class="flex items-center gap-1 pb-1 font-bold w-full">
+<div class="flex w-full items-center gap-1 pb-1 font-bold">
 	Listening
 	{#if songUri}
 		<a
@@ -51,7 +51,7 @@
 		>
 	{/if}
 </div>
-<div class="flex gap-2 w-full">
+<div class="flex w-full gap-2">
 	{#if songImgUri}
 		<img
 			src={songImgUri}
@@ -72,16 +72,11 @@
 			{:else if error}
 				<span class="opacity-50">n/a</span>
 			{:else}
-				<span
-					class="marquee"
-					style="animation-duration: {(songNameWidth || 200) / pxPerSecond}s"
-				>
+				<span class="marquee" style="animation-duration: {(songNameWidth || 200) / pxPerSecond}s">
 					<span bind:clientWidth={songNameWidth} class="inline-block"
 						>{songName}&nbsp;&nbsp;&nbsp;&nbsp;</span
 					>
-					<span class="inline-block" aria-hidden="true"
-						>{songName}&nbsp;&nbsp;&nbsp;&nbsp;</span
-					>
+					<span class="inline-block" aria-hidden="true">{songName}&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				</span>
 			{/if}
 		</div>
@@ -91,16 +86,11 @@
 			{:else if error}
 				<span class="opacity-50">n/a</span>
 			{:else}
-				<span
-					class="marquee"
-					style="animation-duration: {(songArtistWidth || 200) / pxPerSecond}s"
-				>
+				<span class="marquee" style="animation-duration: {(songArtistWidth || 200) / pxPerSecond}s">
 					<span bind:clientWidth={songArtistWidth} class="inline-block"
 						>{songArtist}&nbsp;&nbsp;&nbsp;&nbsp;</span
 					>
-					<span class="inline-block" aria-hidden="true"
-						>{songArtist}&nbsp;&nbsp;&nbsp;&nbsp;</span
-					>
+					<span class="inline-block" aria-hidden="true">{songArtist}&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				</span>
 			{/if}
 		</div>

@@ -3,18 +3,22 @@
 		{ href: 'https://namishh.com/', src: '/buttons/nam.png' },
 		{ href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', src: '/buttons/quantinium.png' },
 		{ href: 'https://nithitsuki.com/', src: '/buttons/nithitsuki.png' },
-		{ href: 'https://haarshmap.github.io/', src: '/buttons/harsha.png'},
-		{ href: 'https://luuumine.com/', src: '/buttons/luuumine.gif'},
+		{ href: 'https://haarshmap.github.io/', src: '/buttons/harsha.png' },
+		{ href: 'https://luuumine.com/', src: '/buttons/luuumine.gif' },
 		{ href: 'https://helix-editor.com/', src: '/buttons/helix.gif' },
 		{ href: 'https://anemoia.moe/', src: '/buttons/jesx.gif' },
 		{ href: 'https://youtu.be/GSV5UDaTXDA?si=QBGDSlWK-9Cw3KtZ', src: '/buttons/linux.jpg' },
 		{ href: '#', src: '/buttons/nerv.png' },
 		{ href: 'https://nixos.org/manual/nixos/stable/', src: '/buttons/nix.gif' },
 		{ href: 'https://svelte.dev/', src: '/buttons/svelte.gif' },
-		{ href: 'https://info.cern.ch/hypertext/WWW/TheProject.html', src: '/buttons/www.gif' },
+		{ href: 'https://info.cern.ch/hypertext/WWW/TheProject.html', src: '/buttons/www.gif' }
 	];
 
-	const label = (src: string) => src.split('/').pop()?.replace(/\.[^.]+$/, '') ?? 'button';
+	const label = (src: string) =>
+		src
+			.split('/')
+			.pop()
+			?.replace(/\.[^.]+$/, '') ?? 'button';
 
 	const repeatCount = 4;
 	const track = Array.from({ length: repeatCount }, () => buttons).flat();

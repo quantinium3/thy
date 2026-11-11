@@ -2,7 +2,7 @@ name: deploy site to cloudflare
 
 on:
   push:
-    branches: [ "v2" ]
+    branches: ['v2']
   workflow_dispatch:
 
 permissions:

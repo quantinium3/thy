@@ -18,7 +18,10 @@
 	);
 </script>
 
-<Seo title="Blog" description="Blog posts by quantinium on backend, devops and systems programming." />
+<Seo
+	title="Blog"
+	description="Blog posts by quantinium on backend, devops and systems programming."
+/>
 
 <div class="py-4">
 	<div class="mx-1 flex items-center justify-between">

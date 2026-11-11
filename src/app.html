@@ -1,28 +1,29 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<script>
+			var s = localStorage.getItem('theme');
+			if (s ? s === 'dark' : true) document.documentElement.classList.add('dark');
+		</script>
+		<link rel="preconnect" href="https://eris.quantinium.workers.dev" crossorigin />
+		<link rel="preconnect" href="https://wakatime.com" crossorigin />
+		%sveltekit.head%
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="alternate" type="application/rss+xml" title="quantinium's blog" href="/rss.xml" />
+	</head>
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="text-scale" content="scale" />
-	<script>
-		var s = localStorage.getItem('theme');
-		if (s ? s === 'dark' : true) document.documentElement.classList.add('dark');
-	</script>
-	<link rel="preconnect" href="https://eris.quantinium.workers.dev" crossorigin />
-	<link rel="preconnect" href="https://wakatime.com" crossorigin />
-	%sveltekit.head%
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-	<link rel="icon" href="/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-	<link rel="manifest" href="/site.webmanifest" />
-	<link rel="alternate" type="application/rss+xml" title="quantinium's blog" href="/rss.xml" />
-</head>
-
-<body data-sveltekit-preload-data="hover" class="bg-white text-black dark:bg-[#1a1a1a] dark:text-white">
-	<div style="display: contents">%sveltekit.body%</div>
-	<script src="/oneko/oneko.js" data-cat="/oneko/oneko.gif" data-skins="/oneko/skins"></script>
-</body>
-
+	<body
+		data-sveltekit-preload-data="hover"
+		class="bg-white text-black dark:bg-[#1a1a1a] dark:text-white"
+	>
+		<div style="display: contents">%sveltekit.body%</div>
+		<script src="/oneko/oneko.js" data-cat="/oneko/oneko.gif" data-skins="/oneko/skins"></script>
+	</body>
 </html>
