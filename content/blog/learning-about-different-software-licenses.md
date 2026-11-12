@@ -3592,7 +3592,7 @@ Good luck and Godspeed.
 This is similar to `WTFPL` but with the additional condition that the code can't be used by LLMs and no attribution must be given to the original author.
 
 ## Licenses GitHub Officially Recognizes
-GitHub's license picker (and its `/licenses` API) only recognizes a specific, curated list of licenses, not every license that exists. Here's the full list, each one linked to its official plain-text source:
+GitHub's license picker (and its `/licenses` API) only recognizes a specific, curated list of licenses, not every license that exists.
 
 | License | SPDX ID | Text |
 |---|---|---|
