@@ -44,8 +44,11 @@ SOFTWARE.
 
 This is one of the simplest and most permissive licenses. It allows you to use, copy, modify, merge, publish, distribute, sublicense, and/or sell the software, with the only real condition being that the original copyright notice and license text must be included in any copies or substantial portions of the software. So if you pull MIT-licensed code into a repo under a different license, you just need to retain that original notice/attribution. It also explicitly disclaims warranty as the software is provided "as is," and the original author isn't liable for any damages arising from its use.
 
+Used by: [React](https://github.com/facebook/react), [Node.js](https://github.com/nodejs/node), and [Ruby on Rails](https://github.com/rails/rails).
+
 ## GNU General Public License (GPL)
 It is considered a copyleft license and has the opposite philosophy of MIT license. Instead of letting users do anything with the code, it's designed to keep the code and everything built on it open forever. It allows you to use, modify and distribute the software (free or paid), but the condition kicks in once you distribute it: if you hand out a modified (or even unmodified) copy to someone else, you must make the source code available to them under GPL as well. You can modify GPL'd code privately and never release anything as long as you don't distribute it, and "making source available" just means giving it to whoever you distributed to (e.g. via a written offer), not necessarily publishing it publicly, though most projects just publish it anyway. Similar to MIT, it also explicitly disclaims warranty as the software is provided "as is," and the original author isn't liable for any damages arising from its use. There are different variations of GPL and they remove and add different clauses limiting or allowing what a third party can do with it.
+
 
 ### GNU General Public License v2 (GPLv2)
 <details>
@@ -393,6 +396,7 @@ Public License instead of this License.
 ```
 
 </details>
+Used by (GPLv2): the [Linux kernel](https://github.com/torvalds/linux), [Git](https://github.com/git/git), and [WordPress](https://github.com/WordPress/WordPress).
 
 ### GNU General Public License v3 (GPLv3)
 <details>
@@ -1083,6 +1087,8 @@ GPLv3 keeps the same core copyleft clauses as GPLv2 such as free use, modificati
 - Explicitly disclaims anti-circumvention liability: It says no covered work counts as an "effective technological measure" under anti-circumvention laws (like the DMCA), and that conveying the work means you waive any legal power to use those laws to stop someone from exercising their GPL rights.
 - 30-day window to fix a first-time violation: If it's your first violation and the copyright holder notifies you, you get your rights back automatically if you cure the violation within 30 days of that notice.
 
+Used by: [GIMP](https://github.com/GNOME/gimp), [Bash](https://git.savannah.gnu.org/cgit/bash.git), and [Inkscape](https://gitlab.com/inkscape/inkscape).
+
 ### GNU Lesser General Public License v2.1 (LGPLv2.1)
 <details>
 <summary><a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt">LGPLv2.1</a></summary>
@@ -1596,6 +1602,8 @@ LGPLv2.1 relaxes copyleft specifically for the case of a library being linked by
 - A program that merely links against the library without containing library source code is not considered a derivative work subject to LGPL, but if you distribute your proprietary program linked with the LGPL library (as an executable), you must still give users the library's source and let the user relink your program against their own modified version of the library (either by providing object files/relinkable material, using a shared library at runtime, or similar).
 - Any LGPL library can be relicensed by its distributor as straight GPLv2 instead.
 
+Used by: [GTK](https://github.com/GNOME/gtk), [glibc](https://sourceware.org/git/?p=glibc.git), and the core libraries of [FFmpeg](https://github.com/FFmpeg/FFmpeg).
+
 ### GNU Lesser General Public License v3 (LGPLv3)
 <details>
 <summary><a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPLv3</a></summary>
@@ -1771,6 +1779,8 @@ Library.
 </details>
 
 LGPLv3 is built on top of GPLv3. According to it, you can link an LGPL'd library into your own proprietary, closed-source program and distribute that combined work without having to open-source your own code, as long as you still let users replace the LGPL'd library itself with a modified version and relink it, either by distributing the object code `.o` in a form that allows relinking, or by using a dynamically linked shared library (`.so`, `.dll`) the user can swap out at runtime. So the copyleft only applies to the library, not to everything that links against it, which is the opposite of plain GPL where linking against GPL'd code normally drags your whole program under GPL too.
+
+Used by: [LibreOffice](https://github.com/LibreOffice/core), which is dual-licensed under MPL 2.0 and LGPLv3+.
 
 ### GNU Affero General Public License v3 (AGPLv3)
 <details>
@@ -2444,6 +2454,8 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 AGPLv3 is GPLv3 with the addition of Section 13 ("Remote Network Interaction"), which closes what's often called the "SaaS loophole." Under plain GPL, running a modified version of the software on your own server and letting people use it over a network isn't considered "distributing" or "conveying" it, so you never have to release your changes, even if thousands of people use your modified version every day. AGPL adds a requirement that if you run a modified version and let users interact with it remotely over a network, you must give those users a way to get the Corresponding Source of your modified version too, same as if you'd handed them a copy directly. That's also why GPLv3 Section 13 explicitly allows combining AGPL and GPLv3 code, since without that carve-out the two licenses would otherwise be incompatible by default.
 
+Used by: [Nextcloud](https://github.com/nextcloud/server), [Mastodon](https://github.com/mastodon/mastodon), and [Matrix Synapse](https://github.com/element-hq/synapse).
+
 ## Apache License 2.0
 <details>
 <summary><a href="https://www.apache.org/licenses/LICENSE-2.0.txt">Apache 2.0</a></summary>
@@ -2659,6 +2671,8 @@ Apache 2.0 is permissive like MIT license that lets you use, modify and distribu
 - Patent grant: Same idea as GPLv3's, every contributor automatically licenses you their patents covering the code, so they can't contribute code under Apache and then turn around and sue you for patent infringement on that same code.
 - Patent retaliation clause: If you sue anyone claiming the software itself infringes your patents, you immediately and automatically lose your license to the software.
 - Trademark carve-out: The license explicitly doesn't give you any rights to use the licensor's trade names, trademarks, or logos.
+
+Used by: [Kubernetes](https://github.com/kubernetes/kubernetes), [TensorFlow](https://github.com/tensorflow/tensorflow), and [Apache Kafka](https://github.com/apache/kafka).
 
 ## Mozilla Public License 2.0 (MPL)
 <details>
@@ -3047,6 +3061,8 @@ MPL 2.0 sits between permissive licenses and GPL-style copyleft. It's a copyleft
 - Patent retaliation clause: If you sue anyone claiming the software infringes your patents, you lose your license to the software.
 - Compatibility with secondary licenses: MPL explicitly allows combining MPL'd code with GPL/LGPL/AGPL code into a larger work, as long as the combined work is distributed under both licenses, making it one of the only copyleft licenses designed from the start to be explicitly compatible with GPL.
 
+Used by: [Firefox](https://github.com/mozilla-firefox/firefox) and [Thunderbird](https://github.com/thunderbird/thunderbird).
+
 ## CC0 1.0 Universal (Public Domain Dedication)
 <details>
 <summary><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt">CC0 1.0</a></summary>
@@ -3182,9 +3198,11 @@ CC0 is the opposite extreme from everything else here. Instead of granting you p
 - Fallback public license: in jurisdictions where you legally can't waive your own copyright (some countries don't allow this), the waiver automatically falls back to an unconditional, royalty-free, irrevocable license granting everyone the same rights anyway, as a non-waiver backup.
 - No attribution and no warranty: unlike MIT/Apache/GPL, CC0 doesn't require keeping any notice or attribution at all, and it still explicitly disclaims all warranties the same way the others do.
 
+Used by: it's less common for application code, but shows up in public-domain-style tools and datasets, such as several of the U.S. government's [18F](https://github.com/18F) open-source repositories.
+
 ## BSD X-Clause License
 <details>
-<summary><a href="https://opensource.org/license/bsd-3-clause">BSD 3-Clause</a></summary>
+<summary><a href="https://opensource.org/license/bsd-4-clause">BSD 4-Clause</a></summary>
 
 ```
 Copyright (c) <<var;name=copyright;original=<year> <owner>;match=.+>>. All rights reserved.
@@ -3216,6 +3234,8 @@ Different BSD licenses just differ by removing the clauses such as:
 - 2-Clause BSD (Simplified BSD / FreeBSD License): Drops both Clause 3 and Clause 4, keeping only 1 and 2. So it's just keep the copyright notice and disclaimer in source and binary redistributions. This is functionally almost identical to the MIT license.
 - 1-Clause BSD: Drops Clause 2, 3, 4, keeping only 1. So it's just keep the copyright notice and disclaimer in source redistributions.
 - 0-Clause BSD (BSD Zero Clause License / "0BSD"): Drops all four conditions. It just grants permission to use, copy, modify, and distribute for any purpose, with or without fee, plus the warranty disclaimer. No attribution requirement at all. It's essentially public-domain-equivalent, similar to the Unlicense.
+
+Used by: [FreeBSD](https://github.com/freebsd/freebsd-src), [nginx](https://github.com/nginx/nginx) (2-clause), and the [Go](https://github.com/golang/go) programming language (3-clause).
 
 ## Business Source License 1.1 (BUSL/BSL)
 <details>
@@ -3316,6 +3336,8 @@ BUSL is not an open-source license. It's what they call a "source-available" lic
 - Change Date: a fixed date (commonly four years after release) at which the restriction automatically lifts.
 - Change License: on the Change Date, the software automatically re-licenses itself under a separate, genuinely open-source license specified up front, usually GPLv2-or-later or something GPL-compatible, as required by the Covenants of Licensor section.
 
+Used by: HashiCorp moved [Terraform](https://github.com/hashicorp/terraform), [Vault](https://github.com/hashicorp/vault), and [Consul](https://github.com/hashicorp/consul) to BUSL 1.1 in 2023; [Sentry](https://github.com/getsentry/sentry) also uses it. (Community forks of the Terraform/Vault era, like [OpenTofu](https://github.com/opentofu/opentofu) and [OpenBao](https://github.com/openbao/openbao), exist specifically to stay under the original open-source licenses.)
+
 ## Boost Software License 1.0 (BSL)
 <details>
 <summary><a href="https://www.boost.org/users/license.html">Boost 1.0</a></summary>
@@ -3334,6 +3356,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Boost Software License is permissive like MIT, created for the Boost C++ libraries.
 - No per-copy notice requirement for compiled binaries: the copyright notice and license text must be included in source copies and derivative works, but there's an explicit exception if the copy is in the form of machine-executable object code. MIT/BSD technically still require you to preserve the notice even in binary distributions (usually satisfied via documentation/about screens), while Boost explicitly doesn't require anything at all once the code is compiled down to object code.
+
+Used by: the [Boost C++ Libraries](https://github.com/boostorg)
 
 ## The Unlicense
 <details>
@@ -3371,6 +3395,8 @@ For more information, please refer to <https://unlicense.org/>
 The Unlicense is the same basic idea as CC0, dedicating the software to the public domain, but it's much shorter and was written specifically for software rather than adapted from a general-purpose document-licensing framework.
 - No fallback license: unlike CC0, which explicitly falls back to a permissive license grant in jurisdictions where you can't legally waive your own copyright, the Unlicense just states the dedication and doesn't provide that safety net. This makes it legally shakier than CC0 in places where public domain dedication isn't fully recognized, which is why the FSF and some lawyers consider CC0 the more robust choice for the same goal.
 - No attribution requirement: same as CC0, you don't have to keep any notice or credit the author, but it still carries the standard no-warranty disclaimer at the end.
+
+Used by: [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 
 ## Eclipse Public License 2.0 (EPL)
 <details>
@@ -3467,6 +3493,8 @@ EPL 2.0 is weak copyleft, similar in spirit to MPL, common in the Java/Eclipse e
 - Patent litigation retaliation: if you sue anyone over patent infringement claiming the Program itself infringes your patents, your patent license under this Agreement terminates immediately. This is narrower than Apache's version since it only covers suits about the unmodified Program itself, not any combination of it with other software.
 - Commercial distributor indemnification: if you bundle the Program into a commercial product, you agree to defend and indemnify the other Contributors against third-party claims caused by your own acts in that commercial distribution. This is a clause none of the other licenses here have, and it exists specifically to stop a commercial reseller's business decisions (like making extra warranty promises to customers) from creating legal exposure for the original unpaid contributors.
 
+Used by: the [Eclipse IDE platform](https://github.com/eclipse-platform/eclipse.platform) and [JUnit 5](https://github.com/junit-team/junit5).
+
 ## Special Mentions
 A few licenses that are funny.
 
@@ -3491,6 +3519,7 @@ TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 </details>
 Its in the name: do what the fuck you want to
 
+Used by: the [NERDTree](https://github.com/preservim/nerdtree)
 
 ### [The JSON License](https://www.json.org/license.html)
 <details>
@@ -3514,6 +3543,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 This is Douglas Crockford's license for his original JSON parsing libraries, basically the MIT license verbatim with one extra sentence inserted: "The Software shall be used for Good, not Evil." It's unenforceable as an actual legal condition since "Evil" isn't a legal term, but it's caused real headaches for companies with strict legal review, since lawyers can't just sign off on a clause that literally says that (IBM reportedly had to get special written permission from Crockford to use it internally at one point).
 
+Used by: [JSON-java](https://github.com/stleary/JSON-java)
+
 ### [Beerware License](https://en.wikipedia.org/wiki/Beerware)
 <details>
 <summary>Beerware</summary>
@@ -3525,6 +3556,8 @@ This is Douglas Crockford's license for his original JSON parsing libraries, bas
 </details>
 
 Written by Poul-Henning Kamp (a FreeBSD developer) and originally embedded as a comment in FreeBSD source files. It's a genuine permissive license, functionally close to MIT with the attribution requirement, just framed as an informal bar tab instead of formal legal language.
+
+Used by: some of Poul-Henning Kamp's own contributions to [FreeBSD](https://github.com/freebsd/freebsd-src), such as early random-number and password-hashing code, still carry the Beerware header.
 
 ### [GLWTS(Good Luck With That Shit, No LLMs) Public License](https://github.com/ThePrimeagen/vim-with-me/blob/master/LICENSE.md)
 ```
