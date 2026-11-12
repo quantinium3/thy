@@ -1088,7 +1088,7 @@ Public License instead of this License.  But first, please read
 </details>
 
 GPLv3 keeps the same core copyleft clauses as GPLv2 such as free use, modification and distribution, with condition to distribute the source code as well under a GPL license. GPLv3 adds the following things:
-- Patents (Clause 11): If you're a "contributor" (you hold copyright on some part of the Program and license it under GPLv3), you automatically grant everyone a free license to any of your patents that would otherwise block them from using, making, or selling the code you contributed. You can't contribute code under GPL and then turn around and sue users for patent infringement on that same code.
+- Patents: If you're a "contributor" (you hold copyright on some part of the Program and license it under GPLv3), you automatically grant everyone a free license to any of your patents that would otherwise block them from using, making, or selling the code you contributed. You can't contribute code under GPL and then turn around and sue users for patent infringement on that same code.
 - Anti Tivoization clause: If you ship GPLv3 embedded software in a consumer device ("a User Product"), it's not enough to hand over the source code only, you also have to give the keys/signing info needed to actually install a modified version of that software on that specific device. This requirement doesn't apply if nobody retains the right to flash the device after it is once flashed.
 - Explicitly disclaims anti-circumvention liability: It says no covered work counts as an "effective technological measure" under anti-circumvention laws (like the DMCA), and that conveying the work means you waive any legal power to use those laws to stop someone from exercising their GPL rights.
 - 30-day window to fix a first-time violation: If it's your first violation and the copyright holder notifies you, you get your rights back automatically if you cure the violation within 30 days of that notice.
@@ -1605,7 +1605,7 @@ That's all there is to it!
 
 </details>
 
-LGPLv2.1 relaxes copyleft specifically for the case of a library being linked by a separate program. Its distinctive clauses are:
+LGPLv2.1 relaxes copyleft specifically for the case of a library being linked by a separate program. Its clauses are:
 - You can modify and distribute the library's source code, but your modified version must also be licensed under LGPL.
 - A program that merely links against the library without containing library source code is not considered a derivative work subject to LGPL, but if you distribute your proprietary program linked with the LGPL library (as an executable), you must still give users the library's source and let the user relink your program against their own modified version of the library (either by providing object files/relinkable material, using a shared library at runtime, or similar).
 - Any LGPL library can be relicensed by its distributor as straight GPLv2 instead.
@@ -3340,7 +3340,7 @@ other recipients of the licensed work to be provided by Licensor:
 
 </details>
 
-BUSL is not an open-source license. It's what they call a "source-available" license. The source is public and you're free to read, copy, modify, and redistribute it, and even run it in production, but only up to whatever limit the Licensor sets in the Additional Use Grant. The template is filled in per-project with a few key parameters:
+BUSL is not an open-source license. It's what they call a "source-available" license. The source is public and you're free to read, copy, modify, and redistribute it, and even run it in production, but only up to whatever limit the Licensor sets in the Additional Use Grant.
 - Additional Use Grant: the Licensor states exactly what production use is still allowed for free, typically something like "you may use this in production as long as you're not offering it as a competing managed service." Everything outside that grant requires a paid commercial license.
 - Change Date: a fixed date (commonly four years after release) at which the restriction automatically lifts.
 - Change License: on the Change Date, the software automatically re-licenses itself under a separate, genuinely open-source license specified up front, usually GPLv2-or-later or something GPL-compatible, as required by the Covenants of Licensor section.
