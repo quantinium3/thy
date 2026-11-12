@@ -396,7 +396,7 @@ Public License instead of this License.
 ```
 
 </details>
-Used by (GPLv2): the [Linux kernel](https://github.com/torvalds/linux), [Git](https://github.com/git/git), and [WordPress](https://github.com/WordPress/WordPress).
+Used by: the [Linux kernel](https://github.com/torvalds/linux), [Git](https://github.com/git/git), and [WordPress](https://github.com/WordPress/WordPress).
 
 ### GNU General Public License v3 (GPLv3)
 <details>
