@@ -1602,7 +1602,9 @@ necessary.  Here is a sample; alter the names:
 
 That's all there is to it!
 ```
+
 </details>
+
 LGPLv2.1 relaxes copyleft specifically for the case of a library being linked by a separate program. Its distinctive clauses are:
 - You can modify and distribute the library's source code, but your modified version must also be licensed under LGPL.
 - A program that merely links against the library without containing library source code is not considered a derivative work subject to LGPL, but if you distribute your proprietary program linked with the LGPL library (as an executable), you must still give users the library's source and let the user relink your program against their own modified version of the library (either by providing object files/relinkable material, using a shared library at runtime, or similar).
@@ -3228,6 +3230,7 @@ THIS SOFTWARE IS PROVIDED BY <<var;name=copyrightHolderAsIs;original=COPYRIGHT H
 ```
 
 </details>
+
 BSD license is permissive like MIT, letting you use, modify and redistribute the software in source or binary form, with or without modification, including in closed source projects. It is split into different numbered clauses which gives its different Variants.
 - Clause 1: Redistributions of source code must retain the copyright notice, this list of conditions, and the disclaimer.
 - Clause 2: Redistributions in binary form must reproduce the copyright notice, list of conditions, and disclaimer in the documentation and/or other materials provided with the distribution.
@@ -3523,6 +3526,7 @@ TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 ```
 
 </details>
+
 Its in the name: do what the fuck you want to
 
 Used by: the [NERDTree](https://github.com/preservim/nerdtree)
