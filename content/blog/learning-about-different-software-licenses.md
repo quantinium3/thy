@@ -396,7 +396,8 @@ Public License instead of this License.
 ```
 
 </details>
-GPLv2 also adds a few clauses not covered above:
+
+GPLv2 adds a few clauses:
 - No sublicensing / termination: You may not sublicense, modify, or distribute the program except as expressly provided by the license. Any attempt to do otherwise automatically terminates your rights, though parties who already received copies from you under the license keep their rights as long as they stay in compliance.
 - Automatic downstream licensing: Every time the program (or a derivative) is redistributed, the recipient automatically receives a license from the original licensor under these same terms. You can't impose any further restrictions on the recipients' exercise of the rights granted here.
 - "Liberty or Death" clause: If a court judgment, patent issue, or any other reason imposes conditions on you that contradict the GPL's conditions, you don't get to distribute while quietly ignoring those GPL obligations, you simply can't distribute at all in that situation. This stops someone from using external legal pressure as a backdoor to strip user freedoms while still redistributing.
@@ -3565,6 +3566,9 @@ Written by Poul-Henning Kamp (a FreeBSD developer) and originally embedded as a 
 Used by: some of Poul-Henning Kamp's own contributions to [FreeBSD](https://github.com/freebsd/freebsd-src), such as early random-number and password-hashing code, still carry the Beerware header.
 
 ### [GLWTS(Good Luck With That Shit, No LLMs) Public License](https://github.com/ThePrimeagen/vim-with-me/blob/master/LICENSE.md)
+<details>
+<summary><a href="https://github.com/ThePrimeagen/vim-with-me/blob/master/LICENSE.md">GLWTS</a></summary>
+
 ```
               GLWTS(Good Luck With That Shit, No LLMs) Public License
             Copyright (c) Every-fucking-one, except the Author
@@ -3594,7 +3598,12 @@ DEALINGS IN THE SOFTWARE.
 
 Good luck and Godspeed.
 ```
+
+</details>
+
 This is similar to `WTFPL` but with the additional condition that the code can't be used by LLMs and no attribution must be given to the original author.
+
+Used by: [vim-with-me](https://github.com/ThePrimeagen/vim-with-me)
 
 ## Licenses GitHub Officially Recognizes
 GitHub's license picker (and its `/licenses` API) only recognizes a specific, curated list of licenses, not every license that exists.
