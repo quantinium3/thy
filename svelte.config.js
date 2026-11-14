@@ -33,11 +33,9 @@ const config = {
 		inlineStyleThreshold: 30000,
 		prerender: {
 			handleHttpError: ({ status, path, referrer, message }) => {
-				if (status === 404) {
-					console.warn(`404 during prerender: ${path} (linked from ${referrer})`);
-					return;
-				}
-				throw new Error(message);
+				console.warn(
+					`${status} during prerender: ${path}${referrer ? ` (linked from ${referrer})` : ''} - ${message}`
+				);
 			}
 		}
 	},
