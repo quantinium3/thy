@@ -1,5 +1,6 @@
 <script lang="ts">
 	const buttons: { href: string; src: string }[] = [
+		{ href: 'https://chish.dev/', src: '/buttons/chish_88x31.webp' },
 		{ href: 'https://namishh.com/', src: '/buttons/nam.png' },
 		{ href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', src: '/buttons/quantinium.png' },
 		{ href: 'https://nithitsuki.com/', src: '/buttons/nithitsuki.png' },
