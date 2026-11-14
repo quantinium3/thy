@@ -6,7 +6,7 @@ interface __BaseEnv_Env {
 }
 declare namespace Cloudflare {
 	interface GlobalProps {
-		mainModule: typeof import('./.svelte-kit/cloudflare/_worker');
+		mainModule: typeof import("./.svelte-kit/cloudflare/_worker");
 	}
 	interface Env extends __BaseEnv_Env {}
 }

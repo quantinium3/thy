@@ -1,6 +1,8 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { loadPosts } from '$lib/posts';
 
+export const prerender = true;
+
 const SITE_URL = 'https://quantinium.dev';
 const SITE_TITLE = "quantinium's blog";
 const SITE_DESCRIPTION = 'writings by quantinium — programming, systems, and other things.';

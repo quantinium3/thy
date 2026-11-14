@@ -38,11 +38,13 @@
 
 	<div class="mb-6 border-b pb-4 dark:border-zinc-400">
 		<h1 class="font-bold">{title}</h1>
-		<p class="mt-1 text-xs opacity-70">
-			{Intl.DateTimeFormat('en-GB', {
-				dateStyle: 'full'
-			}).format(new Date(date))}
-		</p>
+		{#if date}
+			<p class="mt-1 text-xs opacity-70">
+				{Intl.DateTimeFormat('en-GB', {
+					dateStyle: 'full'
+				}).format(new Date(date))}
+			</p>
+		{/if}
 		{#if meta}
 			<div class="mt-2 flex flex-wrap items-center gap-2 text-xs">{@render meta()}</div>
 		{/if}

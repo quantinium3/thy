@@ -87,12 +87,14 @@
 							{/if}
 						</div>
 						<div class="mx-1 mt-0.5 flex items-center gap-2 text-xs opacity-70">
-							<span
-								>{Intl.DateTimeFormat('en-GB', {
-									dateStyle: 'full'
-								}).format(new Date(solution.date))}</span
-							>
-							<span>:</span>
+							{#if solution.date}
+								<span
+									>{Intl.DateTimeFormat('en-GB', {
+										dateStyle: 'full'
+									}).format(new Date(solution.date))}</span
+								>
+								<span>:</span>
+							{/if}
 							<span>{solution.readingTime} min read</span>
 						</div>
 						{#if solution.description}

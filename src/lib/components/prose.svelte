@@ -267,11 +267,22 @@
 		user-select: none;
 	}
 	.prose :global(summary)::before {
-		content: '▸';
-		font-size: 0.75rem;
-		transition: transform 0.2s;
+		content: '';
+		width: 0.7rem;
+		height: 0.7rem;
+		flex-shrink: 0;
 		display: inline-block;
-		opacity: 0.5;
+		background-color: currentColor;
+		opacity: 0.6;
+		transition: transform 0.2s;
+		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+		mask-size: contain;
+		mask-repeat: no-repeat;
+		mask-position: center;
+		-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+		-webkit-mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		-webkit-mask-position: center;
 	}
 	.prose :global(details[open] summary)::before {
 		transform: rotate(90deg);

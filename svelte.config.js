@@ -1,5 +1,6 @@
 import { mdsvex, escapeSvelte } from 'mdsvex';
-import adapter from '@sveltejs/adapter-cloudflare';
+import adapterCloudflare from '@sveltejs/adapter-cloudflare';
+import adapterStatic from '@sveltejs/adapter-static';
 import { createHighlighter } from 'shiki';
 import remarkGfm from 'remark-gfm';
 import { readFileSync } from 'node:fs';
@@ -25,8 +26,20 @@ const config = {
 		runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
 	},
 	kit: {
-		adapter: adapter(),
-		inlineStyleThreshold: 30000
+		adapter:
+			process.env.ADAPTER === 'static'
+				? adapterStatic({ pages: 'build', assets: 'build', strict: true })
+				: adapterCloudflare(),
+		inlineStyleThreshold: 30000,
+		prerender: {
+			handleHttpError: ({ status, path, referrer, message }) => {
+				if (status === 404) {
+					console.warn(`404 during prerender: ${path} (linked from ${referrer})`);
+					return;
+				}
+				throw new Error(message);
+			}
+		}
 	},
 	preprocess: [
 		mdsvex({

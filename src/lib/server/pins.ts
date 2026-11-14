@@ -17,3 +17,5 @@ const pins: Record<string, CarouselItem[]> = {
 };
 
 export const getPin = (slug: string): CarouselItem[] | undefined => pins[slug];
+
+export const pinSlugs = Object.keys(pins);

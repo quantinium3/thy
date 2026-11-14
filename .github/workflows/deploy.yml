@@ -1,4 +1,4 @@
-name: deploy site to cloudflare
+name: deploy site
 
 on:
   push:
@@ -9,11 +9,11 @@ permissions:
   contents: read
 
 concurrency:
-  group: cloudflare-workers-production
+  group: site-deploy-production
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  deploy-cloudflare:
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -46,3 +46,37 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+
+  deploy-neocities:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          version: 10
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static site
+        run: pnpm run build:static
+        env:
+          VITE_TIME_URI: ${{ vars.VITE_TIME_URI }}
+          VITE_LANG_URI: ${{ vars.VITE_LANG_URI }}
+
+      - name: Deploy to Neocities
+        uses: bcomnes/deploy-to-neocities@v2
+        with:
+          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
+          cleanup: true
+          dist_dir: build

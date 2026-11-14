@@ -1,6 +1,10 @@
 import { error } from '@sveltejs/kit';
 import { loadPosts } from '$lib/posts';
-import { getPin } from '$lib/server/pins';
+import { getPin, pinSlugs } from '$lib/server/pins';
+
+export function entries() {
+	return pinSlugs.map((pin) => ({ pin }));
+}
 
 export function load({ params }) {
 	const pin = getPin(params.pin);
