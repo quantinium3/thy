@@ -75,8 +75,9 @@ jobs:
           VITE_LANG_URI: ${{ vars.VITE_LANG_URI }}
 
       - name: Deploy to Neocities
-        uses: bcomnes/deploy-to-neocities@v2
+        uses: bcomnes/deploy-to-neocities@v3
         with:
-          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
+          api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
           cleanup: true
+          neocities_supporter: false
           dist_dir: build
